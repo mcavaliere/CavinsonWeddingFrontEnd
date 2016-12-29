@@ -1,34 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 class Header extends React.Component {
 	render() {
 		return (
-			<nav className="navbar navbar-default">
-			  <div className="container-fluid">
-			    <div className="navbar-header">
-			      <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-			        <span className="sr-only">Toggle navigation</span>
-			        <span className="icon-bar"></span>
-			        <span className="icon-bar"></span>
-			        <span className="icon-bar"></span>
-			      </button>
-				  <Link to="/" className="navbar-brand" >CavApp</Link>
-			    </div>
-
-			    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			      <ul className="nav navbar-nav">
-			        <li className="active">
-						<Link to="/about">About</Link>
-					</li>
-			        <li>
-						<Link to="/location">Location</Link>
-					</li>
-			      </ul>
-			    </div>
-			  </div>
-			</nav>
+			<Navbar>
+				<Navbar.Header>
+					<Navbar.Brand>
+						<Link to="/">React-Bootstrap</Link>
+					</Navbar.Brand>
+				</Navbar.Header>
+			<Nav>
+				<LinkContainer to="about">
+					<NavItem eventKey={2}>About</NavItem>
+				</LinkContainer>
+				<LinkContainer to="location">
+					<NavItem eventKey={3}>Location</NavItem>
+				</LinkContainer>
+			</Nav>
+			</Navbar>
 		);
+
 	}
 }
 
