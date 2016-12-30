@@ -13,13 +13,13 @@ class Header extends React.Component {
 					</Navbar.Brand>
 				</Navbar.Header>
 				<Nav>
-					<LinkContainer to="about">
+					<LinkContainer to="/about">
 						<NavItem eventKey={2}>About</NavItem>
 					</LinkContainer>
-					<LinkContainer to="location">
+					<LinkContainer to="/location">
 						<NavItem eventKey={3}>Location</NavItem>
 					</LinkContainer>
-					<LinkContainer to="pages">
+					<LinkContainer to="/pages">
 						<NavItem eventKey={4}>Pages</NavItem>
 					</LinkContainer>
 				</Nav>

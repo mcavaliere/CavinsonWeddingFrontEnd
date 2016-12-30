@@ -6,6 +6,7 @@ import AboutPage from './components/AboutPage';
 import LocationPage from './components/LocationPage';
 import NoMatchPage from './components/NoMatchPage';
 import PagesIndexPage from './components/pages/Index';
+import NewPage from './components/pages/New';
 
 import { Button, Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -15,7 +16,10 @@ export default (
 	  <IndexRoute component={HomePage} />
       <Route path="about" component={AboutPage}/>
 	  <Route path="location" component={LocationPage}/>
-	  <Route path="pages" component={PagesIndexPage}/>
+	  <Route path="/pages">
+	  	<IndexRoute component={PagesIndexPage} />
+	  	<Route path="/pages/new" component={NewPage} />
+	  </Route>
       <Route path="*" component={NoMatchPage}/>
     </Route>
 );
