@@ -12,17 +12,19 @@ class Header extends React.Component {
 						<Link to="/">React-Bootstrap</Link>
 					</Navbar.Brand>
 				</Navbar.Header>
-			<Nav>
-				<LinkContainer to="about">
-					<NavItem eventKey={2}>About</NavItem>
-				</LinkContainer>
-				<LinkContainer to="location">
-					<NavItem eventKey={3}>Location</NavItem>
-				</LinkContainer>
-			</Nav>
+				<Nav>
+					<LinkContainer to="about">
+						<NavItem eventKey={2}>About</NavItem>
+					</LinkContainer>
+					<LinkContainer to="location">
+						<NavItem eventKey={3}>Location</NavItem>
+					</LinkContainer>
+					<LinkContainer to="pages">
+						<NavItem eventKey={4}>Pages</NavItem>
+					</LinkContainer>
+				</Nav>
 			</Navbar>
 		);
-
 	}
 }
 

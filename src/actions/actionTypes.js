@@ -1,0 +1,1 @@
+export const LOAD_PAGES_SUCCESS = 'LOAD_PAGES_SUCCESS';
