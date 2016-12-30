@@ -3,9 +3,11 @@ import React from 'react';
 class HomePage extends React.Component {
 	render() {
 		return (
-			<h1>
-				Home
-			</h1>
+			<div className="container-fluid">
+				<h1>
+					Home
+				</h1>
+			</div>
 		);
 	}
 }
