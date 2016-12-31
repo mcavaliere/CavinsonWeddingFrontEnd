@@ -1,6 +1,8 @@
+import Constants from '../lib/Constants';
+
 class PagesApi {
 	static getAllPages() {
-		return fetch('http://localhost:3000/pages').
+		return fetch(Constants.API_BASE_URL + '/pages').
 			then(response => {
 				return response.json();
 			}).
