@@ -1,13 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import {Button, FormGroup, FormControl, ControlLabel, HelpBlock} from 'react-bootstrap';
+import * as pageActions from '../../actions/pageActions'
 
 class NewPagePage extends React.Component {
-	constructor(props) {
-	  super(props);
+	constructor(props, context) {
+	  super(props, context);
 
       this.state = {
-        value: ''
+        value: this.props.value || ''
       };
     }
 
@@ -19,14 +21,15 @@ class NewPagePage extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		
+
+		this.props.actions.createPage({ body: this.state.value })
 	}
 
 	render() {
 		return (
 			<div className="container-fluid">
 				<h1>Create New Post: </h1>
-				<form action="" onSubmit={this.handleSubmit}>
+				<form action="" onSubmit={this.handleSubmit.bind(this)}>
 					<FormGroup controlId="formControlsTextarea">
 						<ControlLabel>Enter a message:</ControlLabel>
 						<FormControl
@@ -46,10 +49,15 @@ class NewPagePage extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-	// state = {pages: }
 	return {
-
+		value: state.value
 	}
 }
 
-export default connect(mapStateToProps)(NewPagePage);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(pageActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewPagePage);
