@@ -3,13 +3,13 @@ import {Button} from 'react-bootstrap';
 import {Link} from 'react-router';
 import {LinkContainer} from 'react-router-bootstrap';
 
-const PageList = ({pages}) => {
+const MessageList = ({pages}) => {
 	return (
 		<table className="table table-striped table-bordered">
 			<thead>
 				<tr>
-					<th>Post Date</th>
-					<th>Post Excerpt</th>
+					<th>Date</th>
+					<th>Excerpt</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -18,10 +18,10 @@ const PageList = ({pages}) => {
 					<tr key={page.id}>
 						<td>{page.created_at_formatted}</td>
 						<td>
-							{page.body_truncated}
+
 						</td>
 						<td>
-							<Link to="/pages/new">
+							<Link to="/guestbook">
 								View
 							</Link>
 						</td>
@@ -32,4 +32,4 @@ const PageList = ({pages}) => {
 	);
 }
 
-export default PageList;
+export default MessageList;

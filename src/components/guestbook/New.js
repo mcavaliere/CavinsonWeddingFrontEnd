@@ -2,9 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Button, FormGroup, FormControl, ControlLabel, HelpBlock} from 'react-bootstrap';
-import * as pageActions from '../../actions/pageActions'
+import * as messageActions from '../../actions/messageActions';
 
-class NewPagePage extends React.Component {
+class NewMessagePage extends React.Component {
 	constructor(props, context) {
 	  super(props, context);
 
@@ -56,8 +56,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(pageActions, dispatch)
+    actions: bindActionCreators(messageActions, dispatch)
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewPagePage);
+export default connect(mapStateToProps, mapDispatchToProps)(NewMessagePage);

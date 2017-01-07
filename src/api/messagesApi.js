@@ -5,9 +5,9 @@ const DEFAULT_HEADERS = {
 	'Accept': 'application/json'
 };
 
-class PagesApi {
-	static getAllPages() {
-		return fetch(Constants.API_BASE_URL + '/pages').
+class Api {
+	static all() {
+		return fetch(Constants.API_BASE_URL + '/messages').
 			then(response => {
 				return response.json();
 			}).catch(error => {
@@ -15,8 +15,8 @@ class PagesApi {
 			});
 	}
 
-	static createPage(page) {
-		return fetch(Constants.API_BASE_URL + '/pages', {
+	static create(page) {
+		return fetch(Constants.API_BASE_URL + '/messages', {
 					method: 'POST',
 					body: JSON.stringify({
 						'page': page
@@ -31,4 +31,4 @@ class PagesApi {
 	}
 }
 
-export default PagesApi;
+export default Api;

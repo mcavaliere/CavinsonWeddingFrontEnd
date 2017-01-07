@@ -9,7 +9,7 @@ class Header extends React.Component {
 			<Navbar>
 				<Navbar.Header>
 					<Navbar.Brand>
-						<Link to="/">React-Bootstrap</Link>
+						<Link to="/">Meet The Cavinsons</Link>
 					</Navbar.Brand>
 				</Navbar.Header>
 				<Nav>
@@ -19,8 +19,8 @@ class Header extends React.Component {
 					<LinkContainer to="/location">
 						<NavItem eventKey={3}>Location</NavItem>
 					</LinkContainer>
-					<LinkContainer to="/pages">
-						<NavItem eventKey={4}>Pages</NavItem>
+					<LinkContainer to="/guestbook">
+						<NavItem eventKey={4}>Guestbook</NavItem>
 					</LinkContainer>
 				</Nav>
 			</Navbar>
