@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {browserHistory} from 'react-router';
 import {Button, FormGroup, FormControl, ControlLabel, HelpBlock} from 'react-bootstrap';
 import * as messageActions from '../../actions/messageActions';
 
@@ -22,13 +23,15 @@ class NewMessagePage extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 
-		this.props.actions.createPage({ body: this.state.value })
+		this.props.actions.create({ body: this.state.value }).then(() => {
+			browserHistory.push('/guestbook');
+		})
 	}
 
 	render() {
 		return (
 			<div className="container-fluid">
-				<h1>Create New Post: </h1>
+				<h1>Leave a Message </h1>
 				<form action="" onSubmit={this.handleSubmit.bind(this)}>
 					<FormGroup controlId="formControlsTextarea">
 						<ControlLabel>Enter a message:</ControlLabel>

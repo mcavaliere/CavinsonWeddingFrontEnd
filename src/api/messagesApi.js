@@ -15,11 +15,11 @@ class Api {
 			});
 	}
 
-	static create(page) {
+	static create(message) {
 		return fetch(Constants.API_BASE_URL + '/messages', {
 					method: 'POST',
 					body: JSON.stringify({
-						'page': page
+						'message': message
 					}),
 					headers: DEFAULT_HEADERS
 				}).then(response => {

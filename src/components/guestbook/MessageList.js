@@ -3,7 +3,8 @@ import {Button} from 'react-bootstrap';
 import {Link} from 'react-router';
 import {LinkContainer} from 'react-router-bootstrap';
 
-const MessageList = ({pages}) => {
+const MessageList = ({messages}) => {
+	console.warn("MessageList: ", messages);
 	return (
 		<table className="table table-striped table-bordered">
 			<thead>
@@ -14,12 +15,10 @@ const MessageList = ({pages}) => {
 				</tr>
 			</thead>
 			<tbody>
-				{pages.map(page =>
-					<tr key={page.id}>
-						<td>{page.created_at_formatted}</td>
-						<td>
-
-						</td>
+				{messages.map(message =>
+					<tr key={message.id}>
+						<td>{message.created_at_formatted}</td>
+						<td>{message.body}</td>
 						<td>
 							<Link to="/guestbook">
 								View
