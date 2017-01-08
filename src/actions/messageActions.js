@@ -1,8 +1,8 @@
 import * as types from './actionTypes';
 import messagesApi from '../api/messagesApi';
 
-export function loadSuccess(pages) {
-	return {type: types.LOAD_MESSAGES_SUCCESS, pages};
+export function loadSuccess(messages) {
+	return {type: types.LOAD_MESSAGES_SUCCESS, messages};
 };
 
 export function createSuccess(page) {
@@ -10,7 +10,7 @@ export function createSuccess(page) {
 };
 
 // loadPages action creator function.
-export default function load() {
+export function load() {
 	// Note: The dispatch argument here is provided by the thunk plugin.
 	return function(dispatch) {
 		return messagesApi.all().then(pages => {

@@ -9,7 +9,7 @@ import load from './actions/messageActions';
 
 const store = configureStore();
 
-store.dispatch(load());
+// store.dispatch(load());
 
 // Declarative route configuration (could also load this config lazily
 // instead, all you really need is a single root route, you don't need to

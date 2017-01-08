@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as messageActions from '../../actions/messageActions';
 import MessageList from './MessageList';
@@ -14,18 +15,28 @@ class GuestBookIndex extends React.Component {
 		}
 	}
 
-	componentWillUpdate() {
+	componentWillMount() {
+		console.warn("componentWillMount");
+	}
 
+	componentDidMount() {
+		console.warn("componentDidMount. this: ", this.props);
+		this.props.actions.load();
+	}
+
+	componentWillUpdate() {
+		console.warn("componentWillUpdate");
 	}
 
 	render() {
+		const messages = this.props.messages;
 		return (
 			<div className="container-fluid">
 				<h1>Guestbook</h1>
 				<LinkContainer to="/guestbook/new">
 					<Button bsStyle="primary">Leave a Message!</Button>
 				</LinkContainer>
-				<MessageList messages={this.props.messages} />
+				<MessageList messages={messages} />
 			</div>
 		);
 	}
@@ -47,7 +58,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    messages: ownProps.messages
+	actions: bindActionCreators(messageActions, dispatch)
   };
 }
 

@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import pages from './pageReducer';
+import messages from './messageReducer';
 
 const rootReducer = combineReducers({
-	pages
+	messages
 });
 
 export default rootReducer;
