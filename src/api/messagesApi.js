@@ -7,26 +7,30 @@ const DEFAULT_HEADERS = {
 
 class Api {
 	static all() {
-		return fetch(Constants.API_BASE_URL + '/messages').
-			then(response => {
-				return response.json();
-			}).catch(error => {
-				return error;
-			});
-	}
+		return fetch(Constants.API_BASE_URL + '/messages', {
+			method: 'GET',
+			headers: DEFAULT_HEADERS,
+			mode: 'cors'
+		}).
+		then(response => {
+			return response.json();
+		}).catch(error => {
+			return error;
+		});
+}
 
 	static create(message) {
 		return fetch(Constants.API_BASE_URL + '/messages', {
-					method: 'POST',
-					body: JSON.stringify({
-						'message': message
-					}),
-					headers: DEFAULT_HEADERS
-				}).then(response => {
-					return response.json();
-				}).catch(error => {
-					return error;
-				});
+			method: 'POST',
+			body: JSON.stringify({
+				'message': message
+			}),
+			headers: DEFAULT_HEADERS
+		}).then(response => {
+			return response.json();
+		}).catch(error => {
+			return error;
+		});
 
 	}
 }
