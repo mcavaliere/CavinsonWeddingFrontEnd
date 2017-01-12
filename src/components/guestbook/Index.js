@@ -16,16 +16,16 @@ class GuestBookIndex extends React.Component {
 	}
 
 	componentWillMount() {
-		console.warn("componentWillMount");
+		// console.warn("componentWillMount");
 	}
 
 	componentDidMount() {
-		console.warn("componentDidMount. this: ", this.props);
+		// console.warn("componentDidMount. this: ", this.props);
 		this.props.actions.load();
 	}
 
 	componentWillUpdate() {
-		console.warn("componentWillUpdate");
+		// console.warn("componentWillUpdate");
 	}
 
 	render() {

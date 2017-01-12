@@ -6,7 +6,8 @@ import AboutPage from './components/AboutPage';
 import LocationPage from './components/LocationPage';
 import NoMatchPage from './components/NoMatchPage';
 import GuestbookIndexPage from './components/guestbook/Index';
-import NewMessagePage from './components/guestbook/New'
+import NewMessagePage from './components/guestbook/New';
+import ShowMessagePage from './components/guestbook/Show';
 
 import { Button, Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -19,6 +20,7 @@ export default (
 	  <Route path="/guestbook">
 	  	<IndexRoute component={GuestbookIndexPage} />
 	  	<Route path="/guestbook/new" component={NewMessagePage} />
+		<Route path="/guestbook/:messageId" component={ShowMessagePage} />
 	  </Route>
       <Route path="*" component={NoMatchPage}/>
     </Route>

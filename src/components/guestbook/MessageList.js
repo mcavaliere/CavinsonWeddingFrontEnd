@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 import {LinkContainer} from 'react-router-bootstrap';
 
 const MessageList = ({messages}) => {
-	console.warn("MessageList: ", messages);
+	// console.warn("MessageList: ", messages);
 	return (
 		<table className="table table-striped table-bordered">
 			<thead>
@@ -20,7 +20,7 @@ const MessageList = ({messages}) => {
 						<td>{message.created_at_formatted}</td>
 						<td>{message.body}</td>
 						<td>
-							<Link to="/guestbook">
+							<Link to={`/guestbook/${message.id}`}>
 								View
 							</Link>
 						</td>

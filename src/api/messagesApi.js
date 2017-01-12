@@ -17,7 +17,20 @@ class Api {
 		}).catch(error => {
 			return error;
 		});
-}
+	}
+
+	static find(id) {
+		return fetch(Constants.API_BASE_URL + '/messages/' + id, {
+			method: 'GET',
+			headers: DEFAULT_HEADERS,
+			mode: 'cors'
+		}).
+		then(response => {
+			return response.json();
+		}).catch(error => {
+			return error;
+		});
+	}
 
 	static create(message) {
 		return fetch(Constants.API_BASE_URL + '/messages', {
