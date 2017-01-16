@@ -14,7 +14,8 @@ class NewMessagePage extends React.Component {
       this.state = {
         value: this.props.value || '',
 		previewSrc: null,
-		showPreview: false
+		showPreview: false,
+		file: {}
       };
     }
 
@@ -38,7 +39,6 @@ class NewMessagePage extends React.Component {
 				previewSrc: reader.result,
 				showPreview: true
 			});
-
 		});
 
 		if (file) {
@@ -51,7 +51,13 @@ class NewMessagePage extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 
-		this.props.actions.create({ body: this.state.value }).then(() => {
+		var payload = {
+			body: this.state.value,
+			photo_name: "test.jpg",
+			photo_data: this.state.previewSrc
+		}
+
+		this.props.actions.create( payload ).then(() => {
 			browserHistory.push('/guestbook');
 		});
 	}
