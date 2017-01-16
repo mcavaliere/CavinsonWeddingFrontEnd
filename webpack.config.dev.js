@@ -30,6 +30,7 @@ export default {
   ],
   module: {
     loaders: [
+      {test: /\.scss$/, loaders: ["style-loader", "css-loader", "sass-loader"]},
       {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
       {test: /(\.css)$/, loaders: ['style', 'css']},
       {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
@@ -37,5 +38,8 @@ export default {
       {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
       {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'}
     ]
+  },
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, "./src/scss")]
   }
 };

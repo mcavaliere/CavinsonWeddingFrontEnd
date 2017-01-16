@@ -5,6 +5,8 @@ import {browserHistory} from 'react-router';
 import {Button, FormGroup, FormControl, ControlLabel, HelpBlock} from 'react-bootstrap';
 import * as messageActions from '../../actions/messageActions';
 
+require("../../scss/routes/guestbook/new.scss");
+
 class NewMessagePage extends React.Component {
 	constructor(props, context) {
 	  super(props, context);
