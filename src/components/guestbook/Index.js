@@ -31,12 +31,14 @@ class GuestBookIndex extends React.Component {
 	render() {
 		const messages = this.props.messages;
 		return (
-			<div className="container-fluid">
-				<h1>Guestbook</h1>
-				<LinkContainer to="/guestbook/new">
-					<Button bsStyle="primary">Leave a Message!</Button>
-				</LinkContainer>
-				<MessageList messages={messages} />
+			<div className="route route-guestbook-index">
+				<div className="container-fluid">
+					<h1>Guestbook</h1>
+					<LinkContainer to="/guestbook/new">
+						<Button bsStyle="primary">Leave a Message!</Button>
+					</LinkContainer>
+					<MessageList messages={messages} />
+				</div>
 			</div>
 		);
 	}

@@ -25,18 +25,20 @@ class ShowMessagePage extends React.Component {
 
 	render() {
 		return (
-			<div className="container-fluid">
-				<div className="row">
-					<div className="col-xs-12">
-					Message DATE:
+			<div className="route route-guestbook-show">
+				<div className="container-fluid">
+					<div className="row">
+						<div className="col-xs-12">
+						Message DATE:
 
-					{this.state.message.created_at_formatted}
+						{this.state.message.created_at_formatted}
 
-					</div>
-					<div className="col-xs-12">
-					Message BODY:
+						</div>
+						<div className="col-xs-12">
+						Message BODY:
 
-					{this.state.message.body}
+						{this.state.message.body}
+						</div>
 					</div>
 				</div>
 			</div>

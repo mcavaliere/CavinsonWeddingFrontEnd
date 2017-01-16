@@ -65,34 +65,36 @@ class NewMessagePage extends React.Component {
 
 
 		return (
-			<div className="container-fluid">
-				<h1>Leave a Message </h1>
+			<div className="route route-guestbook-new">
+				<div className="container-fluid">
+					<h1>Leave a Message </h1>
 
-				<form action="" onSubmit={this.handleSubmit.bind(this)}>
-					<FormGroup controlId="formControlsTextarea">
-						<ControlLabel>Enter a message:</ControlLabel>
-						<FormControl
-						  componentClass="textarea"
-						  placeholder="textarea"
-						  onChange={this.handleTextChange.bind(this)}
-						  value={this.state.value}
-			            />
-					</FormGroup>
-					<FormGroup controlId="formControlsFile">
-				      <ControlLabel>Upload a Photo</ControlLabel>
-				      <FormControl
-						  type="file"
-						  id="formControlsFile"
-						  onChange={this.handleFileChange.bind(this)}
-					  />
-				    </FormGroup>
+					<form action="" onSubmit={this.handleSubmit.bind(this)}>
+						<FormGroup controlId="formControlsTextarea">
+							<ControlLabel>Enter a message:</ControlLabel>
+							<FormControl
+							  componentClass="textarea"
+							  placeholder="textarea"
+							  onChange={this.handleTextChange.bind(this)}
+							  value={this.state.value}
+				            />
+						</FormGroup>
+						<FormGroup controlId="formControlsFile">
+					      <ControlLabel>Upload a Photo</ControlLabel>
+					      <FormControl
+							  type="file"
+							  id="formControlsFile"
+							  onChange={this.handleFileChange.bind(this)}
+						  />
+					    </FormGroup>
 
-					{preview}
+						{preview}
 
-					<Button type="submit">
-				      Submit
-				    </Button>
-				</form>
+						<Button type="submit">
+					      Submit
+					    </Button>
+					</form>
+				</div>
 			</div>
 		);
 	}
