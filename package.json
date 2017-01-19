@@ -44,6 +44,7 @@
     "webpack-hot-middleware": "^2.14.0"
   },
   "dependencies": {
+    "auth0-lock": "^10.9.2",
     "bootstrap-sass": "^3.3.7",
     "colors": "^1.1.2",
     "eventsource-polyfill": "^0.9.6",
