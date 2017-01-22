@@ -6,7 +6,7 @@ export default class AuthService {
 		// Configure Auth0
 		this.lock = new Auth0Lock(clientId, domain, {
 			auth: {
-				redirectUrl: "http://localhost:3000/login",
+				redirectUrl: "http://localhost:3001/login/callback",
 				responseType: "token"
 			}
 		});
@@ -23,7 +23,7 @@ export default class AuthService {
 		this.setToken(authResult.idToken);
 
 		// Navigate to the home route
-		browserHistory.replace("/")
+		// browserHistory.replace("/")
 	}
 
 	login() {
