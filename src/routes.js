@@ -56,7 +56,7 @@ export const makeMainRoutes = () => {
 		  <IndexRoute component={HomePage} />
 	      <Route path="about" component={AboutPage}/>
 		  <Route path="location" component={LocationPage}/>
-		  <Route path="/guestbook" onEnter={requireAuth} auth={auth}>
+		  <Route path="/guestbook" auth={auth}>
 		  	<IndexRoute component={GuestbookIndexPage} />
 		  	<Route path="/guestbook/new" component={NewMessagePage} />
 			<Route path="/guestbook/:messageId" component={ShowMessagePage} />

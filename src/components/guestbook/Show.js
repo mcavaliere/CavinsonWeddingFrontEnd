@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import messagesApi from '../../api/messagesApi';
+import Config from '../../lib/Constants';
 
 
 
@@ -27,6 +28,11 @@ class ShowMessagePage extends React.Component {
 		return (
 			<div className="route route-guestbook-show">
 				<div className="container-fluid">
+					<div className="row">
+						<div className="col-xs-12">
+							<img src={ Config.API_BASE_URL + this.state.message.photo } />
+						</div>
+					</div>
 					<div className="row">
 						<div className="col-xs-12">
 						Message DATE:
@@ -57,5 +63,7 @@ function mapStateToProps(state, ownProps) {
 		message: state.message
 	}
 }
+
+
 
 export default connect(mapStateToProps)(ShowMessagePage);
