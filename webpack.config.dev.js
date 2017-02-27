@@ -18,7 +18,7 @@ export default {
        debug: true
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         'API_HOST': JSON.stringify('http://localhost:5000')
@@ -27,7 +27,7 @@ export default {
   ],
   module: {
     rules: [
-      {test: /\.(jpe?g|png|gif|svg)$/i, use: "file-loader?name=/src/images/[name].[ext]"},
+      {test: /\.(jpe?g|png|gif|svg)$/i, use: "file-loader?name=images/[name].[ext]"},
       {test: /\.scss$/, use: ["style-loader", "css-loader", "sass-loader"]},
       {test: /\.js$/, include: path.join(__dirname, 'src'), use: ['babel-loader']},
       {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: 'file'},
