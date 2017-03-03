@@ -36,9 +36,13 @@ export default {
           /TimelineMax\.js/
       ], use: 'imports-loader?define=>false'},
       {test: /\.js$/, include: path.join(__dirname, 'src'), use: ['babel-loader']},
-      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: 'file'},
-      {test: /\.(woff|woff2)$/, use: 'url?prefix=font/&limit=5000'},
-      {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: 'url?limit=10000&mimetype=application/octet-stream'},
+      {
+          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          loader: 'file-loader?name=public/fonts/[name].[ext]'
+      },
+    //   {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: 'file'},
+    //   {test: /\.(woff|woff2)$/, use: 'url?prefix=font/&limit=5000'},
+    //   {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: 'url?limit=10000&mimetype=application/octet-stream'},
     //   {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'}
     ]
   },

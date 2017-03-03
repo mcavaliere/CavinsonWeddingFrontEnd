@@ -16,6 +16,8 @@ import LoginCallback from './components/LoginCallback'
 import { Button, Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
+import GlobalStyles from './scss/main.scss'
+
 const auth = new AuthService('ulMlpEBwqkyZvHH5j1R2vvmCaacddBos', 'mcavaliere.auth0.com');
 
 var lastLocation = null;

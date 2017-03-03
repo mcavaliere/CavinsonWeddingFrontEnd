@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'BaskervilleURW';
+  src: url('../fonts/Baskerville URW Regular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/Baskerville URW Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Baskerville URW Regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Baskerville URW Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Baskerville URW Regular.svg#0e6cd8307b4a99272f368994e71ccd32') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Soleil Lt';
+  src: url('../fonts/Soleil Light.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/Soleil Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Soleil Light.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Soleil Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Soleil Light.svg#fea3d7d8c914f6209922eb33e85512e8') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  200;
+}

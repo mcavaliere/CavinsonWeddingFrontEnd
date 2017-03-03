@@ -3,15 +3,31 @@
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 // @import "bootstrap-custom";
 
+@import "fonts";
 
-//
-// .scene {
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     z-index: 1;
-//
-// 	img {
-// 		object-fit: cover;
-// 	}
-// }
+body {
+	font-family: 'Soleil Lt';
+	font-weight: 200;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'BaskervilleURW';
+	font-weight: 400;
+}
+
+.scene {
+	position: relative;
+    overflow: hidden;
+	height: 100vh;
+
+	.scene-inner {
+		position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    z-index: 1;
+	}
+
+	img {
+		object-fit: cover;
+	}
+}
