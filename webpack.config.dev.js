@@ -29,6 +29,12 @@ export default {
     rules: [
       {test: /\.(jpe?g|png|gif|svg)$/i, use: "file-loader?name=images/[name].[ext]"},
       {test: /\.scss$/, use: ["style-loader", "css-loader", "sass-loader"]},
+      {test: [
+          /animation\.gsap\.js/,
+          /ScrollMagic\.js/,
+          /TweenMax\.js/,
+          /TimelineMax\.js/
+      ], use: 'imports-loader?define=>false'},
       {test: /\.js$/, include: path.join(__dirname, 'src'), use: ['babel-loader']},
       {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, use: 'file'},
       {test: /\.(woff|woff2)$/, use: 'url?prefix=font/&limit=5000'},
@@ -36,6 +42,17 @@ export default {
     //   {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'}
     ]
   },
+  // resolve: {
+  //   alias: {
+  //       "TweenLite": path.resolve('node_modules', 'gsap/src/uncompressed/TweenLite.js'),
+  //       "TweenMax": path.resolve('node_modules', 'gsap/src/uncompressed/TweenMax.js'),
+  //       "TimelineLite": path.resolve('node_modules', 'gsap/src/uncompressed/TimelineLite.js'),
+  //       "TimelineMax": path.resolve('node_modules', 'gsap/src/uncompressed/TimelineMax.js'),
+  //       "ScrollMagic": path.resolve('node_modules', 'scrollmagic/scrollmagic/uncompressed/ScrollMagic.js'),
+  //       "animation.gsap": path.resolve('node_modules', 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'),
+  //       "debug.addIndicators": path.resolve('node_modules', 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js')
+  //   }
+  // },
   // sassLoader: {
   //   includePaths: [path.resolve(__dirname, "./src/scss")]
   // }

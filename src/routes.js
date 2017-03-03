@@ -24,6 +24,7 @@ function saveLocation(location) {
 	lastLocation = location;
 }
 
+
 /**
  * Validate authentication for priavte routes
  */

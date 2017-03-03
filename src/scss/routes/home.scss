@@ -1,0 +1,28 @@
+.route-home {
+
+	.component-hero {
+		margin: 0;
+		position: relative;
+		padding: 0;
+		text-align: center;
+
+		h1, p {
+			margin: 0 auto;
+		}
+
+		img {
+			object-fit: cover;
+			display: inline-block;
+			width: 100%;
+			height: auto;
+		}
+
+		.hero-content {
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: #fff;
+		}
+	}
+
+}
