@@ -58,14 +58,14 @@ class HomePage extends React.Component {
 	render() {
 		return (
 			<div className="route route-home">
-				<div className="container-fluid component-hero">
+				<section className="container-fluid component-hero">
 					<img className="hero-image img-responsive" src={hero} />
 					<div className="hero-content">
 						<h1>Mike & Kelli's Wedding</h1>
-						<p>Come join the Cavinsons as they tie the knot</p>
+						<h2>Sept 23, 2017</h2>
 					</div>
-				</div>
-				<div className="container-fluid scene" id="sticky1">
+				</section>
+				<section className="container-fluid scene" id="sticky1">
 					<div className="scene-inner">
 						<Jumbotron>
 							<h1>Scene Name 1</h1>
@@ -73,8 +73,8 @@ class HomePage extends React.Component {
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</Jumbotron>
 					</div>
-				</div>
-				<div className="container-fluid scene" id="sticky2">
+				</section>
+				<section className="container-fluid scene" id="sticky2">
 					<div className="scene-inner">
 						<Jumbotron>
 							<h1>Scene Name 2</h1>
@@ -82,8 +82,8 @@ class HomePage extends React.Component {
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</Jumbotron>
 					</div>
-				</div>
-				<div className="container-fluid scene" id="sticky3">
+				</section>
+				<section className="container-fluid scene" id="sticky3">
 					<div className="scene-inner">
 						<Jumbotron>
 							<h1>Scene Name 3</h1>
@@ -91,8 +91,8 @@ class HomePage extends React.Component {
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</Jumbotron>
 					</div>
-				</div>
-				<div className="container-fluid scene">
+				</section>
+				<section className="container-fluid scene">
 					<div className="scene-inner">
 						<Jumbotron>
 							<h1>Scene Name 4</h1>
@@ -100,8 +100,8 @@ class HomePage extends React.Component {
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</Jumbotron>
 					</div>
-				</div>
-				<div className="container-fluid scene">
+				</section>
+				<section className="container-fluid scene">
 					<div className="scene-inner">
 						<Jumbotron>
 							<h1>Scene Name 5</h1>
@@ -109,7 +109,7 @@ class HomePage extends React.Component {
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</Jumbotron>
 					</div>
-				</div>
+				</section>
 			</div>
 		);
 	}

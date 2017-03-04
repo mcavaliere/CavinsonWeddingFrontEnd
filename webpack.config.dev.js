@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import path from 'path';
+import Bourbon from 'bourbon';
 
 export default {
   entry: [
@@ -28,7 +29,14 @@ export default {
   module: {
     rules: [
       {test: /\.(jpe?g|png|gif|svg)$/i, use: "file-loader?name=images/[name].[ext]"},
-      {test: /\.scss$/, use: ["style-loader", "css-loader", "sass-loader"]},
+    //   { test: /\.scss$/, loader: "style!css!sass?includePaths[]=" + JSON.stringify(bourbon)},
+      {test: /\.scss$/, use: [
+          {loader: "style-loader"},
+          {loader: "css-loader"},
+          {loader: "sass-loader", options: {
+              includePaths: [Bourbon.includePaths]
+          }}
+      ]},
       {test: [
           /animation\.gsap\.js/,
           /ScrollMagic\.js/,

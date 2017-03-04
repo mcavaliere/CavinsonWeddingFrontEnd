@@ -1,27 +1,71 @@
 .route-home {
 
 	.component-hero {
+		height: 100vh;
 		margin: 0;
 		position: relative;
 		padding: 0;
 		text-align: center;
+		z-index: 1;
 
-		h1, p {
-			margin: 0 auto;
+		&:after {
+			content: " ";
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background: rgba(0, 0, 0, 0.2);
+			z-index: 10;
+			width: 100%;
+			height: 100%;
 		}
 
 		img {
 			object-fit: cover;
-			display: inline-block;
+			display: block;
 			width: 100%;
 			height: auto;
+			position: relative;
+			z-index: 5;
 		}
 
 		.hero-content {
 			position: absolute;
-			top: 0;
-			left: 0;
+			top: 50%;
+			left: 50%;
 			color: #fff;
+			transform: translateX(-50%) translateY(-50%);
+			z-index: 100;
+
+			h1 {
+				font-family: 'Italianno', cursive;
+				font-size: 132px;
+				-webkit-font-smoothing: antialiased;
+				width: 100%;
+			}
+
+			h2 {
+				text-transform: uppercase;	
+			}
+
+			h1, p {
+				text-align: center;
+			}
+
+
+		}
+	}
+
+	.component-content-band {
+		text-align: center;
+
+		h1, h2, h3, h4, h5, h6 {
+			text-align: center;
+		}
+
+		p {
+			text-align: center;
 		}
 	}
 
