@@ -34,7 +34,10 @@ export default {
           {loader: "style-loader"},
           {loader: "css-loader"},
           {loader: "sass-loader", options: {
-              includePaths: [Bourbon.includePaths]
+              includePaths: [
+                  Bourbon.includePaths,
+                  "node_modules/bootstrap-sass/assets/stylesheets"
+              ]
           }}
       ]},
       {test: [

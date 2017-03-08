@@ -16,7 +16,6 @@ require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap');
 // import {TweenMax} from 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
 
 import hero from '../images/134Aug01-2016.jpg';
-import css from '../scss/routes/home.scss';
 
 class HomePage extends React.Component {
 	componentDidMount() {

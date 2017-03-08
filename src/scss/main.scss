@@ -1,11 +1,13 @@
 
 @import "variables";
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap";
-// @import "bootstrap-custom";
-
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "bootstrap-custom";
 @import "bourbon";
+@import "mixins";
 @import "fonts";
 @import url('https://fonts.googleapis.com/css?family=Italianno');
+
+@import "routes/home";
 
 body {
 	font-family: 'Soleil Lt';

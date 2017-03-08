@@ -40,13 +40,19 @@
 
 			h1 {
 				font-family: 'Italianno', cursive;
-				font-size: 132px;
+
 				-webkit-font-smoothing: antialiased;
 				width: 100%;
+
+				font-size: px-to-rem(50px);
+
+				@include lg-and-up {
+					font-size: px-to-rem(132px);
+				}
 			}
 
 			h2 {
-				text-transform: uppercase;	
+				text-transform: uppercase;
 			}
 
 			h1, p {
