@@ -77,9 +77,14 @@
 		text-align: center;
 		z-index: 50;
 		position: relative;
+		padding: px-to-rem($section-default-v-padding) 0;
 
 		h1, h2, h3, h4, h5, h6 {
 			text-align: center;
+		}
+
+		h2 {
+			margin-bottom: px-to-rem(20px);
 		}
 
 		p {

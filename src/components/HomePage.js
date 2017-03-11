@@ -45,9 +45,13 @@ class HomePage extends React.Component {
 				</section>
 				<section className="container-fluid component-content-band" id="sticky1">
 					<div className="inner">
-						<h2>Curabitur lobortis id lorem. </h2>
+						<div className="row">
+							<div className="col-xs-12 col-md-6 col-md-offset-3">
+								<h2>Curabitur lobortis id lorem. </h2>
 
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque. In volutpat ante semper diam molestie, et aliquam erat laoreet. </p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque. In volutpat ante semper diam molestie, et aliquam erat laoreet. </p>
+							</div>
+						</div>
 					</div>
 				</section>
 				<section className="container-fluid component-hero parallax-img">
