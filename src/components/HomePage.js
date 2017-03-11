@@ -7,6 +7,8 @@ require('scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators');
 require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap');
 
 import hero from '../images/134Aug01-2016.jpg';
+import hero2 from '../images/439Aug01-2016.jpg';
+import hero3 from '../images/15Aug01-2016.jpg';
 
 class HomePage extends React.Component {
 	componentDidMount() {
@@ -55,7 +57,7 @@ class HomePage extends React.Component {
 					</div>
 				</section>
 				<section className="container-fluid component-hero parallax-img">
-					<div className="bg" style={{ backgroundImage: `url(${hero})` }} />
+					<div className="bg" style={{ backgroundImage: `url(${hero2})` }} />
 					<div className="inner">
 
 					<div className="hero-content">
@@ -65,6 +67,34 @@ class HomePage extends React.Component {
 
 					</div>
 				</section>
+				<section className="container-fluid component-content-band" id="sticky1">
+					<div className="inner">
+						<div className="row">
+							<div className="col-xs-12 col-md-6 col-md-offset-3">
+								<h2>Curabitur lobortis id lorem. </h2>
+
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque. In volutpat ante semper diam molestie, et aliquam erat laoreet. </p>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section className="container-fluid component-hero parallax-img">
+					<div className="bg" style={{ backgroundImage: `url(${hero3})` }} />
+					<div className="inner">
+
+					<div className="hero-content">
+						<h1>Mike & Kelli's Wedding</h1>
+						<h2>Sept 23, 2017</h2>
+					</div>
+
+					</div>
+				</section>
+
+
+
+
+
+
 			</div>
 		);
 	}
