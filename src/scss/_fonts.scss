@@ -11,6 +11,18 @@
 }
 
 @font-face {
+  font-family: 'P22 Marcel Script Pro';
+  src: url('../fonts/P22 Marcel Script Pro.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/P22 Marcel Script Pro.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/P22 Marcel Script Pro.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/P22 Marcel Script Pro.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/P22 Marcel Script Pro.svg#921569fd6b47fb51ec032bc881b33f05') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
   font-family: 'Soleil Lt';
   src: url('../fonts/Soleil Light.eot'); /* IE9 Compat Modes */
   src: url('../fonts/Soleil Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -20,4 +32,16 @@
 
   font-style:   normal;
   font-weight:  200;
+}
+
+@font-face {
+  font-family: 'Soleil Bk';
+  src: url('../fonts/Soleil Book.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/Soleil Book.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/Soleil Book.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/Soleil Book.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/Soleil Book.svg#cf3ef3e159294ff2014c650078a0bc52') format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
 }
