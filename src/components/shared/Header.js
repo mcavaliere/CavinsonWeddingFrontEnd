@@ -9,7 +9,7 @@ class Header extends React.Component {
 			<Navbar staticTop={true} toggleNavKey={1}>
 				<Navbar.Header>
 					<Navbar.Brand>
-						<Link to="/">Meet The Cavinsons</Link>
+						<Link to="/">#CavinsonsGetHitched</Link>
 					</Navbar.Brand>
 					<Navbar.Toggle />
 				</Navbar.Header>
