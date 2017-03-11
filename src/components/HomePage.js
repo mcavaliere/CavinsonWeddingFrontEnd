@@ -12,10 +12,10 @@ import hero3 from '../images/15Aug01-2016.jpg';
 
 class HomePage extends React.Component {
 	componentDidMount() {
-		// init controller
 		let controller = new ScrollMagic.Controller();
 		let slides = document.querySelectorAll(".parallax-img");
 
+		// Parallax background image effect when scrolling.
 		slides.forEach(function (slide, index) {
 		    var $bcg = slide.querySelector('.bg');
 
@@ -26,6 +26,23 @@ class HomePage extends React.Component {
 		    })
 		    .setTween(TweenMax.from($bcg, 1, {y: '-40%', ease:Power0.easeNone}))
 		    .addTo(controller);
+		});
+
+		// Fade in the text content as we scroll to each large image.
+		slides.forEach(function (slide, index) {
+		    // make scene
+		    var headerScene = new ScrollMagic.Scene({
+		        triggerElement: slide, // trigger CSS animation when header is in the middle of the viewport
+		        offset: -95 // offset triggers the animation 95 earlier then middle of the viewport, adjust to your liking
+		    })
+		    .setClassToggle(slide, 'is-active') // set class to active slide
+		    //.addIndicators() // add indicators (requires plugin), use for debugging
+		    .addTo(controller);
+		});
+
+		// change behaviour of controller to animate scroll instead of jump
+		controller.scrollTo(function (newpos) {
+		    TweenMax.to(window, 1, {scrollTo: {y: newpos}, ease:Power1.easeInOut});
 		});
 	}
 
@@ -89,12 +106,6 @@ class HomePage extends React.Component {
 
 					</div>
 				</section>
-
-
-
-
-
-
 			</div>
 		);
 	}
