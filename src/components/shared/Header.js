@@ -6,23 +6,26 @@ import { LinkContainer } from 'react-router-bootstrap';
 class Header extends React.Component {
 	render() {
 		return (
-			<Navbar>
+			<Navbar staticTop={true} toggleNavKey={1}>
 				<Navbar.Header>
 					<Navbar.Brand>
 						<Link to="/">Meet The Cavinsons</Link>
 					</Navbar.Brand>
+					<Navbar.Toggle />
 				</Navbar.Header>
-				<Nav>
-					<LinkContainer to="/about">
-						<NavItem eventKey={2}>About</NavItem>
-					</LinkContainer>
-					<LinkContainer to="/location">
-						<NavItem eventKey={3}>Location</NavItem>
-					</LinkContainer>
-					<LinkContainer to="/guestbook">
-						<NavItem eventKey={4}>Guestbook</NavItem>
-					</LinkContainer>
-				</Nav>
+				<Navbar.Collapse>
+					<Nav>
+						<LinkContainer to="/about">
+							<NavItem eventKey={2}>About</NavItem>
+						</LinkContainer>
+						<LinkContainer to="/location">
+							<NavItem eventKey={3}>Location</NavItem>
+						</LinkContainer>
+						<LinkContainer to="/guestbook">
+							<NavItem eventKey={4}>Guestbook</NavItem>
+						</LinkContainer>
+					</Nav>
+				</Navbar.Collapse>
 			</Navbar>
 		);
 	}
