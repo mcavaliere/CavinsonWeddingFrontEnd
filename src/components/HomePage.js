@@ -47,8 +47,6 @@ class HomePage extends React.Component {
 	}
 
 	render() {
-
-
 		return (
 			<div className="route route-home">
 				<section className="container-fluid component-hero parallax-img">
