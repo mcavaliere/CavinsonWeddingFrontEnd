@@ -42,14 +42,21 @@
             }
         }
 
+		.inner {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
 		.hero-content {
 			visibility: hidden;
             opacity: 0;
-			position: absolute;
+			position: relative;
 			// top: 50%;
 			// left: 50%;
-			top: 40%;
-			left: 0;
+			// top: 40%;
+			// left: 0;
 			width: 100%;
 			transition: all 0.7s ease-out;
 	        @include transform(translate3d(0, 50px, 0));
@@ -61,6 +68,7 @@
 				font-family: $hero-font-family;
 				font-size: px-to-rem(66px);
 				font-weight: $hero-font-weight;
+				margin-top: 0;
 				-webkit-font-smoothing: antialiased;
 				width: 100%;
 
@@ -108,7 +116,6 @@
 	}
 
 	.component-hero .inner {
-		padding-top: 120px;
 	    z-index: 10;
 	    position: relative;
 		height: 100%;
@@ -122,4 +129,8 @@
 	    height: 100%;
 	    z-index: 1;
 	}
+}
+
+.component-img-2-col {
+	padding: px-to-rem($section-default-v-padding) 0;
 }

@@ -32,8 +32,8 @@ class HomePage extends React.Component {
 		slides.forEach(function (slide, index) {
 		    // make scene
 		    var headerScene = new ScrollMagic.Scene({
-		        triggerElement: slide, // trigger CSS animation when header is in the middle of the viewport
-		        offset: -95 // offset triggers the animation 95 earlier then middle of the viewport, adjust to your liking
+		        triggerElement: slide.querySelector('.hero-content'), // trigger CSS animation when header is in the middle of the viewport
+		        offset: -50 // offset triggers the animation 95 earlier then middle of the viewport, adjust to your liking
 		    })
 		    .setClassToggle(slide, 'is-active') // set class to active slide
 		    //.addIndicators() // add indicators (requires plugin), use for debugging
@@ -54,12 +54,10 @@ class HomePage extends React.Component {
 				<section className="container-fluid component-hero parallax-img">
 					<div className="bg" style={{ backgroundImage: `url(${hero})` }} />
 					<div className="inner">
-
-					<div className="hero-content">
-						<h1>Mike & Kelli's Wedding</h1>
-						<h2>Sept 23, 2017</h2>
-					</div>
-
+						<div className="hero-content">
+							<h1>Mike & Kelli's Wedding</h1>
+							<h2>Sept 23, 2017</h2>
+						</div>
 					</div>
 				</section>
 				<section className="container-fluid component-content-band" id="sticky1">
@@ -68,7 +66,7 @@ class HomePage extends React.Component {
 							<div className="col-xs-12 col-md-6 col-md-offset-3">
 								<h2>Curabitur lobortis id lorem. </h2>
 
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque. In volutpat ante semper diam molestie, et aliquam erat laoreet. </p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
 							</div>
 						</div>
 					</div>
@@ -78,19 +76,35 @@ class HomePage extends React.Component {
 					<div className="inner">
 
 					<div className="hero-content">
-						<h1>Mike & Kelli's Wedding</h1>
-						<h2>Sept 23, 2017</h2>
+						<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+						<h2>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
 					</div>
 
 					</div>
 				</section>
+				<section className="container-fluid component-img-2-col">
+					<div className="row">
+						<div className="col-xs-12 col-sm-6 col-sm-offset-3">
+							<div className="row">
+								<div className="col-xs-12 col-sm-6">
+									<img src={require('../images/330Aug01-2016.jpg')} className="img-responsive" />
+								</div>
+								<div className="col-xs-12 col-sm-6">
+									<img src={require('../images/252Aug01-2016.jpg')} className="img-responsive" />
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</section>
+
 				<section className="container-fluid component-content-band" id="sticky1">
 					<div className="inner">
 						<div className="row">
 							<div className="col-xs-12 col-md-6 col-md-offset-3">
 								<h2>Curabitur lobortis id lorem. </h2>
 
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque. In volutpat ante semper diam molestie, et aliquam erat laoreet. </p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  </p>
 							</div>
 						</div>
 					</div>
@@ -98,12 +112,10 @@ class HomePage extends React.Component {
 				<section className="container-fluid component-hero parallax-img">
 					<div className="bg" style={{ backgroundImage: `url(${hero3})` }} />
 					<div className="inner">
-
-					<div className="hero-content">
-						<h1>Mike & Kelli's Wedding</h1>
-						<h2>Sept 23, 2017</h2>
-					</div>
-
+						<div className="hero-content">
+							<h1>Lorem ipsum dolor sit amet.</h1>
+							<h2>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </h2>
+						</div>
 					</div>
 				</section>
 			</div>
