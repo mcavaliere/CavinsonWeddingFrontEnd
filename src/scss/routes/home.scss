@@ -125,4 +125,35 @@
 
 .component-img-2-col {
 	padding: px-to-rem($section-default-v-padding) 0;
+
+	img {
+		opacity: 0;
+		position: relative;
+		@include transition(all 0.7s ease-in-out);
+
+
+		&.img-left {
+			left: -100px;
+		}
+
+		&.img-right {
+			right: -100px;
+		}
+	}
+
+
+
+	&.is-active img {
+		opacity: 1;
+
+		&.img-left {
+			left: 0;
+		}
+
+		&.img-right {
+			right: 0;
+		}
+	}
+
+
 }

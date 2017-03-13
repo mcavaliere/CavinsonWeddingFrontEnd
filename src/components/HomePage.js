@@ -44,6 +44,20 @@ class HomePage extends React.Component {
 		controller.scrollTo(function (newpos) {
 		    TweenMax.to(window, 1, {scrollTo: {y: newpos}, ease:Power1.easeInOut});
 		});
+
+		let img2col = document.querySelectorAll('.component-img-2-col');
+		let img2colImages = img2col[0].querySelectorAll('img');
+
+
+		new ScrollMagic.Scene({
+			triggerElement: img2col
+		})
+		.setClassToggle(img2col[0], 'is-active')
+		.setClassToggle(img2col[1], 'is-active')
+		.addTo(controller)
+
+
+
 	}
 
 	render() {
@@ -85,10 +99,10 @@ class HomePage extends React.Component {
 						<div className="col-xs-12 col-sm-6 col-sm-offset-3">
 							<div className="row">
 								<div className="col-xs-12 col-sm-6">
-									<img src={require('../images/330Aug01-2016.jpg')} className="img-responsive" />
+									<img src={require('../images/330Aug01-2016.jpg')} className="img-responsive img-left" />
 								</div>
 								<div className="col-xs-12 col-sm-6">
-									<img src={require('../images/252Aug01-2016.jpg')} className="img-responsive" />
+									<img src={require('../images/252Aug01-2016.jpg')} className="img-responsive img-right" />
 								</div>
 							</div>
 						</div>
