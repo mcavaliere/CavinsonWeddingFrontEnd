@@ -44,6 +44,15 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+.constrained {
+	max-width: calc(100% - #{$grid-gutter-width});
+	margin: 0 auto;
+
+	@include md-and-up {
+		max-width: 768px;
+	}
+}
+
 .navbar-default {
 	position: fixed;
 	z-index: 1000;
@@ -67,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 	background: transparent;
 	border: 1px solid $color-red;
 	border-radius: 0;
-	font-size: px-to-rem(13px);
+	font-size: px-to-rem(18px);
 	padding: $grid-gutter-width/2 $grid-gutter-width*3;
 	text-transform: uppercase;
 }

@@ -74,7 +74,7 @@ class HomePage extends React.Component {
 						</div>
 					</div>
 				</section>
-				<section className="container-fluid component-content-band" id="sticky1">
+				<section className="container-fluid component-content-band constrained" id="sticky1">
 					<div className="inner">
 						<div className="row">
 							<div className="col-xs-12 col-md-6 col-md-offset-3">
@@ -91,13 +91,16 @@ class HomePage extends React.Component {
 				</Divider>
 
 
-
-				<section className="container component-content-band">
+				<section className="container component-content-band constrained">
 					<div className="row">
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>Date &amp; Location</h2>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+							<address>
+								Roton Point
+								123 somewhere
+								Rowayton, Norwalk, CT, 12345
+							</address>
 						</div>
 					</div>
 				</section>
@@ -106,12 +109,12 @@ class HomePage extends React.Component {
 					<i className="glyphicon glyphicon-home gi-2x"></i>
 				</Divider>
 
-				<section className="container component-content-band">
+				<section className="container component-content-band constrained">
 					<div className="row">
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>Accommodations</h2>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+							<p>Group rates available at the [HOTEL NAME] hotel - XYZ rooms in total.</p>
 						</div>
 					</div>
 				</section>
@@ -120,7 +123,7 @@ class HomePage extends React.Component {
 					<i className="glyphicon glyphicon-glass gi-2x"></i>
 				</Divider>
 
-				<section className="container component-content-band">
+				<section className="container component-content-band constrained">
 					<div className="row">
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>The After Party</h2>
@@ -134,14 +137,31 @@ class HomePage extends React.Component {
 					<i className="glyphicon glyphicon-envelope gi-2x"></i>
 				</Divider>
 
-				<section className="container component-content-band">
+				<section className="container component-content-band constrained">
 					<div className="row">
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>RSVP</h2>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+							<p>Kindly confirm your RSVP by xx/xx/2017 using the link below. </p>
 
 							<a href="javascript:void(0)" className="btn btn-default btn-cta">RSVP Now</a>
+						</div>
+					</div>
+				</section>
+
+				<Divider>
+					<i className="glyphicon glyphicon-envelope gi-2x"></i>
+				</Divider>
+
+				<section className="container component-content-band constrained">
+					<div className="row">
+						<div className="col-xs-12 col-md-6 col-md-offset-3">
+							<h2>Our Registry</h2>
+
+							<p>Buy us stuff! Or give money - either is appreciated. Our registry is conveniently hosted on Zola.com,
+								so you won't have to lug a heavy bottle of aged scotch to Connecticut - unless you want to :)</p>
+
+							<a href="javascript:void(0)" className="btn btn-default btn-cta">View our Registry</a>
 						</div>
 					</div>
 				</section>
