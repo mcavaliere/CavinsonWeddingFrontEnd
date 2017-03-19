@@ -90,9 +90,61 @@ class HomePage extends React.Component {
 					<i className="glyphicon glyphicon-calendar gi-2x"></i>
 				</Divider>
 
+
+
+				<section className="container component-content-band">
+					<div className="row">
+						<div className="col-xs-12 col-md-6 col-md-offset-3">
+							<h2>Date &amp; Location</h2>
+
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+						</div>
+					</div>
+				</section>
+
+				<Divider>
+					<i className="glyphicon glyphicon-home gi-2x"></i>
+				</Divider>
+
+				<section className="container component-content-band">
+					<div className="row">
+						<div className="col-xs-12 col-md-6 col-md-offset-3">
+							<h2>Accommodations</h2>
+
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+						</div>
+					</div>
+				</section>
+
 				<Divider>
 					<i className="glyphicon glyphicon-glass gi-2x"></i>
 				</Divider>
+
+				<section className="container component-content-band">
+					<div className="row">
+						<div className="col-xs-12 col-md-6 col-md-offset-3">
+							<h2>The After Party</h2>
+
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+						</div>
+					</div>
+				</section>
+
+				<Divider>
+					<i className="glyphicon glyphicon-envelope gi-2x"></i>
+				</Divider>
+
+				<section className="container component-content-band">
+					<div className="row">
+						<div className="col-xs-12 col-md-6 col-md-offset-3">
+							<h2>RSVP</h2>
+
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+
+							<a href="javascript:void(0)" className="btn btn-default btn-cta">RSVP Now</a>
+						</div>
+					</div>
+				</section>
 
 
 				<section className="container-fluid component-hero parallax-img">

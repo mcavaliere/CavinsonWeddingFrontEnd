@@ -61,3 +61,13 @@ h1, h2, h3, h4, h5, h6 {
 .gi-4x {
 	font-size: 30px;
 }
+
+.btn.btn-default.btn-cta {
+	color: $color-red;
+	background: transparent;
+	border: 1px solid $color-red;
+	border-radius: 0;
+	font-size: px-to-rem(13px);
+	padding: $grid-gutter-width/2 $grid-gutter-width*3;
+	text-transform: uppercase;
+}
