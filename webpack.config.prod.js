@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+import Bourbon from 'bourbon';
 
 export default {
   devtool: 'source-map',
@@ -15,7 +16,6 @@ export default {
   },
 
   plugins: [
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
       compress: {
@@ -31,18 +31,30 @@ export default {
   ],
 
   module: {
-    loaders: [
+    rules: [
+    {test: [
+        /animation\.gsap\.js/,
+        /ScrollMagic\.js/,
+        /TweenMax\.js/,
+        /TimelineMax\.js/
+    ], use: 'imports-loader?define=>false'},
       { test: /\.js?$/,
-        include: path.join(__dirname, 'src')
+        include: path.join(__dirname, 'src'),
         use: ['babel-loader'],
         exclude: /node_modules/ },
-      { test: /\.scss?$/,
-        use: 'style!css!sass',
-        include: path.join(__dirname, 'src', 'styles') },
-      { test: /\.png$/,
-        use: 'file' },
+      { test: /\.scss$/, use: [
+        {loader: "style-loader"},
+        {loader: "css-loader"},
+        {loader: "sass-loader", options: {
+            includePaths: [
+                Bourbon.includePaths,
+                "node_modules/bootstrap-sass/assets/stylesheets"
+            ]
+        }}
+      ] },
+      {test: /\.(jpe?g|png|gif|svg)$/i, use: "file-loader?name=images/[name].[ext]"},
       { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        use: 'file'}
+        use: 'file-loader'}
     ]
   }
 }
