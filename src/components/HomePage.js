@@ -95,12 +95,21 @@ class HomePage extends React.Component {
 					<div className="row">
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>Date &amp; Location</h2>
-
+						</div>
+					</div>
+					<div className="row table-row">
+						<div className="col-xs-12 col-md-6">
 							<address>
-								Roton Point
-								123 somewhere
-								Rowayton, Norwalk, CT, 12345
+								Roton Point Association<br />
+								15 Pine Point Rd, Norwalk, CT 06853<br />
+								(203) 838-1606<br />
+								<a href="http://rotonpoint.org">rotonpoint.org</a>
 							</address>
+						</div>
+						<div className="col-xs-12 col-md-6">
+							<a href="https://www.google.com/maps/place/Roton+Point+Association/@41.0568158,-73.4442258,16z/data=!4m5!3m4!1s0x89e81fb817dbc5d7:0x6b8f90972701a442!8m2!3d41.0568158!4d-73.4398484">
+							<img src={require('../images/roton-pt-map.png')} className="img-responsive" />
+							</a>
 						</div>
 					</div>
 				</section>

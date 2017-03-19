@@ -3,7 +3,7 @@
 		text-transform: uppercase;
 		text-align: center;
 	}
-	
+
 	.component-hero {
 		margin: 0;
 		position: relative;
@@ -109,6 +109,11 @@
 
 		p {
 			text-align: center;
+		}
+
+		address {
+			display: inline-block;
+			vertical-align: middle;
 		}
 	}
 

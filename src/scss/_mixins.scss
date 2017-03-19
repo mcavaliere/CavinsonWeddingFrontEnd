@@ -1,3 +1,9 @@
+@mixin xs-and-up {
+	@media screen and (min-width: $xs-breakpoint) {
+		@content;
+	}
+}
+
 
 @mixin sm-and-up {
 	@media screen and (min-width: $sm-breakpoint) {
