@@ -1,0 +1,45 @@
+$divider-icon-width: 60px;
+
+.component-divider {
+	width: 100%;
+
+	.icon {
+		color: $color-mediumbrown;
+		display: inline-block;
+		margin: 0 $grid-gutter-width/2;
+		text-align: center;
+		vertical-align: middle;
+		height: $divider-icon-width;
+		width: $divider-icon-width;
+		border: 2px solid $color-mediumbrown;
+		border-radius: $divider-icon-width;
+		line-height: $divider-icon-width;
+
+		.icon-inner {
+			border: 1px solid $color-mediumbrown;
+			border-radius: $divider-icon-width - 10px;
+			display: inline-block;
+			height: $divider-icon-width - 10px;
+			line-height: $divider-icon-width - 10px;
+			width: $divider-icon-width - 10px;
+			position: relative;
+			top: -1px;
+		}
+
+		i {
+			position: relative;
+			top: 5px;
+		    left: 1px;
+
+		}
+	}
+
+	&:before, &:after {
+		display: inline-block;
+		content: " ";
+		width: calc((100% - #{$divider-icon-width + $grid-gutter-width}) / 2);
+		height: 1px;
+		background: $color-mediumgrey;
+		vertical-align: middle;
+	}
+}

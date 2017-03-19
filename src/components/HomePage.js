@@ -10,6 +10,8 @@ import hero from '../images/134Aug01-2016.jpg';
 import hero2 from '../images/439Aug01-2016.jpg';
 import hero3 from '../images/15Aug01-2016.jpg';
 
+import Divider from '../components/shared/Divider';
+
 class HomePage extends React.Component {
 	componentDidMount() {
 		let controller = new ScrollMagic.Controller();
@@ -83,6 +85,10 @@ class HomePage extends React.Component {
 						</div>
 					</div>
 				</section>
+
+				<Divider />
+
+
 				<section className="container-fluid component-hero parallax-img">
 					<div className="bg" style={{ backgroundImage: `url(${hero2})` }} />
 					<div className="inner">
@@ -94,14 +100,14 @@ class HomePage extends React.Component {
 
 					</div>
 				</section>
-				<section className="container-fluid component-img-2-col">
+				<section className="container component-img-2-col">
 					<div className="row">
-						<div className="col-xs-12 col-sm-6 col-sm-offset-3">
+						<div className="col-xs-12">
 							<div className="row">
-								<div className="col-xs-12 col-sm-6">
+								<div className="col-xs-12 col-sm-4 col-sm-offset-1">
 									<img src={require('../images/330Aug01-2016.jpg')} className="img-responsive img-left" />
 								</div>
-								<div className="col-xs-12 col-sm-6">
+								<div className="col-xs-12 col-sm-7">
 									<img src={require('../images/252Aug01-2016.jpg')} className="img-responsive img-right" />
 								</div>
 							</div>

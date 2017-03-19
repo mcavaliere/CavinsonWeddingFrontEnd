@@ -7,7 +7,12 @@
 @import "fonts";
 @import url('https://fonts.googleapis.com/css?family=Italianno');
 
+@import "components/divider";
+
 @import "routes/home";
+
+
+
 
 body {
 	font-family: $body-font-family;
@@ -43,4 +48,16 @@ h1, h2, h3, h4, h5, h6 {
 	position: fixed;
 	z-index: 1000;
 	width: 100%;
+}
+
+.gi-2x {
+	font-size: 20px;
+}
+
+.gi-3x {
+	font-size: 25px;
+}
+
+.gi-4x {
+	font-size: 30px;
 }
