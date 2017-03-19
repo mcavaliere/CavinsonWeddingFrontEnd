@@ -103,11 +103,11 @@ class HomePage extends React.Component {
 								Roton Point Association<br />
 								15 Pine Point Rd, Norwalk, CT 06853<br />
 								(203) 838-1606<br />
-								<a href="http://rotonpoint.org">rotonpoint.org</a>
+								<a href="http://rotonpoint.org" target="_blank">rotonpoint.org</a>
 							</address>
 						</div>
 						<div className="col-xs-12 col-md-6">
-							<a href="https://www.google.com/maps/place/Roton+Point+Association/@41.0568158,-73.4442258,16z/data=!4m5!3m4!1s0x89e81fb817dbc5d7:0x6b8f90972701a442!8m2!3d41.0568158!4d-73.4398484">
+							<a href="https://www.google.com/maps/place/Roton+Point+Association/@41.0568158,-73.4442258,16z/data=!4m5!3m4!1s0x89e81fb817dbc5d7:0x6b8f90972701a442!8m2!3d41.0568158!4d-73.4398484" target="_blank">
 							<img src={require('../images/roton-pt-map.png')} className="img-responsive" />
 							</a>
 						</div>
@@ -137,7 +137,7 @@ class HomePage extends React.Component {
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>The After Party</h2>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+							<p>Festivities will continue at Roton Point after the wedding, for those that wish to stay. You&#39;ll be invited to optionally share stories ("roast or toast") about either or both members of the happy couple. </p>
 						</div>
 					</div>
 				</section>
@@ -159,7 +159,7 @@ class HomePage extends React.Component {
 				</section>
 
 				<Divider>
-					<i className="glyphicon glyphicon-envelope gi-2x"></i>
+					<i className="glyphicon glyphicon-gift gi-2x"></i>
 				</Divider>
 
 				<section className="container component-content-band constrained">
@@ -170,7 +170,7 @@ class HomePage extends React.Component {
 							<p>Buy us stuff! Or give money - either is appreciated. Our registry is conveniently hosted on Zola.com,
 								so you won't have to lug a heavy bottle of aged scotch to Connecticut - unless you want to :)</p>
 
-							<a href="javascript:void(0)" className="btn btn-default btn-cta">View our Registry</a>
+							<a href="https://www.zola.com/registry/cavinsonwedding" className="btn btn-default btn-cta" target="_blank">View our Registry</a>
 						</div>
 					</div>
 				</section>
