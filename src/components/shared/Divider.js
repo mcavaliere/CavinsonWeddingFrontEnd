@@ -6,7 +6,7 @@ class Divider extends React.Component {
 			<div className="component-divider">
 				<span className="icon">
 					<span className="icon-inner">
-						<i className="glyphicon glyphicon-calendar gi-2x"></i>
+						{this.props.children}
 					</span>
 				</span>
 			</div>

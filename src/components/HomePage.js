@@ -86,7 +86,13 @@ class HomePage extends React.Component {
 					</div>
 				</section>
 
-				<Divider />
+				<Divider>
+					<i className="glyphicon glyphicon-calendar gi-2x"></i>
+				</Divider>
+
+				<Divider>
+					<i className="glyphicon glyphicon-glass gi-2x"></i>
+				</Divider>
 
 
 				<section className="container-fluid component-hero parallax-img">

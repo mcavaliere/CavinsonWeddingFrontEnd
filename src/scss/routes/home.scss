@@ -121,6 +121,10 @@
 	    height: 100%;
 	    z-index: 1;
 	}
+
+	.component-divider {
+		margin-bottom: px-to-rem($grid-gutter-width);
+	}
 }
 
 .component-img-2-col {
@@ -141,8 +145,6 @@
 		}
 	}
 
-
-
 	&.is-active img {
 		opacity: 1;
 
@@ -154,6 +156,4 @@
 			right: 0;
 		}
 	}
-
-
 }
