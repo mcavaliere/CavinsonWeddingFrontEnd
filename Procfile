@@ -1,1 +1,1 @@
-web: node tools/publicServer.js
+web: node tools/publicServer-compiled.js
