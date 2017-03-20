@@ -24,7 +24,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /*eslint-disable no-console */
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 var app = (0, _express2.default)();
 
 app.use((0, _compression2.default)());
@@ -36,5 +36,5 @@ app.get('*', function (req, res) {
 });
 
 app.listen(port, function () {
-  console.log('Node app is running on port', app.get('port'));
+  console.log('Node app is running on port', port);
 });
