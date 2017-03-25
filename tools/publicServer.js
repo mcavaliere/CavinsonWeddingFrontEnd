@@ -11,10 +11,15 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 app.use(compression());
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, '../public')));
+// app.use(express.static(path.join(__dirname, '..', 'public', 'images')));
 // app.use(favicon(path.join(__dirname,'assets','public','favicon.ico')));
 
-app.get('*', function(req, res) {
+// app.get('/bundle.js', function (req, res) {
+//     res.sendFile(path.join(__dirname, '../public/bundle.js'))
+// });
+
+app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 

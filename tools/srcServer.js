@@ -18,6 +18,8 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
+app.use(express.static(path.join(__dirname, '../src/images')));
+
 // app.use(favicon( path.join(__dirname,'assets','public','favicon.ico') ));
 
 app.get('*', function(req, res) {

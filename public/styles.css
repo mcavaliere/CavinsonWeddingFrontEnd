@@ -242,8 +242,8 @@ th {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(/public/f4769f9bdb7466be65088239c12046d1.eot);
-  src: url(/public/f4769f9bdb7466be65088239c12046d1.eot?#iefix) format("embedded-opentype"), url(/public/448c34a56d699c29117adc64c43affeb.woff2) format("woff2"), url(/public/fa2772327f55d8198301fdb8bcfc8158.woff) format("woff"), url(/public/e18bbf611f2a2e43afc071aa2f4e1512.ttf) format("truetype"), url(/public/images/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg"); }
+  src: url(f4769f9bdb7466be65088239c12046d1.eot);
+  src: url(f4769f9bdb7466be65088239c12046d1.eot?#iefix) format("embedded-opentype"), url(448c34a56d699c29117adc64c43affeb.woff2) format("woff2"), url(fa2772327f55d8198301fdb8bcfc8158.woff) format("woff"), url(e18bbf611f2a2e43afc071aa2f4e1512.ttf) format("truetype"), url(images/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg"); }
 
 .glyphicon {
   position: relative;
@@ -6057,8 +6057,8 @@ th {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(/public/f4769f9bdb7466be65088239c12046d1.eot);
-  src: url(/public/f4769f9bdb7466be65088239c12046d1.eot?#iefix) format("embedded-opentype"), url(/public/448c34a56d699c29117adc64c43affeb.woff2) format("woff2"), url(/public/fa2772327f55d8198301fdb8bcfc8158.woff) format("woff"), url(/public/e18bbf611f2a2e43afc071aa2f4e1512.ttf) format("truetype"), url(/public/images/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg"); }
+  src: url(f4769f9bdb7466be65088239c12046d1.eot);
+  src: url(f4769f9bdb7466be65088239c12046d1.eot?#iefix) format("embedded-opentype"), url(448c34a56d699c29117adc64c43affeb.woff2) format("woff2"), url(fa2772327f55d8198301fdb8bcfc8158.woff) format("woff"), url(e18bbf611f2a2e43afc071aa2f4e1512.ttf) format("truetype"), url(images/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg"); }
 
 .glyphicon {
   position: relative;
@@ -11635,36 +11635,36 @@ button.close {
 
 @font-face {
   font-family: 'BaskervilleURW';
-  src: url(/public/02ff5f3741c553b11c02a49f71a6b463.eot);
+  src: url(02ff5f3741c553b11c02a49f71a6b463.eot);
   /* IE9 Compat Modes */
-  src: url(/public/02ff5f3741c553b11c02a49f71a6b463.eot?#iefix) format("embedded-opentype"), url(/public/26fc53f888d9faf1e6868f27ad36c537.woff) format("woff"), url(/public/00a60c0a8edc32f033574095733fff19.ttf) format("truetype"), url(/public/images/Baskerville URW Regular.svg#0e6cd8307b4a99272f368994e71ccd32) format("svg");
+  src: url(02ff5f3741c553b11c02a49f71a6b463.eot?#iefix) format("embedded-opentype"), url(26fc53f888d9faf1e6868f27ad36c537.woff) format("woff"), url(00a60c0a8edc32f033574095733fff19.ttf) format("truetype"), url(images/Baskerville URW Regular.svg#0e6cd8307b4a99272f368994e71ccd32) format("svg");
   /* Legacy iOS */
   font-style: normal;
   font-weight: 400; }
 
 @font-face {
   font-family: 'P22 Marcel Script Pro';
-  src: url(/public/3b5dc47b031a50bf727c13655ca04e2a.eot);
+  src: url(3b5dc47b031a50bf727c13655ca04e2a.eot);
   /* IE9 Compat Modes */
-  src: url(/public/3b5dc47b031a50bf727c13655ca04e2a.eot?#iefix) format("embedded-opentype"), url(/public/28ba35ad463177008685e06588548b7b.woff) format("woff"), url(/public/8c4f82792d8da7c8c0e03c85b15f98f7.ttf) format("truetype"), url(/public/images/P22 Marcel Script Pro.svg#921569fd6b47fb51ec032bc881b33f05) format("svg");
+  src: url(3b5dc47b031a50bf727c13655ca04e2a.eot?#iefix) format("embedded-opentype"), url(28ba35ad463177008685e06588548b7b.woff) format("woff"), url(8c4f82792d8da7c8c0e03c85b15f98f7.ttf) format("truetype"), url(images/P22 Marcel Script Pro.svg#921569fd6b47fb51ec032bc881b33f05) format("svg");
   /* Legacy iOS */
   font-style: normal;
   font-weight: 400; }
 
 @font-face {
   font-family: 'Soleil Lt';
-  src: url(/public/29e48faa2b3200108f003545d783a63f.eot);
+  src: url(29e48faa2b3200108f003545d783a63f.eot);
   /* IE9 Compat Modes */
-  src: url(/public/29e48faa2b3200108f003545d783a63f.eot?#iefix) format("embedded-opentype"), url(/public/d678e13f3ac9f6c2dcce6a18a0d76c30.woff) format("woff"), url(/public/8dcf7b3291e024838b763e8d7ae0433d.ttf) format("truetype"), url(/public/images/Soleil Light.svg#fea3d7d8c914f6209922eb33e85512e8) format("svg");
+  src: url(29e48faa2b3200108f003545d783a63f.eot?#iefix) format("embedded-opentype"), url(d678e13f3ac9f6c2dcce6a18a0d76c30.woff) format("woff"), url(8dcf7b3291e024838b763e8d7ae0433d.ttf) format("truetype"), url(images/Soleil Light.svg#fea3d7d8c914f6209922eb33e85512e8) format("svg");
   /* Legacy iOS */
   font-style: normal;
   font-weight: 200; }
 
 @font-face {
   font-family: 'Soleil Bk';
-  src: url(/public/d305791f9d5ea394c105aee94843354b.eot);
+  src: url(d305791f9d5ea394c105aee94843354b.eot);
   /* IE9 Compat Modes */
-  src: url(/public/d305791f9d5ea394c105aee94843354b.eot?#iefix) format("embedded-opentype"), url(/public/aaf30e21fc9995fde09894cb54fb4902.woff) format("woff"), url(/public/03693e945a2fea18be742b265bb7cdb0.ttf) format("truetype"), url(/public/images/Soleil Book.svg#cf3ef3e159294ff2014c650078a0bc52) format("svg");
+  src: url(d305791f9d5ea394c105aee94843354b.eot?#iefix) format("embedded-opentype"), url(aaf30e21fc9995fde09894cb54fb4902.woff) format("woff"), url(03693e945a2fea18be742b265bb7cdb0.ttf) format("truetype"), url(images/Soleil Book.svg#cf3ef3e159294ff2014c650078a0bc52) format("svg");
   /* Legacy iOS */
   font-style: normal;
   font-weight: 400; }
