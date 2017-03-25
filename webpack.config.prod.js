@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 import Bourbon from 'bourbon';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
   devtool: 'source-map',
@@ -27,34 +28,59 @@ export default {
         'NODE_ENV': JSON.stringify('production'),
         'API_HOST': JSON.stringify('https://cav-wedding-api-prod.herokuapp.com/')
       }
-    })
+   }),
+   new ExtractTextPlugin("styles.css"),
   ],
 
   module: {
     rules: [
-    {test: [
-        /animation\.gsap\.js/,
-        /ScrollMagic\.js/,
-        /TweenMax\.js/,
-        /TimelineMax\.js/
-    ], use: 'imports-loader?define=>false'},
-      { test: /\.js?$/,
-        include: path.join(__dirname, 'src'),
-        use: ['babel-loader'],
-        exclude: /node_modules/ },
-      { test: /\.scss$/, use: [
-        {loader: "style-loader"},
-        {loader: "css-loader"},
-        {loader: "sass-loader", options: {
-            includePaths: [
-                Bourbon.includePaths,
-                "node_modules/bootstrap-sass/assets/stylesheets"
+        {test: [
+            /animation\.gsap\.js/,
+            /ScrollMagic\.js/,
+            /TweenMax\.js/,
+            /TimelineMax\.js/
+            ], use: 'imports-loader?define=>false'},
+
+        { test: /\.js?$/,
+            include: path.join(__dirname, 'src'),
+            use: ['babel-loader'],
+            exclude: /node_modules/ },
+
+        //   { test: /\.scss$/, use: [
+        //     {loader: "style-loader"},
+        //     {loader: "css-loader"},
+        //     {loader: "sass-loader", options: {
+        //         includePaths: [
+        //             Bourbon.includePaths,
+        //             "node_modules/bootstrap-sass/assets/stylesheets"
+        //         ]
+        //     }}
+        //   ] },
+
+        {
+          test: /\.scss$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            //resolve-url-loader may be chained before sass-loader if necessary
+            use: [
+                {loader: 'css-loader'},
+                {loader: 'sass-loader', options: {
+                    includePaths: [
+                        Bourbon.includePaths,
+                        "node_modules/bootstrap-sass/assets/stylesheets"
+                    ]
+                }}
             ]
-        }}
-      ] },
-      {test: /\.(jpe?g|png|gif|svg)$/i, use: "file-loader?name=images/[name].[ext]"},
-      { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        use: 'file-loader'}
+          })
+      },
+        //   {
+        //     test: /\.scss$/,
+        //     loader: ExtractTextPlugin.extract("css")
+        //   },
+
+          { test: /\.(jpe?g|png|gif|svg)$/i, use: "file-loader?name=images/[name].[ext]" },
+
+          { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, use: 'file-loader'}
     ]
   }
 }
