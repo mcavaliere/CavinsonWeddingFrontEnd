@@ -28,10 +28,15 @@ var port = process.env.PORT || 5000;
 var app = (0, _express2.default)();
 
 app.use((0, _compression2.default)());
-app.use(_express2.default.static(__dirname + '/public'));
+app.use(_express2.default.static(_path2.default.join(__dirname, '../public')));
+// app.use(express.static(path.join(__dirname, '..', 'public', 'images')));
 // app.use(favicon(path.join(__dirname,'assets','public','favicon.ico')));
 
-app.get('*', function (req, res) {
+// app.get('/bundle.js', function (req, res) {
+//     res.sendFile(path.join(__dirname, '../public/bundle.js'))
+// });
+
+app.get('/', function (req, res) {
   res.sendFile(_path2.default.join(__dirname, '../public/index.html'));
 });
 

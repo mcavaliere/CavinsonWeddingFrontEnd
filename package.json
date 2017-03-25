@@ -13,8 +13,10 @@
     "clean-public": "npm run remove-public && mkdir public",
     "remove-public": "node_modules/.bin/rimraf ./public",
     "build:html": "babel-node tools/buildHtml.js",
-    "prebuild": "npm-run-all clean-public build:html",
-    "build": "babel-node tools/build.js"
+    "build:server": "babel tools/publicServer.js --out-file tools/publicServer-compiled.js",
+    "build:js": "babel-node tools/build.js",
+    "build": "npm-run-all clean-public build:server build:html build:js"
+
   },
   "repository": {
     "type": "git",
