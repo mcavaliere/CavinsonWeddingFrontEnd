@@ -3,7 +3,7 @@ import { Jumbotron } from 'react-bootstrap';
 import {TweenMax, TimelineMax} from 'gsap';
 
 var ScrollMagic = require('scrollmagic/scrollmagic/uncompressed/ScrollMagic');
-require('scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators');
+// require('scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators');
 require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap');
 
 import hero from '../images/134Aug01-2016.jpg';
