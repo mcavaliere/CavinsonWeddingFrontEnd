@@ -11,6 +11,10 @@
 
 @import "routes/home";
 
+* {
+	@include transition(0.7s all ease-in-out);
+}
+
 
 
 

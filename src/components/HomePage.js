@@ -57,9 +57,6 @@ class HomePage extends React.Component {
 		.setClassToggle(img2col[0], 'is-active')
 		.setClassToggle(img2col[1], 'is-active')
 		.addTo(controller)
-
-
-
 	}
 
 	render() {
@@ -80,7 +77,7 @@ class HomePage extends React.Component {
 							<div className="col-xs-12 col-md-6 col-md-offset-3">
 								<h2>These two kids are crazy about each other!</h2>
 
-								<p>Come join us in the most special of occasions, as they tie the knot offcially.</p>
+								<p>Come join us in the most special of occasions, as they tie the knot.</p>
 							</div>
 						</div>
 					</div>
@@ -103,7 +100,7 @@ class HomePage extends React.Component {
 				</Divider>
 
 
-				<section className="container component-content-band constrained">
+				<section className="container component-content-band constrained" id="location">
 					<div className="row">
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>Date &amp; Location</h2>
@@ -130,7 +127,7 @@ class HomePage extends React.Component {
 					<i className="glyphicon glyphicon-home gi-2x"></i>
 				</Divider>
 
-				<section className="container component-content-band constrained">
+				<section className="container component-content-band constrained" id="accommodations">
 					<div className="row">
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>Accommodations</h2>
@@ -140,11 +137,26 @@ class HomePage extends React.Component {
 					</div>
 				</section>
 
+				<section className="container component-img-2-col">
+					<div className="row">
+						<div className="col-xs-12">
+							<div className="row">
+								<div className="col-xs-12 col-sm-4 col-sm-offset-1">
+									<img src={require('../images/330Aug01-2016.jpg')} className="img-responsive img-left" />
+								</div>
+								<div className="col-xs-12 col-sm-7">
+									<img src={require('../images/252Aug01-2016.jpg')} className="img-responsive img-right" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
 				<Divider>
 					<i className="glyphicon glyphicon-glass gi-2x"></i>
 				</Divider>
 
-				<section className="container component-content-band constrained">
+				<section className="container component-content-band constrained" id="after-party">
 					<div className="row">
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>The After Party</h2>
@@ -163,9 +175,15 @@ class HomePage extends React.Component {
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>RSVP</h2>
 
+							<p>When the official invites are sent out, you'll be able to RSVP here on the official CavinsonWedding website.</p>
+
+						{/*
+
+
 							<p>Kindly confirm your RSVP by xx/xx/2017 using the link below. </p>
 
 							<a href="javascript:void(0)" className="btn btn-default btn-cta">RSVP Now</a>
+						*/}
 						</div>
 					</div>
 				</section>
@@ -174,7 +192,7 @@ class HomePage extends React.Component {
 					<i className="glyphicon glyphicon-gift gi-2x"></i>
 				</Divider>
 
-				<section className="container component-content-band constrained">
+				<section className="container component-content-band constrained" id="registry">
 					<div className="row">
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>Our Registry</h2>
@@ -191,20 +209,7 @@ class HomePage extends React.Component {
 
 
 
-				<section className="container component-img-2-col">
-					<div className="row">
-						<div className="col-xs-12">
-							<div className="row">
-								<div className="col-xs-12 col-sm-4 col-sm-offset-1">
-									<img src={require('../images/330Aug01-2016.jpg')} className="img-responsive img-left" />
-								</div>
-								<div className="col-xs-12 col-sm-7">
-									<img src={require('../images/252Aug01-2016.jpg')} className="img-responsive img-right" />
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+
 {/*
 				<section className="container component-img-3-col">
 					<div className="row">
@@ -235,6 +240,7 @@ class HomePage extends React.Component {
 					</div>
 				</section>
 */}
+{/*
 				<section className="container-fluid component-content-band" id="sticky1">
 					<div className="inner">
 						<div className="row">
@@ -246,15 +252,12 @@ class HomePage extends React.Component {
 						</div>
 					</div>
 				</section>
-
+*/}
 				<section className="container-fluid component-hero parallax-img">
 					<div className="bg" style={{ backgroundImage: `url(${hero3})` }} />
 					<div className="inner">
 						<div className="hero-content">
-
-							<h1>SEE YOU AT THE WEDDING!</h1>
-
-
+							<h3>SEE YOU AT THE WEDDING!</h3>
 						</div>
 					</div>
 				</section>

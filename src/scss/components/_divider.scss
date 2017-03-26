@@ -23,13 +23,21 @@ $divider-icon-width: 60px;
 			line-height: $divider-icon-width - 10px;
 			width: $divider-icon-width - 10px;
 			position: relative;
-			top: -1px;
+		    top: 3px;
+
+			.icon-align {
+				display: flex;
+				justify-content: center;
+				// flex-direction: center;
+				align-items: center;
+				height: 100%;
+			}
 		}
 
 		i {
-			position: relative;
-			top: 5px;
-		    left: 1px;
+			// position: relative;
+			// top: 5px;
+		    // left: 1px;
 
 		}
 	}

@@ -16,7 +16,6 @@
     "build:server": "babel tools/publicServer.js --out-file tools/publicServer-compiled.js",
     "build:js": "babel-node tools/build.js",
     "build": "npm-run-all clean-public build:server build:html build:js"
-
   },
   "repository": {
     "type": "git",
@@ -75,6 +74,7 @@
     "responsify": "^0.1.0",
     "scrollmagic": "^2.0.5",
     "serve-favicon": "^2.4.0",
+    "smoothscroll": "^0.3.0",
     "style-loader": "^0.13.2"
   }
 }

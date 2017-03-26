@@ -87,6 +87,20 @@
 				}
 			}
 
+			h3 {
+				color: $color-white;
+				font-family: $hero-font-family;
+				font-size: px-to-rem(42px);
+				font-weight: $hero-font-weight;
+				margin-top: 0;
+				-webkit-font-smoothing: antialiased;
+				width: 100%;
+
+				@include lg-and-up {
+					font-size: px-to-rem(66px);
+				}
+			}
+
 			h1, p {
 				text-align: center;
 			}
