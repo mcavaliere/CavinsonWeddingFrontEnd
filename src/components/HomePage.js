@@ -6,7 +6,7 @@ var ScrollMagic = require('scrollmagic/scrollmagic/uncompressed/ScrollMagic');
 // require('scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators');
 require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap');
 
-import hero from '../images/134Aug01-2016.jpg';
+import hero from '../images/55Aug01-2016.jpg';
 import hero2 from '../images/439Aug01-2016.jpg';
 import hero3 from '../images/15Aug01-2016.jpg';
 
@@ -74,14 +74,26 @@ class HomePage extends React.Component {
 						</div>
 					</div>
 				</section>
-				<section className="container-fluid component-content-band constrained" id="sticky1">
+				<section className="container-fluid component-content-band " id="sticky1">
 					<div className="inner">
 						<div className="row">
 							<div className="col-xs-12 col-md-6 col-md-offset-3">
-								<h2>Curabitur lobortis id lorem. </h2>
+								<h2>These two kids are crazy about each other!</h2>
 
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+								<p>Come join us in the most special of occasions, as they tie the knot offcially.</p>
 							</div>
+						</div>
+					</div>
+				</section>
+
+				<section className="container-fluid component-hero parallax-img">
+					<div className="bg" style={{ backgroundImage: `url(${hero2})` }} />
+						<div className="inner">
+						<div className="hero-content">
+							{/*
+							<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+							<h2>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
+							*/}
 						</div>
 					</div>
 				</section>
@@ -167,7 +179,8 @@ class HomePage extends React.Component {
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>Our Registry</h2>
 
-							<p>Buy us stuff! Or give money - either is appreciated. Our registry is conveniently hosted on Zola.com,
+							<p>Buy us stuff! Or give money - either is appreciated, but of course your presence is most important!</p>
+							<p>Our registry is conveniently hosted on Zola.com,
 								so you won't have to lug a heavy bottle of aged scotch to Connecticut - unless you want to :)</p>
 
 							<a href="https://www.zola.com/registry/cavinsonwedding" className="btn btn-default btn-cta" target="_blank">View our Registry</a>
@@ -176,17 +189,8 @@ class HomePage extends React.Component {
 				</section>
 
 
-				<section className="container-fluid component-hero parallax-img">
-					<div className="bg" style={{ backgroundImage: `url(${hero2})` }} />
-					<div className="inner">
 
-					<div className="hero-content">
-						<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
-						<h2>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
-					</div>
 
-					</div>
-				</section>
 				<section className="container component-img-2-col">
 					<div className="row">
 						<div className="col-xs-12">
@@ -199,27 +203,58 @@ class HomePage extends React.Component {
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</section>
-
+{/*
+				<section className="container component-img-3-col">
+					<div className="row">
+						<div className="col-xs-12">
+							<div className="row">
+								<div className="col-xs-12 col-sm-4">
+									<img src={require('../images/Jul_26_8_26_07_PM.jpeg')} className="img-responsive" />
+								</div>
+								<div className="col-xs-12 col-sm-4">
+									<img src={require('../images/2016-08-02_20.27.31.jpg')} className="img-responsive" />
+								</div>
+								<div className="col-xs-12 col-sm-4">
+									<img src={require('../images/2016-07-31_17.11.27.jpg')} className="img-responsive" />
+								</div>
+							</div>
+							<div className="row">
+								<div className="col-xs-12 col-sm-4">
+									<img src={require('../images/2016-05-12_20.18.42.jpg')} className="img-responsive" />
+								</div>
+								<div className="col-xs-12 col-sm-4">
+									<img src={require('../images/2016-04-30_19.12.00.jpg')} className="img-responsive" />
+								</div>
+								<div className="col-xs-12 col-sm-4">
+									<img src={require('../images/Jul_26_8_26_07_PM.jpeg')} className="img-responsive" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+*/}
 				<section className="container-fluid component-content-band" id="sticky1">
 					<div className="inner">
 						<div className="row">
 							<div className="col-xs-12 col-md-6 col-md-offset-3">
-								<h2>Curabitur lobortis id lorem. </h2>
+								<h2>Curabitur lobortis id lorem.</h2>
 
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  </p>
 							</div>
 						</div>
 					</div>
 				</section>
+
 				<section className="container-fluid component-hero parallax-img">
 					<div className="bg" style={{ backgroundImage: `url(${hero3})` }} />
 					<div className="inner">
 						<div className="hero-content">
-							<h1>Lorem ipsum dolor sit amet.</h1>
-							<h2>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </h2>
+
+							<h1>SEE YOU AT THE WEDDING!</h1>
+
+
 						</div>
 					</div>
 				</section>

@@ -9,8 +9,10 @@
 		position: relative;
 		overflow: hidden;
 		height: 100vh;
+		margin-bottom: px-to-rem($grid-gutter-width);
 		padding-left: 0;
 		padding-right: 0;
+
 
 		&:after {
 			content: " ";
