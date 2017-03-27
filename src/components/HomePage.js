@@ -11,66 +11,70 @@ import hero2 from '../images/439Aug01-2016.jpg';
 import hero3 from '../images/15Aug01-2016.jpg';
 
 import Divider from '../components/shared/Divider';
+import ParallaxImg from '../components/shared/ParallaxImg';
 
 class HomePage extends React.Component {
 	componentDidMount() {
-		let controller = new ScrollMagic.Controller();
-		let slides = document.querySelectorAll(".parallax-img");
+		console.warn("--------componentDidMount");
 
-		// Parallax background image effect when scrolling.
-		slides.forEach(function (slide, index) {
-		    var $bcg = slide.querySelector('.bg');
+		document.addEventListener("DOMContentLoaded", function () {
+			console.warn("--------DOMContentLoaded");
+			let controller = new ScrollMagic.Controller();
+			let slides = document.querySelectorAll(".parallax-img");
 
-		    var slideParallaxScene = new ScrollMagic.Scene({
-		        triggerElement: slide,
-		        triggerHook: 1,
-		        duration: "100%"
-		    })
-		    .setTween(TweenMax.from($bcg, 1, {y: '-40%', ease:Power0.easeNone}))
-		    .addTo(controller);
+			console.warn("-----slides: ", slides);
+			// Parallax background image effect when scrolling.
+			slides.forEach(function (slide, index) {
+			    var $bcg = slide.querySelector('.bg');
+
+			    var slideParallaxScene = new ScrollMagic.Scene({
+			        triggerElement: slide,
+			        triggerHook: 1,
+			        duration: "100%"
+			    })
+			    .setTween(TweenMax.from($bcg, 1, {y: '-40%', ease:Power0.easeNone}))
+			    .addTo(controller);
+			});
+
+			// Fade in the text content as we scroll to each large image.
+			slides.forEach(function (slide, index) {
+			    // make scene
+			    var headerScene = new ScrollMagic.Scene({
+			        triggerElement: slide.querySelector('.hero-content'), // trigger CSS animation when header is in the middle of the viewport
+			        offset: -50 // offset triggers the animation 95 earlier then middle of the viewport, adjust to your liking
+			    })
+			    .setClassToggle(slide, 'is-active') // set class to active slide
+			    //.addIndicators() // add indicators (requires plugin), use for debugging
+			    .addTo(controller);
+			});
+
+			// change behaviour of controller to animate scroll instead of jump
+			controller.scrollTo(function (newpos) {
+			    TweenMax.to(window, 1, {scrollTo: {y: newpos}, ease:Power1.easeInOut});
+			});
+
+			let img2col = document.querySelectorAll('.component-img-2-col');
+			let img2colImages = img2col[0].querySelectorAll('img');
+
+
+			new ScrollMagic.Scene({
+				triggerElement: img2col
+			})
+			.setClassToggle(img2col[0], 'is-active')
+			.setClassToggle(img2col[1], 'is-active')
+			.addTo(controller)
 		});
 
-		// Fade in the text content as we scroll to each large image.
-		slides.forEach(function (slide, index) {
-		    // make scene
-		    var headerScene = new ScrollMagic.Scene({
-		        triggerElement: slide.querySelector('.hero-content'), // trigger CSS animation when header is in the middle of the viewport
-		        offset: -50 // offset triggers the animation 95 earlier then middle of the viewport, adjust to your liking
-		    })
-		    .setClassToggle(slide, 'is-active') // set class to active slide
-		    //.addIndicators() // add indicators (requires plugin), use for debugging
-		    .addTo(controller);
-		});
-
-		// change behaviour of controller to animate scroll instead of jump
-		controller.scrollTo(function (newpos) {
-		    TweenMax.to(window, 1, {scrollTo: {y: newpos}, ease:Power1.easeInOut});
-		});
-
-		let img2col = document.querySelectorAll('.component-img-2-col');
-		let img2colImages = img2col[0].querySelectorAll('img');
-
-
-		new ScrollMagic.Scene({
-			triggerElement: img2col
-		})
-		.setClassToggle(img2col[0], 'is-active')
-		.setClassToggle(img2col[1], 'is-active')
-		.addTo(controller)
 	}
 
 	render() {
 		return (
 			<div className="route route-home">
-				<section className="container-fluid component-hero parallax-img">
-					<div className="bg" style={{ backgroundImage: `url(${hero})` }} />
-					<div className="inner">
-						<div className="hero-content">
-							<h1>Mike & Kelli's Wedding</h1>
-							<h2>Sept 23, 2017</h2>
-						</div>
-					</div>
-				</section>
+				<ParallaxImg img={hero}>
+					<h1>Mike & Kelli's Wedding</h1>
+					<h2>Sept 23, 2017</h2>
+				</ParallaxImg>
+
 				<section className="container-fluid component-content-band " id="sticky1">
 					<div className="inner">
 						<div className="row">
@@ -83,17 +87,7 @@ class HomePage extends React.Component {
 					</div>
 				</section>
 
-				<section className="container-fluid component-hero parallax-img">
-					<div className="bg" style={{ backgroundImage: `url(${hero2})` }} />
-						<div className="inner">
-						<div className="hero-content">
-							{/*
-							<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
-							<h2>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
-							*/}
-						</div>
-					</div>
-				</section>
+				<ParallaxImg img={hero2}></ParallaxImg>
 
 				<Divider>
 					<i className="glyphicon glyphicon-calendar gi-2x"></i>
@@ -253,14 +247,11 @@ class HomePage extends React.Component {
 					</div>
 				</section>
 */}
-				<section className="container-fluid component-hero parallax-img">
-					<div className="bg" style={{ backgroundImage: `url(${hero3})` }} />
-					<div className="inner">
-						<div className="hero-content">
-							<h3>SEE YOU AT THE WEDDING!</h3>
-						</div>
-					</div>
-				</section>
+
+				<ParallaxImg img={hero3}>
+					<h3>SEE YOU AT THE WEDDING!</h3>
+				</ParallaxImg>
+				
 			</div>
 		);
 	}
