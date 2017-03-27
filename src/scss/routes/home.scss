@@ -13,6 +13,39 @@
 		padding-left: 0;
 		padding-right: 0;
 
+		&:first-of-type {
+			.hero-content {
+				h1 {
+					font-family: 'Euphoria Script', cursive;
+					text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+
+					@include sm-and-up {
+						font-size: px-to-rem(82px);
+					}
+
+					@include lg-and-up {
+						font-size: px-to-rem(132px);
+					}
+
+					@include transition($transition-default)
+				}
+			}
+		}
+
+
+		.hero-content  {
+			h1, h2, h3 {
+				// font-family: 'Tangerine', cursive;
+				// font-family: 'Great Vibes', cursive;
+				// font-family: 'Marck Script', cursive;
+				// font-family: 'Calligraffitti', cursive;
+				// font-family: 'The Girl Next Door', cursive;
+				// font-family: 'La Belle Aurore', cursive;
+				// font-family: 'Euphoria Script', cursive;
+			}
+		}
+
+
 		.bg {
 			position: relative;
 			z-index: 5;
@@ -75,7 +108,7 @@
 
 			h1 {
 				color: $color-white;
-				font-family: $hero-font-family;
+				// font-family: $hero-font-family;
 				font-size: px-to-rem(66px);
 				font-weight: $hero-font-weight;
 				margin-top: 0;
@@ -100,7 +133,7 @@
 
 			h3 {
 				color: $color-white;
-				font-family: $hero-font-family;
+				// font-family: $hero-font-family;
 				font-size: px-to-rem(42px);
 				font-weight: $hero-font-weight;
 				margin-top: 0;
