@@ -8,34 +8,39 @@
 		margin: 0;
 		position: relative;
 		overflow: hidden;
-		height: 100vh;
+		// height: 100vh;
 		margin-bottom: px-to-rem($grid-gutter-width);
 		padding-left: 0;
 		padding-right: 0;
 
-
-		&:after {
-			content: " ";
-			display: block;
-			position: absolute;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			background: rgba(0, 0, 0, 0.2);
-			z-index: 5;
-			width: 100%;
-			height: 100%;
-		}
-
-		img {
-			object-fit: cover;
-			display: block;
-			width: 100%;
-			height: auto;
+		.bg {
 			position: relative;
 			z-index: 5;
+
+			img {
+				object-fit: cover;
+				display: block;
+				width: 100%;
+				height: auto;
+				position: relative;
+				z-index: 5;
+			}
+
+			&:after {
+				content: " ";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				background: rgba(0, 0, 0, 0.2);
+				z-index: 5;
+				width: 100%;
+				height: 100%;
+			}
 		}
+
 
         &.is-active {
             .hero-content {
@@ -50,6 +55,12 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
+			position: absolute;
+			z-index: 10;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
 		}
 
 		.hero-content {
@@ -131,21 +142,6 @@
 			display: inline-block;
 			vertical-align: middle;
 		}
-	}
-
-	.component-hero .inner {
-	    z-index: 10;
-	    position: relative;
-		height: 100%;
-	}
-
-	.bg {
-		background: no-repeat center center;
-	    background-size: cover;
-	    position: absolute;
-	    width: 100%;
-	    height: 100%;
-	    z-index: 1;
 	}
 
 	.component-divider {

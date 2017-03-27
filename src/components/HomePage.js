@@ -15,14 +15,11 @@ import ParallaxImg from '../components/shared/ParallaxImg';
 
 class HomePage extends React.Component {
 	componentDidMount() {
-		console.warn("--------componentDidMount");
 
 		document.addEventListener("DOMContentLoaded", function () {
-			console.warn("--------DOMContentLoaded");
 			let controller = new ScrollMagic.Controller();
 			let slides = document.querySelectorAll(".parallax-img");
 
-			console.warn("-----slides: ", slides);
 			// Parallax background image effect when scrolling.
 			slides.forEach(function (slide, index) {
 			    var $bcg = slide.querySelector('.bg');
@@ -251,7 +248,7 @@ class HomePage extends React.Component {
 				<ParallaxImg img={hero3}>
 					<h3>SEE YOU AT THE WEDDING!</h3>
 				</ParallaxImg>
-				
+
 			</div>
 		);
 	}

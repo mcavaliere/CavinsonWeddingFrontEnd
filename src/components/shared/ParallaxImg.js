@@ -7,10 +7,12 @@ require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap');
 
 class ParallaxImg extends React.Component {
 	render() {
-		console.warn("--------PArallaxImg render");
 		return (
 			<section className="container-fluid component-hero parallax-img">
-				<div className="bg" style={{ backgroundImage: `url(${this.props.img})` }} />
+				<div className="bg">
+					<img src={this.props.img} />
+				</div>
+
 				<div className="inner">
 					<div className="hero-content">
 						{this.props.children}
