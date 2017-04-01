@@ -15,7 +15,8 @@
     "build:html": "babel-node tools/buildHtml.js",
     "build:server": "babel tools/publicServer.js --out-file tools/publicServer-compiled.js",
     "build:js": "babel-node tools/build.js",
-    "build": "npm-run-all clean-public build:server build:html build:js"
+    "build": "npm-run-all clean-public build:server build:html build:js",
+    "install": "napa wentin/ResponsifyJS"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.10.1",
     "imports-loader": "^0.7.1",
+    "napa": "^2.3.0",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.2",
     "sass-loader": "^6.0.2",
@@ -62,6 +64,7 @@
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.1",
     "gsap": "^1.19.1",
+    "jquery": "^3.2.1",
     "open": "0.0.5",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.8",
@@ -71,7 +74,6 @@
     "react-router-bootstrap": "^0.23.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
-    "responsify": "^0.1.0",
     "scrollmagic": "^2.0.5",
     "serve-favicon": "^2.4.0",
     "smoothscroll": "^0.3.0",

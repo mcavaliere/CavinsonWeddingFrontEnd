@@ -2,6 +2,7 @@ import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import { TweenMax, TimelineMax } from 'gsap';
 
+import $ from '../lib/jquery-with-plugins';
 import ScrollMagic from 'scrollmagic/scrollmagic/uncompressed/ScrollMagic';
 // require('scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators');
 require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap');
@@ -17,12 +18,14 @@ class HomePage extends React.Component {
 	componentDidMount() {
 		document.addEventListener("DOMContentLoaded", function () {
 			this.initScenes();
+
+			console.log("jquery: ", $);
 		}.bind(this));
 	}
 
 	componentWillUnmount() {
-		console.warn("------componentWillUnmount");
-		console.warn("------controller: ", this.controller);
+		console.log("------componentWillUnmount");
+		console.log("------controller: ", this.controller);
 	}
 
 	render() {

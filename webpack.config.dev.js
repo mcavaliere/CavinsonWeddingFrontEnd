@@ -24,7 +24,12 @@ export default {
       'process.env': {
         'API_HOST': JSON.stringify('http://localhost:5000')
       }
-    })
+      }),
+      new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery",
+          "window.jQuery": "jquery"
+      })
   ],
   module: {
     rules: [
