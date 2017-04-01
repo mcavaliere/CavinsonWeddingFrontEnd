@@ -15,56 +15,14 @@ import ParallaxImg from '../components/shared/ParallaxImg';
 
 class HomePage extends React.Component {
 	componentDidMount() {
-
 		document.addEventListener("DOMContentLoaded", function () {
-			this.controller = new ScrollMagic.Controller();
-			let slides = document.querySelectorAll(".parallax-img");
-
-			// Parallax background image effect when scrolling.
-			slides.forEach(function (slide, index) {
-			    var $bcg = slide.querySelector('.bg');
-
-			    var slideParallaxScene = new ScrollMagic.Scene({
-			        triggerElement: slide,
-			        triggerHook: 1,
-			        duration: "100%"
-			    })
-			    .setTween(TweenMax.from($bcg, 1, {y: '-40%', ease:Power0.easeNone}))
-			    .addTo(this.controller);
-			}.bind(this));
-
-			// Fade in the text content as we scroll to each large image.
-			slides.forEach(function (slide, index) {
-			    // make scene
-			    var headerScene = new ScrollMagic.Scene({
-			        triggerElement: slide.querySelector('.hero-content'), // trigger CSS animation when header is in the middle of the viewport
-			        offset: -50 // offset triggers the animation 95 earlier then middle of the viewport, adjust to your liking
-			    })
-			    .setClassToggle(slide, 'is-active') // set class to active slide
-			    //.addIndicators() // add indicators (requires plugin), use for debugging
-			    .addTo(this.controller);
-			}.bind(this));
-
-			// change behaviour of controller to animate scroll instead of jump
-			this.controller.scrollTo(function (newpos) {
-			    TweenMax.to(window, 1, {scrollTo: {y: newpos}, ease:Power1.easeInOut});
-			});
-
-			let img2col = document.querySelectorAll('.component-img-2-col');
-			let img2colImages = img2col[0].querySelectorAll('img');
-
-			new ScrollMagic.Scene({
-				triggerElement: img2col
-			})
-			.setClassToggle(img2col[0], 'is-active')
-			.setClassToggle(img2col[1], 'is-active')
-			.addTo(this.controller)
+			this.initScenes();
 		}.bind(this));
-
 	}
 
 	componentWillUnmount() {
-
+		console.warn("------componentWillUnmount");
+		console.warn("------controller: ", this.controller);
 	}
 
 	render() {
@@ -254,6 +212,51 @@ class HomePage extends React.Component {
 
 			</div>
 		);
+	}
+
+	initScenes() {
+		this.controller = new ScrollMagic.Controller();
+		let slides = document.querySelectorAll(".parallax-img");
+
+		// Parallax background image effect when scrolling.
+		slides.forEach(function (slide, index) {
+			var $bcg = slide.querySelector('.bg');
+
+			var slideParallaxScene = new ScrollMagic.Scene({
+				triggerElement: slide,
+				triggerHook: 1,
+				duration: "100%"
+			})
+			.setTween(TweenMax.from($bcg, 1, {y: '-40%', ease:Power0.easeNone}))
+			.addTo(this.controller);
+		}.bind(this));
+
+		// Fade in the text content as we scroll to each large image.
+		slides.forEach(function (slide, index) {
+			// make scene
+			var headerScene = new ScrollMagic.Scene({
+				triggerElement: slide.querySelector('.hero-content'), // trigger CSS animation when header is in the middle of the viewport
+				offset: -50 // offset triggers the animation 95 earlier then middle of the viewport, adjust to your liking
+			})
+			.setClassToggle(slide, 'is-active') // set class to active slide
+			//.addIndicators() // add indicators (requires plugin), use for debugging
+			.addTo(this.controller);
+		}.bind(this));
+
+		// change behaviour of controller to animate scroll instead of jump
+		this.controller.scrollTo(function (newpos) {
+			TweenMax.to(window, 1, {scrollTo: {y: newpos}, ease:Power1.easeInOut});
+		});
+
+		let img2col = document.querySelectorAll('.component-img-2-col');
+		let img2colImages = img2col[0].querySelectorAll('img');
+
+		new ScrollMagic.Scene({
+			triggerElement: img2col
+		})
+		.setClassToggle(img2col[0], 'is-active')
+		.setClassToggle(img2col[1], 'is-active')
+		.addTo(this.controller)
 	}
 }
 
