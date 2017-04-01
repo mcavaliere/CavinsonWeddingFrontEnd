@@ -15,8 +15,7 @@
     "build:html": "babel-node tools/buildHtml.js",
     "build:server": "babel tools/publicServer.js --out-file tools/publicServer-compiled.js",
     "build:js": "babel-node tools/build.js",
-    "build": "npm-run-all clean-public build:server build:html build:js",
-    "install": "git clone https://github.com/wentin/ResponsifyJS.git node_modules/ResponsifyJS"
+    "build": "npm-run-all clean-public build:server build:html build:js"
   },
   "repository": {
     "type": "git",

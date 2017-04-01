@@ -1,4 +1,4 @@
-import responsify from '../../node_modules/ResponsifyJS/responsify';
+import responsify from './responsify';
 
 // [responsify].forEach(plugin => jQuery.fn[plugin.name] = plugin)
 
