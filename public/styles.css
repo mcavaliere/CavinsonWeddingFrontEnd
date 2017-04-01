@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Italianno);.component-message-list .thumb img {
+@import url(https://fonts.googleapis.com/css?family=Calligraffitti|Euphoria+Script|Great+Vibes|La+Belle+Aurore|Marck+Script|Tangerine|The+Girl+Next+Door);.component-message-list .thumb img {
   width: 200px; }
 .route-guestbook-new .preview img {
   max-height: 100px; }
@@ -11633,6 +11633,16 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+/* Google Fonts */
+/*
+font-family: 'Tangerine', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Marck Script', cursive;
+font-family: 'Calligraffitti', cursive;
+font-family: 'The Girl Next Door', cursive;
+font-family: 'La Belle Aurore', cursive;
+font-family: 'Euphoria Script', cursive;
+*/
 @font-face {
   font-family: 'BaskervilleURW';
   src: url(02ff5f3741c553b11c02a49f71a6b463.eot);
@@ -11690,11 +11700,12 @@ button.close {
       line-height: 50px;
       width: 50px;
       position: relative;
-      top: -1px; }
-    .component-divider .icon i {
-      position: relative;
-      top: 5px;
-      left: 1px; }
+      top: 3px; }
+      .component-divider .icon .icon-inner .icon-align {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%; }
   .component-divider:before, .component-divider:after {
     display: inline-block;
     content: " ";
@@ -11711,28 +11722,43 @@ button.close {
   margin: 0;
   position: relative;
   overflow: hidden;
-  height: 100vh;
+  margin-bottom: 2.14286rem;
   padding-left: 0;
   padding-right: 0; }
-  .route-home .component-hero:after {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 5;
-    width: 100%;
-    height: 100%; }
-  .route-home .component-hero img {
-    object-fit: cover;
-    display: block;
-    width: 100%;
-    height: auto;
+  .route-home .component-hero:first-of-type .hero-content h1 {
+    font-family: 'Euphoria Script', cursive;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-transition: 0.7s all ease-in-out;
+    -moz-transition: 0.7s all ease-in-out;
+    transition: 0.7s all ease-in-out; }
+    @media screen and (min-width: 768px) {
+      .route-home .component-hero:first-of-type .hero-content h1 {
+        font-size: 5.85714rem; } }
+    @media screen and (min-width: 1200px) {
+      .route-home .component-hero:first-of-type .hero-content h1 {
+        font-size: 9.42857rem; } }
+  .route-home .component-hero .bg {
     position: relative;
     z-index: 5; }
+    .route-home .component-hero .bg img {
+      object-fit: cover;
+      display: block;
+      width: 100%;
+      height: auto;
+      position: relative;
+      z-index: 5; }
+    .route-home .component-hero .bg:after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.2);
+      z-index: 5;
+      width: 100%;
+      height: 100%; }
   .route-home .component-hero.is-active .hero-content {
     visibility: visible;
     opacity: 1;
@@ -11745,7 +11771,13 @@ button.close {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0; }
   .route-home .component-hero .hero-content {
     visibility: hidden;
     opacity: 0;
@@ -11760,7 +11792,6 @@ button.close {
     transform: translate3d(0, 50px, 0); }
     .route-home .component-hero .hero-content h1 {
       color: #fff;
-      font-family: "P22 Marcel Script Pro";
       font-size: 4.71429rem;
       font-weight: 400;
       margin-top: 0;
@@ -11777,6 +11808,16 @@ button.close {
       @media screen and (min-width: 1200px) {
         .route-home .component-hero .hero-content h2 {
           font-size: 3.28571rem; } }
+    .route-home .component-hero .hero-content h3 {
+      color: #fff;
+      font-size: 3rem;
+      font-weight: 400;
+      margin-top: 0;
+      -webkit-font-smoothing: antialiased;
+      width: 100%; }
+      @media screen and (min-width: 1200px) {
+        .route-home .component-hero .hero-content h3 {
+          font-size: 4.71429rem; } }
     .route-home .component-hero .hero-content h1, .route-home .component-hero .hero-content p {
       text-align: center; }
 
@@ -11794,19 +11835,6 @@ button.close {
   .route-home .component-content-band address {
     display: inline-block;
     vertical-align: middle; }
-
-.route-home .component-hero .inner {
-  z-index: 10;
-  position: relative;
-  height: 100%; }
-
-.route-home .bg {
-  background: no-repeat center center;
-  background-size: cover;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1; }
 
 .route-home .component-divider {
   margin-bottom: 1.07143rem; }
