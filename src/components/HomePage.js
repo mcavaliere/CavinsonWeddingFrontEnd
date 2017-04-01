@@ -1,6 +1,6 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
-import {TweenMax, TimelineMax} from 'gsap';
+import { TweenMax, TimelineMax } from 'gsap';
 
 var ScrollMagic = require('scrollmagic/scrollmagic/uncompressed/ScrollMagic');
 // require('scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators');
@@ -17,7 +17,7 @@ class HomePage extends React.Component {
 	componentDidMount() {
 
 		document.addEventListener("DOMContentLoaded", function () {
-			let controller = new ScrollMagic.Controller();
+			this.controller = new ScrollMagic.Controller();
 			let slides = document.querySelectorAll(".parallax-img");
 
 			// Parallax background image effect when scrolling.
@@ -30,8 +30,8 @@ class HomePage extends React.Component {
 			        duration: "100%"
 			    })
 			    .setTween(TweenMax.from($bcg, 1, {y: '-40%', ease:Power0.easeNone}))
-			    .addTo(controller);
-			});
+			    .addTo(this.controller);
+			}.bind(this));
 
 			// Fade in the text content as we scroll to each large image.
 			slides.forEach(function (slide, index) {
@@ -42,25 +42,28 @@ class HomePage extends React.Component {
 			    })
 			    .setClassToggle(slide, 'is-active') // set class to active slide
 			    //.addIndicators() // add indicators (requires plugin), use for debugging
-			    .addTo(controller);
-			});
+			    .addTo(this.controller);
+			}.bind(this));
 
 			// change behaviour of controller to animate scroll instead of jump
-			controller.scrollTo(function (newpos) {
+			this.controller.scrollTo(function (newpos) {
 			    TweenMax.to(window, 1, {scrollTo: {y: newpos}, ease:Power1.easeInOut});
 			});
 
 			let img2col = document.querySelectorAll('.component-img-2-col');
 			let img2colImages = img2col[0].querySelectorAll('img');
 
-
 			new ScrollMagic.Scene({
 				triggerElement: img2col
 			})
 			.setClassToggle(img2col[0], 'is-active')
 			.setClassToggle(img2col[1], 'is-active')
-			.addTo(controller)
-		});
+			.addTo(this.controller)
+		}.bind(this));
+
+	}
+
+	componentWillUnmount() {
 
 	}
 
