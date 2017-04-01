@@ -10,7 +10,13 @@ class ParallaxImg extends React.Component {
 		return (
 			<section className="container-fluid component-hero parallax-img">
 				<div className="bg">
-					<img src={this.props.img} />
+					<img src={this.props.img}
+						 className="responsify-me"
+						 data-focus-left="0.38"
+						 data-focus-top="0.28"
+						 data-focus-right="0.65"
+						 data-focus-bottom="1.01"
+					/>
 				</div>
 
 				<div className="inner">

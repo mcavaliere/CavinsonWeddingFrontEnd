@@ -18,9 +18,16 @@ class HomePage extends React.Component {
 	componentDidMount() {
 		document.addEventListener("DOMContentLoaded", function () {
 			this.initScenes();
-
-			console.log("jquery: ", $);
 		}.bind(this));
+
+		window.addEventListener("load", function () {
+			var images = $("img.responsify-me");
+			images.responsify();
+
+			$(window).on("resize", function () {
+				images.responsify();
+			});
+		});
 	}
 
 	componentWillUnmount() {
@@ -48,7 +55,7 @@ class HomePage extends React.Component {
 					</div>
 				</section>
 
-				<ParallaxImg img={hero2}></ParallaxImg>
+				<ParallaxImg img={hero2} ></ParallaxImg>
 
 				<Divider>
 					<i className="glyphicon glyphicon-calendar gi-2x"></i>
