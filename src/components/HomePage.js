@@ -2,7 +2,7 @@ import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import { TweenMax, TimelineMax } from 'gsap';
 
-var ScrollMagic = require('scrollmagic/scrollmagic/uncompressed/ScrollMagic');
+import ScrollMagic from 'scrollmagic/scrollmagic/uncompressed/ScrollMagic';
 // require('scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators');
 require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap');
 
