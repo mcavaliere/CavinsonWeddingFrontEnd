@@ -33,7 +33,21 @@ export default {
   ],
   module: {
     rules: [
-      {test: /\.(jpe?g|png|gif|svg)$/i, use: "file-loader?name=images/[name].[ext]"},
+      {
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          use: [
+              {loader: "file-loader", options: {'name': 'images/[name].[ext]'}},
+              {loader: "image-webpack-loader", options: {
+                  progressive: true,
+                  optimizationLevel: 8,
+                  interlaced: false,
+                  pngquant: {
+                    quality: '65-90',
+                    speed: 4
+                  }
+              }}
+          ]
+      },
     //   { test: /\.scss$/, loader: "style!css!sass?includePaths[]=" + JSON.stringify(bourbon)},
       {test: /\.scss$/, use: [
           {loader: "style-loader"},
