@@ -110,12 +110,30 @@ class HomePage extends React.Component {
 					<i className="glyphicon glyphicon-home gi-2x"></i>
 				</Divider>
 
-				<section className="container component-content-band constrained" id="accommodations">
+				<section className="container component-content-band constrained component-accommodations" id="accommodations">
 					<div className="row">
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>Accommodations</h2>
 
-							<p>Group rates available at the [HOTEL NAME] hotel - XYZ rooms in total.</p>
+							<p>Group rates are available at the Courtyard Marriott and the Doubletree Hilton. Both are located within a few minutes of the wedding location.</p>
+						</div>
+					</div>
+					<div className="row">
+						<div className="col-xs-6">
+							<a href="#" className="component-hoverable-block">
+								<span className="img-container">
+									<img className="img-responsive" src={require('../images/courtyard.jpeg')} />
+								</span>
+								<h3>Courtyard Marriott</h3>
+							</a>
+						</div>
+						<div className="col-xs-6">
+							<a href="#" className="component-hoverable-block">
+								<span className="img-container">
+									<img className="img-responsive" src={require('../images/doubletree.jpeg')} />
+								</span>
+								<h3>Doubletree Hilton</h3>
+							</a>
 						</div>
 					</div>
 				</section>
@@ -134,6 +152,8 @@ class HomePage extends React.Component {
 						</div>
 					</div>
 				</section>
+
+
 
 				<Divider>
 					<i className="glyphicon glyphicon-glass gi-2x"></i>
@@ -167,6 +187,21 @@ class HomePage extends React.Component {
 
 							<a href="javascript:void(0)" className="btn btn-default btn-cta">RSVP Now</a>
 						*/}
+						</div>
+					</div>
+				</section>
+
+				<section className="container component-img-2-col">
+					<div className="row">
+						<div className="col-xs-12">
+							<div className="row">
+								<div className="col-xs-12 col-sm-4 col-sm-offset-1">
+									<img src={require('../images/330Aug01-2016.jpg')} className="img-responsive img-left" />
+								</div>
+								<div className="col-xs-12 col-sm-7">
+									<img src={require('../images/252Aug01-2016.jpg')} className="img-responsive img-right" />
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>

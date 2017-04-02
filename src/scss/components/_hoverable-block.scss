@@ -1,0 +1,10 @@
+.component-hoverable-block {
+	display: block;
+
+	transition: opacity 0.2s ease-in-out;
+
+	&:hover {
+		opacity: 0.5;
+		text-decoration: none;
+	}
+}
