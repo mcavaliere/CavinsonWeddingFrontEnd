@@ -9,7 +9,7 @@ require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap');
 
 import hero from '../images/55Aug01-2016.jpg';
 import hero2 from '../images/439Aug01-2016.jpg';
-import hero3 from '../images/15Aug01-2016.jpg';
+import hero3 from '../images/227Aug01-2016.jpg';
 
 import Divider from '../components/shared/Divider';
 import ParallaxImg from '../components/shared/ParallaxImg';
@@ -60,7 +60,12 @@ class HomePage extends React.Component {
 					</div>
 				</section>
 
-				<ParallaxImg img={hero2} ></ParallaxImg>
+				<ParallaxImg img={hero2} focus={{
+					 left:"0.57",
+					 top:"0.00",
+					 right:"0.90",
+					 bottom:"0.99"
+				}} ></ParallaxImg>
 
 				<Divider>
 					<i className="glyphicon glyphicon-calendar gi-2x"></i>
@@ -221,7 +226,12 @@ class HomePage extends React.Component {
 				</section>
 */}
 
-				<ParallaxImg img={hero3}>
+				<ParallaxImg img={hero3} focus={{
+						 left: "0.34",
+						 top: "0.00",
+						 right: "0.84", 
+						 bottom: "1.00"
+					}}>
 					<h3>SEE YOU AT THE WEDDING!</h3>
 				</ParallaxImg>
 
