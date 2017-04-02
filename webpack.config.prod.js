@@ -51,17 +51,6 @@ export default {
             use: ['babel-loader'],
             exclude: /node_modules/ },
 
-        //   { test: /\.scss$/, use: [
-        //     {loader: "style-loader"},
-        //     {loader: "css-loader"},
-        //     {loader: "sass-loader", options: {
-        //         includePaths: [
-        //             Bourbon.includePaths,
-        //             "node_modules/bootstrap-sass/assets/stylesheets"
-        //         ]
-        //     }}
-        //   ] },
-
         {
           test: /\.scss$/,
           use: ExtractTextPlugin.extract({
@@ -78,14 +67,24 @@ export default {
             ]
           })
       },
-        //   {
-        //     test: /\.scss$/,
-        //     loader: ExtractTextPlugin.extract("css")
-        //   },
 
-          { test: /\.(jpe?g|png|gif|svg)$/i, use: "file-loader?name=images/[name].[ext]" },
+      {
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          use: [
+              {loader: "file-loader", options: {'name': 'images/[name].[ext]'}},
+              {loader: "image-webpack-loader", options: {
+                  progressive: true,
+                  optimizationLevel: 8,
+                  interlaced: false,
+                  pngquant: {
+                    quality: '65-90',
+                    speed: 4
+                  }
+              }}
+          ]
+      },
 
-          { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, use: 'file-loader'}
+      { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, use: 'file-loader'}
     ]
   }
 }
