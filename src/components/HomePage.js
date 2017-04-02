@@ -27,24 +27,8 @@ class HomePage extends React.Component {
 		}.bind(this));
 
 		window.addEventListener("load", function () {
-			this.$img = $("img.responsify-me").not('[data-responsify-initialized]');
-
-			this.$img.responsify();
-
-			// Flag the element, so we don't initialize it twice.
-			this.$img.attr("data-responsify-initialized", "true");
-
-			// TODO: Quick fix -DP
-			setTimeout(function () {
-				this.$img.responsify();
-			}, 20);
-
-			// When window is resizing...
-			window.addEventListener('resize', function () {
-				// Retrigger responsify.js
-				this.$img.responsify();
-			});
-		});
+			this.initResponsify();
+		}.bind(this));
 	}
 
 	componentWillUnmount() {
@@ -89,7 +73,7 @@ class HomePage extends React.Component {
 				</Divider>
 
 
-				<section className="container component-content-band constrained" id="location">
+				<section className="container component-content-band component-date-location constrained" id="location">
 					<div className="row">
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>Date &amp; Location</h2>
@@ -97,6 +81,12 @@ class HomePage extends React.Component {
 					</div>
 					<div className="row table-row">
 						<div className="col-xs-12 col-md-6">
+							<div className="date">
+								<div>September 23rd, 2017</div>
+								<div>Ceremony at 12:30pm</div>
+								<div>ZReception shortly thereafter</div>
+
+							</div>
 							<address>
 								Roton Point Association<br />
 								15 Pine Point Rd, Norwalk, CT 06853<br />
@@ -143,23 +133,6 @@ class HomePage extends React.Component {
 						</div>
 					</div>
 				</section>
-
-				<section className="container component-img-2-col">
-					<div className="row">
-						<div className="col-xs-12">
-							<div className="row">
-								<div className="col-xs-12 col-sm-4 col-sm-offset-1">
-									<img src={require('../images/330Aug01-2016.jpg')} className="img-responsive img-left" />
-								</div>
-								<div className="col-xs-12 col-sm-7">
-									<img src={require('../images/252Aug01-2016.jpg')} className="img-responsive img-right" />
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-
 
 				<Divider>
 					<i className="glyphicon glyphicon-glass gi-2x"></i>
@@ -409,6 +382,26 @@ class HomePage extends React.Component {
 		this.showHotelModal(hotelName);
 	}
 
+	initResponsify() {
+		this.$img = $("img.responsify-me").not('[data-responsify-initialized]');
+
+		this.$img.responsify();
+
+		// Flag the element, so we don't initialize it twice.
+		this.$img.attr("data-responsify-initialized", "true");
+
+		// TODO: Quick fix -DP
+		setTimeout(function () {
+			this.$img.responsify();
+		}.bind(this), 20);
+
+		// When window is resizing...
+		window.addEventListener('resize', function () {
+			// Retrigger responsify.js
+			this.$img.responsify();
+		}.bind(this));
+	}
+
 	initScenes() {
 		this.controller = new ScrollMagic.Controller();
 		let slides = document.querySelectorAll(".parallax-img");
@@ -458,6 +451,8 @@ class HomePage extends React.Component {
 		.setClassToggle(img2col[1], 'is-active')
 		.addTo(this.controller)
 	}
+
+
 }
 
 export default HomePage;
