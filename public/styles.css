@@ -11739,8 +11739,7 @@ font-family: 'Euphoria Script', cursive;
         font-size: 9.42857rem; } }
   .route-home .component-hero .bg {
     position: relative;
-    z-index: 5;
-    height: 100vh; }
+    z-index: 5; }
     .route-home .component-hero .bg img {
       object-fit: cover;
       display: block;
