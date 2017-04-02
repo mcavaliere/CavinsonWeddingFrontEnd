@@ -19,7 +19,7 @@
 					text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 
 					@include sm-and-up {
-						font-size: px-to-rem(82px);
+						font-size: 82px;
 					}
 
 					@include lg-and-up {

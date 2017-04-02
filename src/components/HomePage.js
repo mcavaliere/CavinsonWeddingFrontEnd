@@ -53,7 +53,7 @@ class HomePage extends React.Component {
 							<div className="col-xs-12 col-md-6 col-md-offset-3">
 								<h2>These two kids are crazy about each other!</h2>
 
-								<p>Come join us in the most special of occasions, as they tie the knot.</p>
+								<p>Come join them in the most special of occasions as they tie the knot.</p>
 							</div>
 						</div>
 					</div>
@@ -79,14 +79,14 @@ class HomePage extends React.Component {
 					</div>
 					<div className="row table-row">
 						<div className="col-xs-12 col-md-6">
-							<div className="date">
-								<div>September 23rd, 2017</div>
+							<p className="date">
+								<div><b>September 23rd, 2017</b></div>
 								<div>Ceremony at 12:30pm</div>
-								<div>ZReception shortly thereafter</div>
+								<div>Brunch reception shortly thereafter</div>
 
-							</div>
+							</p>
 							<address>
-								Roton Point Association<br />
+								<b>Roton Point Association</b><br />
 								15 Pine Point Rd, Norwalk, CT 06853<br />
 								(203) 838-1606<br />
 								<a href="http://rotonpoint.org" target="_blank">rotonpoint.org</a>
@@ -110,6 +110,8 @@ class HomePage extends React.Component {
 							<h2>Accommodations</h2>
 
 							<p>Group rates are available at the Courtyard Marriott and the Doubletree Hilton. Both are located within a few minutes of the wedding location.</p>
+
+
 						</div>
 					</div>
 					<div className="row">
@@ -141,7 +143,11 @@ class HomePage extends React.Component {
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>The After Party</h2>
 
-							<p>Festivities will continue at Roton Point after the wedding, for those that wish to stay. You&#39;ll be invited to optionally share stories ("roast or toast") about either or both members of the happy couple. </p>
+							<p>After the reception, there will be a few hours to go back to the hotel, put your feet up and take a disco nap.</p>
+
+							<p>For those who want to continue the festivities, join us around 8pm for a casual after party at Roton Point. </p>
+
+							<p>Guests will be invited to "roast or toast" Kelli or Mike. Bring your A game.  </p>
 						</div>
 					</div>
 				</section>
@@ -155,9 +161,7 @@ class HomePage extends React.Component {
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>Our Registry</h2>
 
-							<p>Buy us stuff! Or give money - either is appreciated, but of course your presence is most important!</p>
-							<p>Our registry is conveniently hosted on Zola.com,
-								so you won't have to lug a heavy bottle of aged scotch to Connecticut - unless you want to :)</p>
+							<p>Our registry is conveniently hosted on Zola.com, so you won't have to lug a heavy bottle of aged scotch to Connecticut - unless you want to.</p>
 
 							<a href="https://www.zola.com/registry/cavinsonwedding" className="btn btn-default btn-cta" target="_blank">View our Registry</a>
 						</div>
