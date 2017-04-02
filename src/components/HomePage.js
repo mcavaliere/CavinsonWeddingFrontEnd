@@ -287,16 +287,45 @@ class HomePage extends React.Component {
 					<h3>SEE YOU AT THE WEDDING!</h3>
 				</ParallaxImg>
 
-				<Modal show={this.state.showHotelModal === 'courtyard'} onHide={this.hideHotelModal.bind(this)}>
+				<Modal dialogClassName="component-hotel-modal" show={this.state.showHotelModal === 'courtyard'} onHide={this.hideHotelModal.bind(this)}>
 		          <Modal.Header closeButton>
-		            <Modal.Title>Courtyard Marriott, Norwalk</Modal.Title>
+		            <Modal.Title>Courtyard by Marriott, Norwalk</Modal.Title>
 		          </Modal.Header>
 		          <Modal.Body>
-		            <h4>Courtyard Marriott, Norwalk</h4>
-
 					<img className="img-responsive" src={require('../images/courtyard.jpeg')} />
 
-		            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+		            <table className="table table-bordered">
+						<tbody>
+							<tr>
+								<th colSpan="2" className="active">Group Rates for Cavaliere / Robinson Wedding</th>
+							</tr>
+							<tr>
+								<th>1 King Bed</th>
+								<td>$105 per room/night</td>
+							</tr>
+							<tr>
+								<th>2 Queen Beds</th>
+								<td>$120 per room/night</td>
+							</tr>
+							<tr>
+								<th>Cutoff Date</th>
+								<td>September 1st</td>
+							</tr>
+							<tr>
+								<th>Distance to Wedding</th>
+								<td>9 miles</td>
+							</tr>
+
+							<tr>
+								<th>Full Hotel Details</th>
+								<td>
+									<Button bsStyle="info" href="https://hiskipper.com/hotels/Courtyard-by-Marriott-Norwalk-119065" target="_blank">
+										View
+									</Button>
+								</td>
+							</tr>
+						</tbody>
+		            </table>
 
 
 		            <hr />
@@ -307,16 +336,45 @@ class HomePage extends React.Component {
 		          </Modal.Footer>
 		        </Modal>
 
-				<Modal show={this.state.showHotelModal === 'doubletree'} onHide={this.hideHotelModal.bind(this)}>
+				<Modal dialogClassName="component-hotel-modal" show={this.state.showHotelModal === 'doubletree'} onHide={this.hideHotelModal.bind(this)}>
 		          <Modal.Header closeButton>
 		            <Modal.Title>Doubletree Hilton, Norwalk</Modal.Title>
 		          </Modal.Header>
 		          <Modal.Body>
-		            <h4>Doubletree Hilton, Norwalk</h4>
-
 					<img className="img-responsive" src={require('../images/doubletree.jpeg')} />
 
-		            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+						<table className="table table-bordered">
+							<tbody>
+								<tr>
+									<th colSpan="2" className="active">Group Rates for Cavaliere / Robinson Wedding</th>
+								</tr>
+								<tr>
+									<th>1 King Bed</th>
+									<td>$99 per room/night</td>
+								</tr>
+								<tr>
+									<th>2 Queen Beds</th>
+									<td>$99 per room/night</td>
+								</tr>
+								<tr>
+									<th>Cutoff Date</th>
+									<td>August 22nd</td>
+								</tr>
+								<tr>
+									<th>Distance to Wedding</th>
+									<td>3.3 miles</td>
+								</tr>
+
+								<tr>
+									<th>Full Hotel Details</th>
+									<td>
+										<Button bsStyle="info" href="https://hiskipper.com/hotels/DoubleTree-by-Hilton-Norwalk-108291" target="_blank">
+											View
+										</Button>
+									</td>
+								</tr>
+							</tbody>
+			            </table>
 
 
 		            <hr />

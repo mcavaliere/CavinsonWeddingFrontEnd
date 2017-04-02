@@ -7,4 +7,15 @@
 		opacity: 0.5;
 		text-decoration: none;
 	}
+
+	&:active,
+	&:focus,
+	&:visited {
+		border: 0 none;
+		outline: 0 none;
+
+		h3 {
+			text-decoration: none;
+		}
+	}
 }
