@@ -24,10 +24,8 @@ class HomePage extends React.Component {
 	componentDidMount() {
 		window.addEventListener("load", function () {
 			this.initScenes();
-		}.bind(this));
-
-		window.addEventListener("load", function () {
 			this.initResponsify();
+			this.initMenuScroll();
 		}.bind(this));
 	}
 
@@ -149,23 +147,19 @@ class HomePage extends React.Component {
 				</section>
 
 				<Divider>
-					<i className="glyphicon glyphicon-envelope gi-2x"></i>
+					<i className="glyphicon glyphicon-gift gi-2x"></i>
 				</Divider>
 
-				<section className="container component-content-band constrained">
+				<section className="container component-content-band constrained" id="registry">
 					<div className="row">
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
-							<h2>RSVP</h2>
+							<h2>Our Registry</h2>
 
-							<p>When the official invites are sent out, you'll be able to RSVP here on the official CavinsonWedding website.</p>
+							<p>Buy us stuff! Or give money - either is appreciated, but of course your presence is most important!</p>
+							<p>Our registry is conveniently hosted on Zola.com,
+								so you won't have to lug a heavy bottle of aged scotch to Connecticut - unless you want to :)</p>
 
-						{/*
-
-
-							<p>Kindly confirm your RSVP by xx/xx/2017 using the link below. </p>
-
-							<a href="javascript:void(0)" className="btn btn-default btn-cta">RSVP Now</a>
-						*/}
+							<a href="https://www.zola.com/registry/cavinsonwedding" className="btn btn-default btn-cta" target="_blank">View our Registry</a>
 						</div>
 					</div>
 				</section>
@@ -186,24 +180,26 @@ class HomePage extends React.Component {
 				</section>
 
 				<Divider>
-					<i className="glyphicon glyphicon-gift gi-2x"></i>
+					<i className="glyphicon glyphicon-envelope gi-2x"></i>
 				</Divider>
 
-				<section className="container component-content-band constrained" id="registry">
+				<section className="container component-content-band constrained" id="rsvp">
 					<div className="row">
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
-							<h2>Our Registry</h2>
+							<h2>RSVP</h2>
 
-							<p>Buy us stuff! Or give money - either is appreciated, but of course your presence is most important!</p>
-							<p>Our registry is conveniently hosted on Zola.com,
-								so you won't have to lug a heavy bottle of aged scotch to Connecticut - unless you want to :)</p>
+							<p>When the official invites are sent out, you'll be able to RSVP here on the official CavinsonWedding website.</p>
 
-							<a href="https://www.zola.com/registry/cavinsonwedding" className="btn btn-default btn-cta" target="_blank">View our Registry</a>
+						{/*
+
+
+							<p>Kindly confirm your RSVP by xx/xx/2017 using the link below. </p>
+
+							<a href="javascript:void(0)" className="btn btn-default btn-cta">RSVP Now</a>
+						*/}
 						</div>
 					</div>
 				</section>
-
-
 
 
 
@@ -380,6 +376,18 @@ class HomePage extends React.Component {
 		let hotelName = e.currentTarget.attributes['data-hotel-name'].value;
 
 		this.showHotelModal(hotelName);
+	}
+
+	initMenuScroll() {
+		this.mainNav = document.getElementById('main-nav');
+
+		window.addEventListener('scroll', function () {
+			if (window.scrollY > 200) {
+				this.mainNav.classList.add('scrolled');
+			} else {
+				this.mainNav.classList.remove('scrolled');
+			}
+		}.bind(this));
 	}
 
 	initResponsify() {
