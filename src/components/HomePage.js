@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import { TweenMax, TimelineMax } from 'gsap';
 
 import $ from '../lib/jquery-with-plugins';
@@ -15,6 +15,12 @@ import Divider from '../components/shared/Divider';
 import ParallaxImg from '../components/shared/ParallaxImg';
 
 class HomePage extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			showHotelModal: false
+		}
+	}
 	componentDidMount() {
 		window.addEventListener("load", function () {
 			this.initScenes();
@@ -120,7 +126,7 @@ class HomePage extends React.Component {
 					</div>
 					<div className="row">
 						<div className="col-xs-6">
-							<a href="#" className="component-hoverable-block">
+							<a href="#" className="component-hoverable-block" onClick={this.handleHotelClick.bind(this)} data-hotel-name='courtyard'>
 								<span className="img-container">
 									<img className="img-responsive" src={require('../images/courtyard.jpeg')} />
 								</span>
@@ -128,7 +134,7 @@ class HomePage extends React.Component {
 							</a>
 						</div>
 						<div className="col-xs-6">
-							<a href="#" className="component-hoverable-block">
+							<a href="#" className="component-hoverable-block" onClick={this.handleHotelClick.bind(this)} data-hotel-name='doubletree'>
 								<span className="img-container">
 									<img className="img-responsive" src={require('../images/doubletree.jpeg')} />
 								</span>
@@ -281,8 +287,68 @@ class HomePage extends React.Component {
 					<h3>SEE YOU AT THE WEDDING!</h3>
 				</ParallaxImg>
 
+				<Modal show={this.state.showHotelModal === 'courtyard'} onHide={this.hideHotelModal.bind(this)}>
+		          <Modal.Header closeButton>
+		            <Modal.Title>Courtyard Marriott, Norwalk</Modal.Title>
+		          </Modal.Header>
+		          <Modal.Body>
+		            <h4>Courtyard Marriott, Norwalk</h4>
+
+					<img className="img-responsive" src={require('../images/courtyard.jpeg')} />
+
+		            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+
+
+		            <hr />
+
+		          </Modal.Body>
+		          <Modal.Footer>
+		            <Button onClick={this.hideHotelModal.bind(this)}>Close</Button>
+		          </Modal.Footer>
+		        </Modal>
+
+				<Modal show={this.state.showHotelModal === 'doubletree'} onHide={this.hideHotelModal.bind(this)}>
+		          <Modal.Header closeButton>
+		            <Modal.Title>Doubletree Hilton, Norwalk</Modal.Title>
+		          </Modal.Header>
+		          <Modal.Body>
+		            <h4>Doubletree Hilton, Norwalk</h4>
+
+					<img className="img-responsive" src={require('../images/doubletree.jpeg')} />
+
+		            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+
+
+		            <hr />
+
+		          </Modal.Body>
+		          <Modal.Footer>
+		            <Button onClick={this.hideHotelModal.bind(this)}>Close</Button>
+		          </Modal.Footer>
+		        </Modal>
+
 			</div>
 		);
+	}
+
+	showHotelModal(name) {
+		this.setState({
+			showHotelModal: name
+		})
+	}
+
+	hideHotelModal() {
+		this.setState({
+		 	showHotelModal: false
+		})
+	}
+
+	handleHotelClick(e) {
+		e.preventDefault();
+
+		let hotelName = e.currentTarget.attributes['data-hotel-name'].value;
+
+		this.showHotelModal(hotelName);
 	}
 
 	initScenes() {
