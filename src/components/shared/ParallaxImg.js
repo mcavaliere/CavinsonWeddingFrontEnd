@@ -9,9 +9,10 @@ require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap');
 class ParallaxImg extends React.Component {
 	render() {
 		let focusParams = (this.props.focus ? Utils.focusParams(this.props.focus) : {})
+		let textAlign = (this.props.textAlign ? 'text-align-' + this.props.textAlign : '')
 
 		return (
-			<section className="container-fluid component-hero parallax-img">
+			<section id={this.props.id} className={"container-fluid component-hero parallax-img " + textAlign}>
 				<div className="bg">
 					<img src={this.props.img}
 						 className="responsify-me"

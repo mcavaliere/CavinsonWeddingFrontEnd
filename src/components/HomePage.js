@@ -16,7 +16,7 @@ import ParallaxImg from '../components/shared/ParallaxImg';
 
 class HomePage extends React.Component {
 	componentDidMount() {
-		document.addEventListener("DOMContentLoaded", function () {
+		window.addEventListener("load", function () {
 			this.initScenes();
 		}.bind(this));
 
@@ -35,8 +35,8 @@ class HomePage extends React.Component {
 
 			// When window is resizing...
 			window.addEventListener('resize', function () {
-					// Retrigger responsify.js
-					this.$img.responsify();
+				// Retrigger responsify.js
+				this.$img.responsify();
 			});
 		});
 	}
@@ -49,12 +49,12 @@ class HomePage extends React.Component {
 	render() {
 		return (
 			<div className="route route-home">
-				<ParallaxImg img={hero} focus={{
+				<ParallaxImg img={hero} textAlign={'bottom'} focus={{
 					"left": "0.38",
 					"top": "0.28",
 					"right": "0.65",
 					"bottom": "1.01"
-				}}>
+				}} id="hero">
 					<h1>Mike & Kelli's Wedding</h1>
 					<h2>Sept 23, 2017</h2>
 				</ParallaxImg>
@@ -71,12 +71,12 @@ class HomePage extends React.Component {
 					</div>
 				</section>
 
-				<ParallaxImg img={hero2} focus={{
+				<ParallaxImg id="fountain" img={hero2} focus={{
 					 left:"0.57",
 					 top:"0.00",
 					 right:"0.90",
 					 bottom:"0.99"
-				}} ></ParallaxImg>
+				}}></ParallaxImg>
 
 				<Divider>
 					<i className="glyphicon glyphicon-calendar gi-2x"></i>
@@ -237,7 +237,7 @@ class HomePage extends React.Component {
 				</section>
 */}
 
-				<ParallaxImg img={hero3} focus={{
+				<ParallaxImg id="bye" img={hero3} focus={{
 						 left: "0.34",
 						 top: "0.00",
 						 right: "0.84",
@@ -268,16 +268,20 @@ class HomePage extends React.Component {
 		}.bind(this));
 
 		// Fade in the text content as we scroll to each large image.
-		slides.forEach(function (slide, index) {
-			// make scene
-			var headerScene = new ScrollMagic.Scene({
-				triggerElement: slide.querySelector('.hero-content'), // trigger CSS animation when header is in the middle of the viewport
-				offset: -50 // offset triggers the animation 95 earlier then middle of the viewport, adjust to your liking
-			})
-			.setClassToggle(slide, 'is-active') // set class to active slide
-			//.addIndicators() // add indicators (requires plugin), use for debugging
-			.addTo(this.controller);
-		}.bind(this));
+		let hero = document.getElementById('hero');
+		new ScrollMagic.Scene({
+			triggerElement: hero, // trigger CSS animation when header is in the middle of the viewport
+		})
+		.setClassToggle(hero, 'is-active') // set class to active slide
+		.addTo(this.controller);
+
+		let bye = document.getElementById('bye');
+		new ScrollMagic.Scene({
+			triggerElement: bye
+		})
+		.setClassToggle(bye, 'is-active')
+		.addTo(this.controller)
+
 
 		// change behaviour of controller to animate scroll instead of jump
 		this.controller.scrollTo(function (newpos) {

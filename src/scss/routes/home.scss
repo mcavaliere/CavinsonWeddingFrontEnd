@@ -6,8 +6,7 @@
 
 	.component-hero {
 		margin: 0;
-		position: relative;
-		overflow: hidden;
+
 		// height: 100vh;
 		margin-bottom: px-to-rem($grid-gutter-width);
 		padding-left: 0;
@@ -46,37 +45,6 @@
 		}
 
 
-		.bg {
-			position: relative;
-			z-index: 5;
-
-			// height: 100vh;
-
-			img {
-				object-fit: cover;
-				display: block;
-				width: 100%;
-				height: auto;
-				position: relative;
-				z-index: 5;
-			}
-
-			&:after {
-				content: " ";
-				display: block;
-				position: absolute;
-				top: 0;
-				left: 0;
-				bottom: 0;
-				right: 0;
-				background: rgba(0, 0, 0, 0.2);
-				z-index: 5;
-				width: 100%;
-				height: 100%;
-			}
-		}
-
-
         &.is-active {
             .hero-content {
                 visibility: visible;
@@ -85,29 +53,7 @@
             }
         }
 
-		.inner {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			position: absolute;
-			z-index: 10;
-			height: 100%;
-			width: 100%;
-			top: 0;
-			left: 0;
-		}
-
 		.hero-content {
-			visibility: hidden;
-            opacity: 0;
-			position: relative;
-			width: 100%;
-			transition: all 0.7s ease-out;
-			text-align: center;
-
-			@include transform(translate3d(0, 50px, 0));
-
 			h1 {
 				color: $color-white;
 				// font-family: $hero-font-family;
@@ -150,8 +96,6 @@
 			h1, p {
 				text-align: center;
 			}
-
-
 		}
 	}
 
