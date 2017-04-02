@@ -6,12 +6,14 @@ import AuthService from './lib/AuthService';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import LocationPage from './components/LocationPage';
+import EmptyPage from './components/EmptyPage';
 import NoMatchPage from './components/NoMatchPage';
 import GuestbookIndexPage from './components/guestbook/Index';
 import NewMessagePage from './components/guestbook/New';
 import ShowMessagePage from './components/guestbook/Show';
 import LoginPage from './components/Login';
 import LoginCallback from './components/LoginCallback'
+
 
 import { Button, Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -66,6 +68,7 @@ export const makeMainRoutes = () => {
 		  </Route>
 		  <Route path="login" component={LoginPage} auth={auth} />
 		  <Route path="login/callback" component={LoginCallback} onEnter={handleCallback} />
+		  <Route path="checkme" component={EmptyPage} auth={auth} />
 	      <Route path="*" component={NoMatchPage} />
 	    </Route>
 	);
