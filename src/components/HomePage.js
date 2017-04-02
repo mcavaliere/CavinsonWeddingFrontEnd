@@ -38,7 +38,12 @@ class HomePage extends React.Component {
 	render() {
 		return (
 			<div className="route route-home">
-				<ParallaxImg img={hero}>
+				<ParallaxImg img={hero} focus={{
+					"left": "0.38",
+					"top": "0.28",
+					"right": "0.65",
+					"bottom": "1.01"
+				}}>
 					<h1>Mike & Kelli's Wedding</h1>
 					<h2>Sept 23, 2017</h2>
 				</ParallaxImg>
