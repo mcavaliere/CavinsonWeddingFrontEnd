@@ -36,6 +36,7 @@ class Header extends React.Component {
 					<Nav>
 						<NavItem href="#location" eventKey={1}>Date &amp; Location</NavItem>
 						<NavItem href="#accommodations" eventKey={2}>Accommodations</NavItem>
+						<NavItem href="#welcome-dinner" eventKey={3}>Welcome Dinner</NavItem>
 						<NavItem href="#after-party" eventKey={3}>After Party</NavItem>
 						<NavItem href="#registry" eventKey={4}>Registry</NavItem>
 						<NavItem href="#rsvp" eventKey={5}>RSVP</NavItem>
@@ -61,7 +62,7 @@ class Header extends React.Component {
 	    var node = document.getElementById(this.hash.substring(1))
 
 		console.log("checking node: ", node);
-		
+
 	    if(!node) {
 			console.warn("node doesn't exist!");
 			return;

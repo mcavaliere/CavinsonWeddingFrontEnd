@@ -135,6 +135,23 @@ class HomePage extends React.Component {
 				</section>
 
 				<Divider>
+					<i className="glyphicon glyphicon-cutlery gi-2x"></i>
+				</Divider>
+
+				<section className="container component-content-band constrained" id="welcome-dinner">
+					<div className="row">
+						<div className="col-xs-12 col-md-6 col-md-offset-3">
+							<h2>Welcome Dinner</h2>
+
+							<p>You're invited to come join us after wedding rehearsal on the evening of <b>Friday, September 22nd</b> at Roton Point. </p>
+
+							<p>When you RSVP for the wedding, please let us know if you'll be attending the welcome dinner as well. </p>
+
+						</div>
+					</div>
+				</section>
+
+				<Divider>
 					<i className="glyphicon glyphicon-glass gi-2x"></i>
 				</Divider>
 
