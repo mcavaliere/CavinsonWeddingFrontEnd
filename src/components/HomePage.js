@@ -21,11 +21,22 @@ class HomePage extends React.Component {
 		}.bind(this));
 
 		window.addEventListener("load", function () {
-			var images = $("img.responsify-me");
-			images.responsify();
+			this.$img = $("img.responsify-me").not('[data-responsify-initialized]');
 
-			$(window).on("resize", function () {
-				images.responsify();
+			this.$img.responsify();
+
+			// Flag the element, so we don't initialize it twice.
+			this.$img.attr("data-responsify-initialized", "true");
+
+			// TODO: Quick fix -DP
+			setTimeout(function () {
+				this.$img.responsify();
+			}, 20);
+
+			// When window is resizing...
+			window.addEventListener('resize', function () {
+					// Retrigger responsify.js
+					this.$img.responsify();
 			});
 		});
 	}

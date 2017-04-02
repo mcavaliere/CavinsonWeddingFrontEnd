@@ -8,14 +8,6 @@ require('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap');
 
 class ParallaxImg extends React.Component {
 	render() {
-		// let focus = {
-		// 	"data-focus-left": "0.38",
-		// 	"data-focus-top": "0.28",
-		// 	"data-focus-right": "0.65",
-		// 	"data-focus-bottom": "1.01"
-		// }
-		// 
-		// let focus = Utils.focusParams()
 		let focusParams = (this.props.focus ? Utils.focusParams(this.props.focus) : {})
 
 		return (
