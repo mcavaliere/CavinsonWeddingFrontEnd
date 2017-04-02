@@ -11714,6 +11714,27 @@ font-family: 'Euphoria Script', cursive;
     background: #979797;
     vertical-align: middle; }
 
+.component-hotel-modal .modal-header {
+  text-align: center; }
+
+.component-hotel-modal img {
+  margin-bottom: 30px; }
+
+.component-hotel-modal .modal-footer {
+  text-align: center; }
+
+.component-hoverable-block {
+  display: block;
+  transition: opacity 0.2s ease-in-out; }
+  .component-hoverable-block:hover {
+    opacity: 0.5;
+    text-decoration: none; }
+  .component-hoverable-block:active, .component-hoverable-block:focus, .component-hoverable-block:visited {
+    border: 0 none;
+    outline: 0 none; }
+    .component-hoverable-block:active h3, .component-hoverable-block:focus h3, .component-hoverable-block:visited h3 {
+      text-decoration: none; }
+
 .parallax-img {
   position: relative;
   overflow: hidden; }
@@ -11845,6 +11866,10 @@ font-family: 'Euphoria Script', cursive;
 
 .route-home .component-divider {
   margin-bottom: 1.07143rem; }
+
+.route-home .component-accommodations .img-container {
+  display: block;
+  overflow: hidden; }
 
 .component-img-2-col {
   padding: 2.14286rem 0; }
