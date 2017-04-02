@@ -130,12 +130,7 @@
 	.component-accommodations {
 		.img-container {
 			display: block;
-			// max-height: px-to-rem(300px);
 			overflow: hidden;
-		}
-		img {
-			object-fit: cover;
-
 		}
 	}
 }
