@@ -229,7 +229,7 @@ class HomePage extends React.Component {
 				<ParallaxImg img={hero3} focus={{
 						 left: "0.34",
 						 top: "0.00",
-						 right: "0.84", 
+						 right: "0.84",
 						 bottom: "1.00"
 					}}>
 					<h3>SEE YOU AT THE WEDDING!</h3>
@@ -273,6 +273,7 @@ class HomePage extends React.Component {
 			TweenMax.to(window, 1, {scrollTo: {y: newpos}, ease:Power1.easeInOut});
 		});
 
+		// 2 column images will fade in from sides
 		let img2col = document.querySelectorAll('.component-img-2-col');
 		let img2colImages = img2col[0].querySelectorAll('img');
 

@@ -36,10 +36,19 @@
       else {
         var fheight = (fy2-fy1) * oheight;
         if ( fheight/owidth > theight/twidth ) {
-          width = owidth*theight/fheight;
-          height = oheight*theight/fheight;
-          top = -fy1*height;
-          left = (twidth-width)/2;
+            // MC - original code below. Does not cover all bases since images smaller than the container
+            //  will have whitespace around them. Removing this in favor of our solution further below.
+            //   width = owidth*theight/fheight;
+            //   height = oheight*theight/fheight;
+            //   top = -fy1*height;
+            //   left = (twidth-width)/2;
+
+          // MC - our addition. When the container is bigger than the original image, stretch it out.
+          width = twidth;
+          height = oheight*twidth/owidth;
+          top = 0
+          left = 0;
+
         } else {
           width = twidth;
           height = twidth*oheight/owidth;
