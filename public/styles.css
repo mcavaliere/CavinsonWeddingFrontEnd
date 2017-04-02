@@ -11951,4 +11951,9 @@ h1, h2, h3, h4, h5, h6 {
       float: none;
       vertical-align: middle; } }
 
+.navbar.navbar-default {
+  transition: all 0.3s ease-in-out; }
+  .navbar.navbar-default.scrolled {
+    background: rgba(0, 0, 0, 0.4); }
+
 /*# sourceMappingURL=styles.css.map*/
