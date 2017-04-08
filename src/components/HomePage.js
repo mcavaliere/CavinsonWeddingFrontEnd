@@ -47,7 +47,7 @@ class HomePage extends React.Component {
 					<h2>Sept 23, 2017</h2>
 				</ParallaxImg>
 
-				<section className="container-fluid component-content-band " id="sticky1">
+				<section className="container-fluid component-content-band parallax-content" id="sticky1">
 					<div className="inner">
 						<div className="row">
 							<div className="col-xs-12 col-md-6 col-md-offset-3">
@@ -109,7 +109,7 @@ class HomePage extends React.Component {
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>Accommodations</h2>
 
-							<p>Group rates are available at the Courtyard Marriott and the Doubletree Hilton. Both are located within a few minutes of the wedding location.</p>
+							<p>Group rates are available at the Courtyard Marriott and the Doubletree Hilton. Both are located within a few minutes drive of the wedding location.</p>
 
 
 						</div>
@@ -434,19 +434,30 @@ class HomePage extends React.Component {
 	initScenes() {
 		this.controller = new ScrollMagic.Controller();
 		let slides = document.querySelectorAll(".parallax-img");
+		let bands = document.querySelectorAll(".parallax-content");
 
 		// Parallax background image effect when scrolling.
 		slides.forEach(function (slide, index) {
-			var $bcg = slide.querySelector('.bg');
+			var $bg = slide.querySelector('.bg');
 
 			var slideParallaxScene = new ScrollMagic.Scene({
 				triggerElement: slide,
 				triggerHook: 1,
 				duration: "100%"
 			})
-			.setTween(TweenMax.from($bcg, 1, {y: '-40%', ease:Power0.easeNone}))
+			.setTween(TweenMax.from($bg, 1, {y: '-40%', ease:Power0.easeNone}))
 			.addTo(this.controller);
 		}.bind(this));
+
+		// bands.forEach((band, i) => {
+		// 	var scene = new ScrollMagic.Scene({
+		// 		triggerElement: band,
+		// 		triggerHook: 1,
+		// 		duration: "100%"
+		// 	})
+		// 	.setTween(TweenMax.to(band, 1, {y: '-40%', ease: Power0.easeNone}))
+		// 	.addTo(this.controller);
+		// })
 
 		// Fade in the text content as we scroll to each large image.
 		let hero = document.getElementById('hero');
