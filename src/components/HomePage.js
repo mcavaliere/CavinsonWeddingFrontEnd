@@ -37,7 +37,7 @@ class HomePage extends React.Component {
 	render() {
 		return (
 			<div className="route route-home">
-				<ParallaxImg img={hero} textAlign={'bottom'} focus={{
+				<ParallaxImg img={hero} textAlign={'top'} focus={{
 					"left": "0.38",
 					"top": "0.28",
 					"right": "0.65",

@@ -14,7 +14,14 @@
 	}
 
 	&.text-align-top {
+		.inner {
+			justify-content: flex-start;
 
+			.hero-content {
+				position: relative;
+				top: 75px;
+			}
+		}
 	}
 
 

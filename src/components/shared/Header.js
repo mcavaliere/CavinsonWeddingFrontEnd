@@ -48,9 +48,6 @@ class Header extends React.Component {
 
 	linkHandler(e) {
 		e.preventDefault();
-		console.warn("this: ", this);
-		console.warn("this.hash: ", this.hash);
-		console.warn("location.hash: ", location.hash);
 
 	    if (location.hash !== this.hash) {
 			window.history.pushState(null, null, this.hash)
