@@ -33,11 +33,6 @@ function saveLocation(location) {
  * Validate authentication for priavte routes
  */
 const requireAuth = (nextState, replace) => {
-	console.warn("requireAuth. This: ", this);
-	console.warn("auth.loggedIn(): ", auth.loggedIn());
-	console.warn("nextState.location.pathname: ", nextState.location.pathname);
-	console.warn("nextState: ", nextState);
-	console.warn("replace: ", replace);
 	if (!auth.loggedIn()) {
 		// saveLocation(nextState.location.pathname);
 		// replace({
