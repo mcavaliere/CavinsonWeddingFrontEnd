@@ -4,6 +4,7 @@ import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import smoothScroll from '../../../node_modules/smoothscroll';
 import Hamburger from './Hamburger';
+import AppConstants from '../../lib/Constants';
 
 class Header extends React.Component {
 	constructor(props, context) {
@@ -25,6 +26,10 @@ class Header extends React.Component {
 	}
 
 	render() {
+		let navItems = Object.keys(AppConstants.NAV_MENU_ITEMS).map((key, i) => {
+			return <NavItem href={key} eventKey={i}>{ AppConstants.NAV_MENU_ITEMS[key] }</NavItem>
+		});
+
 		return (
 			<Navbar staticTop={true} toggleNavKey={1} id="main-nav">
 				<Navbar.Header>
@@ -34,12 +39,7 @@ class Header extends React.Component {
 				</Navbar.Header>
 				<Navbar.Collapse>
 					<Nav>
-						<NavItem href="#location" eventKey={1}>Date &amp; Location</NavItem>
-						<NavItem href="#accommodations" eventKey={2}>Accommodations</NavItem>
-						<NavItem href="#welcome-dinner" eventKey={3}>Welcome Dinner</NavItem>
-						<NavItem href="#after-party" eventKey={3}>After Party</NavItem>
-						<NavItem href="#registry" eventKey={4}>Registry</NavItem>
-						<NavItem href="#rsvp" eventKey={5}>RSVP</NavItem>
+						{navItems}
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>

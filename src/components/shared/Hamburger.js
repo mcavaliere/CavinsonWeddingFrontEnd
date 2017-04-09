@@ -1,9 +1,30 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
+import AppConstants from '../../lib/Constants';
+
 var Menu = require('react-burger-menu').push;
 
 class Hamburger extends Navbar.Toggle {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			links: []
+		}
+	}
+	componentDidMount() {
+		let navItems = Object.keys(AppConstants.NAV_MENU_ITEMS).map((key, i) => {
+			return <a href={key} key={i} className="menu-item">{ AppConstants.NAV_MENU_ITEMS[key] }</a>
+		});
+
+		this.setState({
+			links: navItems
+		})
+
+	}
 	render() {
+		let links = this.state.links;
+
 		return (
 			<Menu right outerContainerId={ "app" } pageWrapId={ "page-wrap" } customBurgerIcon={
 				<span>
@@ -12,9 +33,7 @@ class Hamburger extends Navbar.Toggle {
 					<span className="icon-bar"></span>
 				</span>
 			 }>
-	          <a id="home" className="menu-item" href="/">Home</a>
-	          <a id="about" className="menu-item" href="/about">About</a>
-	          <a id="contact" className="menu-item" href="/contact">Contact</a>
+			 	{links}
 	        </Menu>
 		);
 	}
