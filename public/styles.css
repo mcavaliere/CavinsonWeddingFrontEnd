@@ -11791,7 +11791,8 @@ font-family: 'Euphoria Script', cursive;
 
 .parallax-img {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  height: 100vh; }
   .parallax-img.text-align-bottom .inner {
     justify-content: flex-end; }
     .parallax-img.text-align-bottom .inner .hero-content {
@@ -11804,7 +11805,8 @@ font-family: 'Euphoria Script', cursive;
       top: 75px; }
   .parallax-img .bg {
     position: relative;
-    z-index: 5; }
+    z-index: 5;
+    height: 100vh; }
     .parallax-img .bg img {
       object-fit: cover;
       display: block;
@@ -11923,6 +11925,8 @@ font-family: 'Euphoria Script', cursive;
   position: relative;
   padding: 1.66667rem 0;
   background: #fff; }
+  .route-home .component-content-band .inner {
+    padding: 0 30px; }
   .route-home .component-content-band h1, .route-home .component-content-band h2, .route-home .component-content-band h3, .route-home .component-content-band h4, .route-home .component-content-band h5, .route-home .component-content-band h6 {
     text-align: center; }
   .route-home .component-content-band h2 {
