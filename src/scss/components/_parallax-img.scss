@@ -88,3 +88,9 @@
 	}
 
 }
+
+// HACK: prevent overlay bg from showing on fountain image, since it's not expanding
+//  to the full container height. 
+#fountain .bg:after {
+	content: none;
+}
