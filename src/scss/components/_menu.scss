@@ -2,10 +2,28 @@
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
-  width: 36px;
+  width: 30px;
   height: 30px;
   right: px-to-rem($grid-gutter-width);
   top: px-to-rem($grid-gutter-width);
+  background: transparent none;
+
+  .bm-icon {
+	  display: block;
+
+	  .icon-bar {
+		  background: $color-white;
+		  display: block;
+		  height: 3px;
+
+		  & + .icon-bar {
+			  margin-top: 5px;
+		  }
+	  }
+
+  }
+
+
 }
 
 /* Color/shape of burger icon bars */
