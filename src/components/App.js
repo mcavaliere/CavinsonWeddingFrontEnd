@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import Header from './shared/Header.js'
+import Hamburger from './shared/Hamburger.js'
 
 class App extends React.Component {
 	render() {

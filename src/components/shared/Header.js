@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import smoothScroll from '../../../node_modules/smoothscroll';
+import Hamburger from './Hamburger';
 
 class Header extends React.Component {
 	constructor(props, context) {
@@ -30,7 +31,7 @@ class Header extends React.Component {
 					<Navbar.Brand>
 						<Link to="#app">#CavinsonsGetHitched</Link>
 					</Navbar.Brand>
-					<Navbar.Toggle />
+					<Hamburger />
 				</Navbar.Header>
 				<Navbar.Collapse>
 					<Nav>
