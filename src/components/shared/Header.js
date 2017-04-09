@@ -58,10 +58,7 @@ class Header extends React.Component {
 	    // change the scrolling duration in this call
 	    var node = document.getElementById(this.hash.substring(1))
 
-		console.log("checking node: ", node);
-
 	    if(!node) {
-			console.warn("node doesn't exist!");
 			return;
 		}; // Do not scroll to non-existing node
 
