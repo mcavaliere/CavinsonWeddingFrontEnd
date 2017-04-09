@@ -5,7 +5,7 @@ var Menu = require('react-burger-menu').push;
 class Hamburger extends Navbar.Toggle {
 	render() {
 		return (
-			<Menu outerContainerId={ "app" } pageWrapId={ "page-wrap" } customBurgerIcon={
+			<Menu right outerContainerId={ "app" } pageWrapId={ "page-wrap" } customBurgerIcon={
 				<span>
 					<span className="icon-bar"></span>
 					<span className="icon-bar"></span>
