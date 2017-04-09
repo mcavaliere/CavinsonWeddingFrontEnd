@@ -35,6 +35,20 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: $heading-font-weight;
 }
 
+a {
+	&:hover,
+	&:link,
+	&:active,
+	&:visited {
+		text-decoration: none;
+	}
+
+	&:hover,
+	&:active {
+		opacity: 0.7;
+	}
+}
+
 .scene {
 	position: relative;
     overflow: hidden;
