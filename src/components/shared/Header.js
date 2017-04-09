@@ -31,7 +31,6 @@ class Header extends React.Component {
 					<Navbar.Brand>
 						<Link to="#app">#CavinsonsGetHitched</Link>
 					</Navbar.Brand>
-					<Hamburger />
 				</Navbar.Header>
 				<Navbar.Collapse>
 					<Nav>

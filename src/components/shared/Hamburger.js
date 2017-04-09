@@ -1,17 +1,16 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
-var Menu = require('react-burger-menu').slide;
+var Menu = require('react-burger-menu').push;
 
 class Hamburger extends Navbar.Toggle {
 	render() {
 		return (
-			<Menu customBurgerIcon={
-					<span>
-						<span className="icon-bar"></span>
-						<span className="icon-bar"></span>
-						<span className="icon-bar"></span>
-					</span>
-
+			<Menu outerContainerId={ "app" } pageWrapId={ "page-wrap" } customBurgerIcon={
+				<span>
+					<span className="icon-bar"></span>
+					<span className="icon-bar"></span>
+					<span className="icon-bar"></span>
+				</span>
 			 }>
 	          <a id="home" className="menu-item" href="/">Home</a>
 	          <a id="about" className="menu-item" href="/about">About</a>
