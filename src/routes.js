@@ -46,11 +46,11 @@ const requireAuth = (nextState, replace) => {
 }
 
 const handleCallback = () => {
-	console.warn("handleCallback");
+	// console.warn("handleCallback");
 }
 
 export const makeMainRoutes = () => {
-	console.warn("auth inside makeMainRoutes: ", auth);
+	// console.warn("auth inside makeMainRoutes: ", auth);
 	return (
 		<Route path="/" component={App}>
 		  <IndexRoute component={HomePage} />

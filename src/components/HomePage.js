@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Checkbox, Col, ControlLabel, Form, FormGroup, FormControl, HelpBlock, Modal, Radio } from 'react-bootstrap';
 import { TweenMax, TimelineMax } from 'gsap';
 
 import $ from '../lib/jquery-with-plugins';
@@ -18,7 +18,8 @@ class HomePage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			showHotelModal: false
+			showHotelModal: false,
+			showRsvpModal: true
 		}
 	}
 	componentDidMount() {
@@ -209,15 +210,11 @@ class HomePage extends React.Component {
 						<div className="col-xs-12 col-md-6 col-md-offset-3">
 							<h2>RSVP</h2>
 
-							<p>When the official invites are sent out, you'll be able to RSVP here on the official CavinsonWedding website.</p>
-
-						{/*
-
 
 							<p>Kindly confirm your RSVP by xx/xx/2017 using the link below. </p>
 
-							<a href="javascript:void(0)" className="btn btn-default btn-cta">RSVP Now</a>
-						*/}
+							<a id="rsvp-link" href="#" className="btn btn-default btn-cta">RSVP Now</a>
+
 						</div>
 					</div>
 				</section>
@@ -365,8 +362,6 @@ class HomePage extends React.Component {
 								</tr>
 							</tbody>
 			            </table>
-
-
 		            <hr />
 
 		          </Modal.Body>
@@ -375,8 +370,71 @@ class HomePage extends React.Component {
 		          </Modal.Footer>
 		        </Modal>
 
+				<Modal dialogClassName="component-rsvp-modal" show={this.state.showRsvpModal} onHide={this.hideRsvpModal.bind(this)}>
+		          <Modal.Header closeButton>
+		            <Modal.Title>RSVP</Modal.Title>
+		          </Modal.Header>
+		          <Modal.Body>
+
+					<Form horizontal>
+						<FormGroup controlId="formBasicText" validationState={this.getRsvpValidationState()}>
+							<Col sm={6}>
+								<FormControl type="text" placeholder="First name" ref="first_name" />
+							</Col>
+							<Col sm={6}>
+								<FormControl type="text" placeholder="Last name" ref="last_name" />
+							</Col>
+							<Col sm={12}>
+								<FormControl type="email" placeholder="Email" ref="email" />
+							</Col>
+							<FormControl.Feedback />
+						</FormGroup>
+						<FormGroup>
+							<Col sm={6}>
+								<ControlLabel>Will you be attending? </ControlLabel>
+							</Col>
+							<Col sm={6}>
+								<Radio inline>Yes</Radio>
+								<Radio inline>No</Radio>
+							</Col>
+							<Col sm={6}>
+								<ControlLabel># of Guests</ControlLabel>
+							</Col>
+							<Col sm={6}>
+								<FormControl type="text" placeholder="0" ref="num_guests" />
+							</Col>
+							<Col sm={6}>
+								<ControlLabel># of Children</ControlLabel>
+							</Col>
+							<Col sm={6}>
+								<FormControl type="text" placeholder="0" ref="num_children" />
+							</Col>
+						</FormGroup>
+						<FormGroup>
+							<Col xs={12}>
+								<Checkbox>I/we will also attend the <b>Welcome Dinner</b> on Friday, 9/22.</Checkbox>
+							</Col>
+							<Col xs={12}>
+								<Checkbox>I/we will also attend the <b>After Party</b> after the wedding.</Checkbox>
+							</Col>
+						</FormGroup>
+						<hr />
+						<FormGroup className="button-row">
+							<Button>Cancel</Button>
+							<Button type="submit">Submit</Button>
+						</FormGroup>
+
+
+		            </Form>
+
+		          </Modal.Body>
+		        </Modal>
 			</div>
 		);
+	}
+
+	getRsvpValidationState() {
+
 	}
 
 	showHotelModal(name) {
@@ -389,6 +447,10 @@ class HomePage extends React.Component {
 		this.setState({
 		 	showHotelModal: false
 		})
+	}
+
+	hideRsvpModal() {
+
 	}
 
 	handleHotelClick(e) {
