@@ -38,13 +38,13 @@ export default {
           use: [
               {loader: "file-loader", options: {'name': 'images/[name].[ext]'}},
               {loader: "image-webpack-loader", options: {
-                  progressive: true,
-                  optimizationLevel: 8,
-                  interlaced: false,
-                  pngquant: {
-                    quality: '65-90',
-                    speed: 4
-                  }
+                //   progressive: true,
+                //   optimizationLevel: 8,
+                //   interlaced: false,
+                //   pngquant: {
+                //     quality: '65-90',
+                //     speed: 4
+                //   }
               }}
           ]
       },

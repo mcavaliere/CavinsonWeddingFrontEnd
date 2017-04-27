@@ -1,0 +1,28 @@
+.component-rsvp-modal {
+	.row {
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: px-to-rem($grid-gutter-width/2);
+	}
+
+	.basic-info {
+		.row {
+			margin-bottom: 0;
+
+			input.name {
+				margin-bottom: px-to-rem($grid-gutter-width/2);
+			}
+		}
+	}
+
+
+
+	.button-row {
+		.col {
+			text-align: center;
+			button {
+				margin: 0 3px;
+			}
+		}
+	}
+}

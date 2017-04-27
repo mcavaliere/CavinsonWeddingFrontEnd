@@ -377,51 +377,67 @@ class HomePage extends React.Component {
 		          <Modal.Body>
 
 					<Form horizontal>
-						<FormGroup controlId="formBasicText" validationState={this.getRsvpValidationState()}>
-							<Col sm={6}>
-								<FormControl type="text" placeholder="First name" ref="first_name" />
-							</Col>
-							<Col sm={6}>
-								<FormControl type="text" placeholder="Last name" ref="last_name" />
-							</Col>
-							<Col sm={12}>
-								<FormControl type="email" placeholder="Email" ref="email" />
-							</Col>
+						<FormGroup controlId="formBasicText" className="basic-info" validationState={this.getRsvpValidationState()}>
+							<div className="row">
+								<Col sm={6}>
+									<FormControl className="name" type="text" placeholder="First name" ref="first_name" />
+								</Col>
+								<Col sm={6}>
+									<FormControl className="name" type="text" placeholder="Last name" ref="last_name" />
+								</Col>
+							</div>
+							<div className="row">
+								<Col sm={12}>
+									<FormControl type="email" placeholder="Email" ref="email" />
+								</Col>
+							</div>
 							<FormControl.Feedback />
 						</FormGroup>
 						<FormGroup>
-							<Col sm={6}>
-								<ControlLabel>Will you be attending? </ControlLabel>
-							</Col>
-							<Col sm={6}>
-								<Radio inline>Yes</Radio>
-								<Radio inline>No</Radio>
-							</Col>
-							<Col sm={6}>
-								<ControlLabel># of Guests</ControlLabel>
-							</Col>
-							<Col sm={6}>
-								<FormControl type="text" placeholder="0" ref="num_guests" />
-							</Col>
-							<Col sm={6}>
-								<ControlLabel># of Children</ControlLabel>
-							</Col>
-							<Col sm={6}>
-								<FormControl type="text" placeholder="0" ref="num_children" />
-							</Col>
+							<div className="row">
+								<Col sm={6}>
+									<ControlLabel>Will you be attending? </ControlLabel>
+								</Col>
+								<Col sm={6}>
+									<Radio inline>Yes</Radio>
+									<Radio inline>No</Radio>
+								</Col>
+							</div>
+							<div className="row">
+								<Col sm={6}>
+									<ControlLabel># of Guests</ControlLabel>
+								</Col>
+								<Col sm={6}>
+									<FormControl type="text" placeholder="0" ref="num_guests" />
+								</Col>
+							</div>
+							<div className="row">
+								<Col sm={6}>
+									<ControlLabel># of Children</ControlLabel>
+								</Col>
+								<Col sm={6}>
+									<FormControl type="text" placeholder="0" ref="num_children" />
+								</Col>
+							</div>
 						</FormGroup>
 						<FormGroup>
-							<Col xs={12}>
-								<Checkbox>I/we will also attend the <b>Welcome Dinner</b> on Friday, 9/22.</Checkbox>
-							</Col>
-							<Col xs={12}>
-								<Checkbox>I/we will also attend the <b>After Party</b> after the wedding.</Checkbox>
-							</Col>
+							<div className="row">
+								<Col xs={12}>
+									<Checkbox>I/we will also attend the <b>Welcome Dinner</b> on Friday, 9/22.</Checkbox>
+								</Col>
+								<Col xs={12}>
+									<Checkbox>I/we will also attend the <b>After Party</b> after the wedding.</Checkbox>
+								</Col>
+							</div>
 						</FormGroup>
 						<hr />
 						<FormGroup className="button-row">
-							<Button>Cancel</Button>
-							<Button type="submit">Submit</Button>
+							<div className="row">
+								<div className="col-xs-12 col">
+									<Button>Cancel</Button>
+									<Button type="submit" className="btn-primary">Submit</Button>
+								</div>
+							</div>
 						</FormGroup>
 
 
