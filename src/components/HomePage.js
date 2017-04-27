@@ -581,7 +581,7 @@ class HomePage extends React.Component {
 			triggerElement: img2col
 		})
 		.setClassToggle(img2col[0], 'is-active')
-		.setClassToggle(img2col[1], 'is-active')
+		// .setClassToggle(img2col[1], 'is-active')
 		.addTo(this.controller)
 	}
 

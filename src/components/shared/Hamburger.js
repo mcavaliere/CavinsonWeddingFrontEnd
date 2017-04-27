@@ -84,6 +84,6 @@ class Hamburger extends Navbar.Toggle {
 	//   };
 }
 
-console.warn("hamburger: ", Hamburger);
+// console.warn("hamburger: ", Hamburger);
 
 export default Hamburger;

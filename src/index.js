@@ -19,7 +19,7 @@ function logPageView() {
 	    ReactGA.pageview(window.location.pathname);
 	}
 
-	console.warn("process: ", process.env);
+	// console.warn("process: ", process.env);
 
 }
 
