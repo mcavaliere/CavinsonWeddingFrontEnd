@@ -19,7 +19,7 @@ class HomePage extends React.Component {
 		super(props);
 		this.state = {
 			showHotelModal: false,
-			showRsvpModal: true
+			showRsvpModal: false
 		}
 	}
 	componentDidMount() {
@@ -213,7 +213,7 @@ class HomePage extends React.Component {
 
 							<p>Kindly confirm your RSVP by xx/xx/2017 using the link below. </p>
 
-							<a id="rsvp-link" href="#" className="btn btn-default btn-cta">RSVP Now</a>
+							<a id="rsvp-link" href="#" className="btn btn-default btn-cta" onClick={this.showRsvpModal.bind(this)}>RSVP Now</a>
 
 						</div>
 					</div>
@@ -376,7 +376,7 @@ class HomePage extends React.Component {
 		          </Modal.Header>
 		          <Modal.Body>
 
-					<Form horizontal>
+					<Form horizontal onSubmit={this.handleRsvpSubmit}>
 						<FormGroup controlId="formBasicText" className="basic-info" validationState={this.getRsvpValidationState()}>
 							<div className="row">
 								<Col sm={6}>
@@ -434,7 +434,7 @@ class HomePage extends React.Component {
 						<FormGroup className="button-row">
 							<div className="row">
 								<div className="col-xs-12 col">
-									<Button>Cancel</Button>
+									<Button onClick={this.hideRsvpModal.bind(this)}>Cancel</Button>
 									<Button type="submit" className="btn-primary">Submit</Button>
 								</div>
 							</div>
@@ -465,8 +465,20 @@ class HomePage extends React.Component {
 		})
 	}
 
-	hideRsvpModal() {
+	showRsvpModal(e) {
+		if (e) {
+			e.preventDefault();
+		}
 
+		this.setState({
+			showRsvpModal: true
+		});
+	}
+
+	hideRsvpModal() {
+		this.setState({
+			showRsvpModal: false
+		});
 	}
 
 	handleHotelClick(e) {
@@ -475,6 +487,10 @@ class HomePage extends React.Component {
 		let hotelName = e.currentTarget.attributes['data-hotel-name'].value;
 
 		this.showHotelModal(hotelName);
+	}
+
+	handleRsvpSubmit() {
+		// debugger
 	}
 
 	initMenuScroll() {
