@@ -32,4 +32,4 @@ render((
 	<Provider store={store}>
 		<Router history={browserHistory} routes={routes()} onUpdate={logPageView} />
 	</Provider>
-), document.body)
+), document.getElementById("app"))
