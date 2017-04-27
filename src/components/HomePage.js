@@ -250,19 +250,7 @@ class HomePage extends React.Component {
 					</div>
 				</section>
 */}
-{/*
-				<section className="container-fluid component-content-band" id="sticky1">
-					<div className="inner">
-						<div className="row">
-							<div className="col-xs-12 col-md-6 col-md-offset-3">
-								<h2>Curabitur lobortis id lorem.</h2>
 
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  </p>
-							</div>
-						</div>
-					</div>
-				</section>
-*/}
 
 				<ParallaxImg id="bye" img={hero3} focus={{
 						 left: "0.34",
@@ -581,7 +569,6 @@ class HomePage extends React.Component {
 			triggerElement: img2col
 		})
 		.setClassToggle(img2col[0], 'is-active')
-		// .setClassToggle(img2col[1], 'is-active')
 		.addTo(this.controller)
 	}
 
