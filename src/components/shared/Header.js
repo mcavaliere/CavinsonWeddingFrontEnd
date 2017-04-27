@@ -27,11 +27,11 @@ class Header extends React.Component {
 
 	render() {
 		let navItems = Object.keys(AppConstants.NAV_MENU_ITEMS).map((key, i) => {
-			return <NavItem href={key} eventKey={i}>{ AppConstants.NAV_MENU_ITEMS[key] }</NavItem>
+			return <NavItem href={key} eventKey={i} key={i}>{ AppConstants.NAV_MENU_ITEMS[key] }</NavItem>
 		});
 
 		return (
-			<Navbar staticTop={true} toggleNavKey={1} id="main-nav">
+			<Navbar staticTop={true} id="main-nav">
 				<Navbar.Header>
 					<Navbar.Brand>
 						<Link to="#app">#CavinsonsGetHitched</Link>

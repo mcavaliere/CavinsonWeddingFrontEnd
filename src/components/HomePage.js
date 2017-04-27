@@ -80,12 +80,11 @@ class HomePage extends React.Component {
 					</div>
 					<div className="row table-row">
 						<div className="col-xs-12 col-md-6">
-							<p className="date">
+							<div className="date">
 								<div><b>September 23rd, 2017</b></div>
 								<div>Ceremony at 12:30pm</div>
 								<div>Brunch reception shortly thereafter</div>
-
-							</p>
+							</div>
 							<address>
 								<b>Roton Point Association</b><br />
 								15 Pine Point Rd, Norwalk, CT 06853<br />
@@ -396,7 +395,7 @@ class HomePage extends React.Component {
 						<FormGroup>
 							<div className="row">
 								<Col sm={6}>
-									<ControlLabel>Will you be attending? </ControlLabel>
+									<ControlLabel>Will you be attending the wedding? </ControlLabel>
 								</Col>
 								<Col sm={6}>
 									<Radio inline>Yes</Radio>

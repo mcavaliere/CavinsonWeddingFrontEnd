@@ -111,6 +111,12 @@
 		}
 	}
 
+	.component-date-location {
+		address {
+			margin-top: px-to-rem($grid-gutter-width);
+		}
+	}
+
 	.component-content-band {
 		text-align: center;
 		z-index: 50;
