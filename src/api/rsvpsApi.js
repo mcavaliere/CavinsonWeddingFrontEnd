@@ -1,16 +1,5 @@
 import Constants from '../lib/Constants';
-
-function status(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return Promise.resolve(response)
-  } else {
-    return Promise.reject(new Error(response.statusText))
-  }
-}
-
-function json(response) {
-  return response.json()
-}
+import Utils from '../lib/Utils';
 
 class Api {
 	static create(rsvp) {
@@ -22,8 +11,8 @@ class Api {
 				'rsvp': rsvp
 			})
 		})
-		.then(status)
-	    .then(json)
+		.then(Utils.responseStatus)
+	    .then(Utils.responseJson)
 	    .catch(function(error) {
 			return Promise.reject(new Error(error))
 	    });
