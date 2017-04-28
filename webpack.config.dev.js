@@ -14,6 +14,8 @@ export default {
     filename: 'bundle.js'
   },
 
+  devtool: 'source-map',
+
   plugins: [
     new webpack.LoaderOptionsPlugin({
        debug: true
