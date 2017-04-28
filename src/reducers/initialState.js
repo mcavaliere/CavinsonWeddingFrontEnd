@@ -1,4 +1,10 @@
 export default {
 	messages: [],
-	lastLocation: null
+	lastLocation: null,
+	rsvps: {
+		lastCreatedStatus: null,
+		current: null,
+		createInProgress: false,
+		lastCreated: null
+	}
 };

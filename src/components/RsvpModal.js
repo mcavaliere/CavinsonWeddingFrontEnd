@@ -6,7 +6,10 @@ class RsvpModal extends React.Component {
 		super(props)
 
 		this.state = {
-			show: false
+			show: false,
+			rsvp: {
+
+			}
 		}
 	}
 
@@ -26,11 +29,11 @@ class RsvpModal extends React.Component {
 			  </Modal.Header>
 			  <Modal.Body>
 
-				<Form horizontal onSubmit={this.props.onSubmit}>
+				<Form horizontal onSubmit={this.onSubmit.bind(this)}>
 					<FormGroup controlId="formBasicText" className="basic-info" validationState={this.getRsvpValidationState()}>
 						<div className="row">
 							<Col sm={6}>
-								<FormControl className="name" type="text" placeholder="First name" ref="first_name" />
+								<FormControl className="name" type="text" placeholder="First name" ref="first_name" name="firstName" value={this.state.firstName} onChange={this.handleChange.bind(this)} />
 							</Col>
 							<Col sm={6}>
 								<FormControl className="name" type="text" placeholder="Last name" ref="last_name" />
@@ -108,6 +111,21 @@ class RsvpModal extends React.Component {
 		this.setState({
 			show: false
 		});
+	}
+
+	handleChange(e) {
+		let newRsvpState = Object.assign({}, this.state.rsvp);
+		newRsvpState[e.target.name] = e.target.value;
+
+		this.setState({
+			rsvp: newRsvpState
+		});
+	}
+
+	onSubmit(e) {
+		e.preventDefault();
+
+		this.props.onSubmit(this.state.rsvp);
 	}
 
 	getRsvpValidationState() {

@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Button, Checkbox, Col, ControlLabel, Form, FormGroup, FormControl, HelpBlock, Modal, Radio } from 'react-bootstrap';
 import { TweenMax, TimelineMax } from 'gsap';
 
@@ -14,6 +16,8 @@ import hero3 from '../images/227Aug01-2016.jpg';
 import Divider from '../components/shared/Divider';
 import ParallaxImg from '../components/shared/ParallaxImg';
 import RsvpModal from '../components/RsvpModal';
+
+import * as rsvpActions from '../actions/rsvpActions';
 
 class HomePage extends React.Component {
 	constructor(props) {
@@ -358,7 +362,7 @@ class HomePage extends React.Component {
 		          </Modal.Footer>
 		        </Modal>
 
-				<RsvpModal show={this.state.showRsvpModal} />
+				<RsvpModal show={this.state.showRsvpModal} rsvps={this.props.rsvps} onSubmit={this.handleRsvpSubmit.bind(this)} />
 			</div>
 		);
 	}
@@ -371,7 +375,7 @@ class HomePage extends React.Component {
 
 	showRsvpModal(e) {
 		e.preventDefault();
-		
+
 		this.setState({
 			showRsvpModal: true
 		})
@@ -391,8 +395,8 @@ class HomePage extends React.Component {
 		this.showHotelModal(hotelName);
 	}
 
-	handleRsvpSubmit() {
-		// debugger
+	handleRsvpSubmit(rsvp) {
+		this.props.rsvpActions.create(rsvp);
 	}
 
 	initMenuScroll() {
@@ -490,4 +494,16 @@ class HomePage extends React.Component {
 
 }
 
-export default HomePage;
+function mapStateToProps(state, ownProps) {
+	return {
+		rsvps: state.rsvps
+	}
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		rsvpActions: bindActionCreators(rsvpActions, dispatch)
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

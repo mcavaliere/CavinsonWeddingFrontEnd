@@ -10,6 +10,11 @@ const AppConstants = {
 		"#after-party": "After Party",
 		"#registry": "Registry",
 		"#rsvp": "RSVP"
+	},
+
+	DEFAULT_JSON_HEADERS: {
+		'Content-Type': 'application/json',
+		'Accept': 'application/json'
 	}
 }
 
