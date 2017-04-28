@@ -3,6 +3,8 @@ import rsvpsApi from '../api/rsvpsApi';
 
 export function create(rsvp) {
 	return function(dispatch) {
+		dispatch(createRequest(rsvp));
+
 		return rsvpsApi.create(rsvp).then(rsvp => {
 			dispatch(createSuccess(rsvp));
 		}).catch(error => {
@@ -11,14 +13,21 @@ export function create(rsvp) {
 	}
 }
 
-export function createSuccess(rsvp) {
+function createRequest(rsvp) {
+	return {
+		type: types.REQUEST_CREATE_RSVP,
+		rsvp
+	}
+}
+
+function createSuccess(rsvp) {
 	return {
 		type: types.CREATE_RSVP_SUCCESS,
 		rsvp
 	}
 }
 
-export function createFailure(rsvp, error) {
+function createFailure(rsvp, error) {
 	return {
 		type: types.CREATE_RSVP_FAILURE,
 		rsvp,

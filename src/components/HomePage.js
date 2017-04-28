@@ -19,6 +19,8 @@ import RsvpModal from '../components/RsvpModal';
 
 import * as rsvpActions from '../actions/rsvpActions';
 
+import humps from 'humps';
+
 class HomePage extends React.Component {
 	constructor(props) {
 		super(props);
@@ -396,7 +398,7 @@ class HomePage extends React.Component {
 	}
 
 	handleRsvpSubmit(rsvp) {
-		this.props.rsvpActions.create(rsvp);
+		this.props.rsvpActions.create(humps.decamelizeKeys(rsvp));
 	}
 
 	initMenuScroll() {
