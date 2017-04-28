@@ -18,16 +18,8 @@ function logPageView() {
 		ReactGA.set({ page: window.location.pathname });
 	    ReactGA.pageview(window.location.pathname);
 	}
-
-	// console.warn("process: ", process.env);
-
 }
 
-// store.dispatch(load());
-
-// Declarative route configuration (could also load this config lazily
-// instead, all you really need is a single root route, you don't need to
-// colocate the entire config).
 render((
 	<Provider store={store}>
 		<Router history={browserHistory} routes={routes()} onUpdate={logPageView} />

@@ -8,7 +8,8 @@ class RsvpModal extends React.Component {
 		this.state = {
 			show: false,
 			rsvp: {
-
+				firstName: "",
+				lastName: ""
 			}
 		}
 	}
