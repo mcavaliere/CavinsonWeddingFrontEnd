@@ -113,7 +113,7 @@ class RsvpModal extends React.Component {
 
 	renderPersonFields(key, email=false) {
 		return (
-			<FormGroup controlId={`person-fields-${key}`} className="basic-info">
+			<FormGroup controlId={`person-fields-${key}`} className="basic-info" key={key}>
 				<div className="row">
 					<Col sm={6}>
 						<FormControl className="name" type="text" placeholder="First name" ref={`first_name_${key}`} name="firstName" onChange={this.handleChange.bind(this)} />
