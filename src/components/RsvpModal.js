@@ -40,16 +40,11 @@ class RsvpModal extends React.Component {
 	}
 
 	render() {
-		console.log("render. numGuests:", this.state.rsvp.numGuests);
 		var $additionalPeople = [];
 
 		for (var i = 0; i < parseInt(this.state.rsvp.numGuests); i++) {
-			console.log("i is ", i);
-			console.log("adding: ", this.renderPersonFields(i));
 			$additionalPeople.push(this.renderPersonFields(i));
 		}
-
-		console.log("additionalPeople: ", $additionalPeople);
 
 		return (
 			<Modal dialogClassName="component-rsvp-modal" show={this.state.show} onHide={this.hide.bind(this)}>
@@ -62,7 +57,7 @@ class RsvpModal extends React.Component {
 				</Alert>
 
 				<Form horizontal onSubmit={this.onSubmit.bind(this)}>
-					{this.renderPersonFields(0)}
+					{this.renderPersonFields(0, true)}
 					<FormGroup>
 						<div className="row">
 							<Col sm={6}>
@@ -89,7 +84,7 @@ class RsvpModal extends React.Component {
 					</FormGroup>
 
 					{$additionalPeople}
-					
+
 					<FormGroup>
 						<div className="row">
 							<Col xs={12}>
@@ -116,7 +111,7 @@ class RsvpModal extends React.Component {
 		);
 	}
 
-	renderPersonFields(key) {
+	renderPersonFields(key, email=false) {
 		return (
 			<FormGroup controlId={`person-fields-${key}`} className="basic-info">
 				<div className="row">
@@ -127,11 +122,13 @@ class RsvpModal extends React.Component {
 						<FormControl className="name" type="text" placeholder="Last name" ref={`first_name_${key}`} name="lastName" onChange={this.handleChange.bind(this)} />
 					</Col>
 				</div>
-				<div className="row">
-					<Col sm={12}>
-						<FormControl type="email" placeholder="Email" ref="email" value={this.state.email} onChange={this.handleChange.bind(this)} />
-					</Col>
-				</div>
+				{email &&
+					<div className="row">
+						<Col sm={12}>
+							<FormControl type="email" placeholder="Email" ref="email" value={this.state.email} onChange={this.handleChange.bind(this)} />
+						</Col>
+					</div>
+				}
 				<FormControl.Feedback />
 			</FormGroup>
 		);
