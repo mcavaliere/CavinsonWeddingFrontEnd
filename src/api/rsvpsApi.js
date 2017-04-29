@@ -11,11 +11,11 @@ class Api {
 				'rsvp': rsvp
 			})
 		})
-		.then(Utils.responseStatus)
-	    .then(Utils.responseJson)
-	    .catch(function(error) {
-			return Promise.reject(new Error(error))
-	    });
+		// .then(Utils.responseStatus)
+	    // .then(Utils.responseJson)
+	    // .catch(function(error) {
+		// 	throw error
+	    // });
 
 	}
 }
