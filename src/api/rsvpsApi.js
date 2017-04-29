@@ -11,12 +11,6 @@ class Api {
 				'rsvp': rsvp
 			})
 		})
-		// .then(Utils.responseStatus)
-	    // .then(Utils.responseJson)
-	    // .catch(function(error) {
-		// 	throw error
-	    // });
-
 	}
 }
 
