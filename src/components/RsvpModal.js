@@ -16,8 +16,11 @@ class RsvpModal extends React.Component {
 				firstName: "",
 				lastName: "",
 				willAttend: false,
-				numGuests: false,
-				afterParty: false
+				numGuests: 0,
+				afterParty: false,
+				people: [
+
+				],
 			}
 		}
 	}
@@ -48,22 +51,7 @@ class RsvpModal extends React.Component {
 				</Alert>
 
 				<Form horizontal onSubmit={this.onSubmit.bind(this)}>
-					<FormGroup controlId="formBasicText" className="basic-info" validationState={this.getRsvpValidationState()}>
-						<div className="row">
-							<Col sm={6}>
-								<FormControl className="name" type="text" placeholder="First name" ref="first_name" name="firstName" value={this.state.firstName} onChange={this.handleChange.bind(this)} />
-							</Col>
-							<Col sm={6}>
-								<FormControl className="name" type="text" placeholder="Last name" ref="last_name" value={this.state.lastName} onChange={this.handleChange.bind(this)} />
-							</Col>
-						</div>
-						<div className="row">
-							<Col sm={12}>
-								<FormControl type="email" placeholder="Email" ref="email" value={this.state.email} onChange={this.handleChange.bind(this)} />
-							</Col>
-						</div>
-						<FormControl.Feedback />
-					</FormGroup>
+					{this.renderPersonFields(0)}
 					<FormGroup>
 						<div className="row">
 							<Col sm={6}>
@@ -76,10 +64,12 @@ class RsvpModal extends React.Component {
 						</div>
 						<div className="row">
 							<Col sm={6}>
-								<ControlLabel># of Guests</ControlLabel>
+								<ControlLabel># of Guests (besides yourself)</ControlLabel>
 							</Col>
 							<Col sm={6}>
-								<FormControl type="text" placeholder="0" ref="num_guests" name="numGuests" value={this.state.rsvp.numGuests} onChange={this.handleChange.bind(this)} />
+								<Radio name="numGuests" value={0} inline checked={this.state.rsvp.numGuests === "0"} onChange={this.handleChange.bind(this)} >0</Radio>
+								<Radio name="numGuests" value={1} inline checked={this.state.rsvp.numGuests === "1"} onChange={this.handleChange.bind(this)} >1</Radio>
+								<Radio name="numGuests" value={2} inline checked={this.state.rsvp.numGuests === "2"} onChange={this.handleChange.bind(this)} >2</Radio>
 							</Col>
 						</div>
 					</FormGroup>
@@ -102,12 +92,31 @@ class RsvpModal extends React.Component {
 							</div>
 						</div>
 					</FormGroup>
-
-
 				</Form>
 
 			  </Modal.Body>
 			</Modal>
+		);
+	}
+
+	renderPersonFields(key) {
+		return (
+			<FormGroup controlId={`person-fields-${key}`} className="basic-info">
+				<div className="row">
+					<Col sm={6}>
+						<FormControl className="name" type="text" placeholder="First name" ref={`first_name_${key}`} name="firstName" onChange={this.handleChange.bind(this)} />
+					</Col>
+					<Col sm={6}>
+						<FormControl className="name" type="text" placeholder="Last name" ref={`first_name_${key}`} name="lastName" onChange={this.handleChange.bind(this)} />
+					</Col>
+				</div>
+				<div className="row">
+					<Col sm={12}>
+						<FormControl type="email" placeholder="Email" ref="email" value={this.state.email} onChange={this.handleChange.bind(this)} />
+					</Col>
+				</div>
+				<FormControl.Feedback />
+			</FormGroup>
 		);
 	}
 
@@ -124,8 +133,12 @@ class RsvpModal extends React.Component {
 	}
 
 	handleChange(e) {
+		console.group();
+		console.log("---handleChange()", e.target.name, e.target.value);
 		let newRsvpState = Object.assign({}, this.state.rsvp);
 		newRsvpState[e.target.name] = e.target.value;
+		console.log("newRsvpState: ", newRsvpState);
+		console.groupEnd();
 
 		this.setState({
 			rsvp: newRsvpState
