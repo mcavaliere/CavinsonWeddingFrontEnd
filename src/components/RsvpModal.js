@@ -40,6 +40,17 @@ class RsvpModal extends React.Component {
 	}
 
 	render() {
+		console.log("render. numGuests:", this.state.rsvp.numGuests);
+		var $additionalPeople = [];
+
+		for (var i = 0; i < parseInt(this.state.rsvp.numGuests); i++) {
+			console.log("i is ", i);
+			console.log("adding: ", this.renderPersonFields(i));
+			$additionalPeople.push(this.renderPersonFields(i));
+		}
+
+		console.log("additionalPeople: ", $additionalPeople);
+
 		return (
 			<Modal dialogClassName="component-rsvp-modal" show={this.state.show} onHide={this.hide.bind(this)}>
 			  <Modal.Header closeButton>
@@ -70,9 +81,15 @@ class RsvpModal extends React.Component {
 								<Radio name="numGuests" value={0} inline checked={this.state.rsvp.numGuests === "0"} onChange={this.handleChange.bind(this)} >0</Radio>
 								<Radio name="numGuests" value={1} inline checked={this.state.rsvp.numGuests === "1"} onChange={this.handleChange.bind(this)} >1</Radio>
 								<Radio name="numGuests" value={2} inline checked={this.state.rsvp.numGuests === "2"} onChange={this.handleChange.bind(this)} >2</Radio>
+								<Radio name="numGuests" value={3} inline checked={this.state.rsvp.numGuests === "3"} onChange={this.handleChange.bind(this)} >3</Radio>
+								<Radio name="numGuests" value={4} inline checked={this.state.rsvp.numGuests === "4"} onChange={this.handleChange.bind(this)} >4</Radio>
+								<Radio name="numGuests" value={5} inline checked={this.state.rsvp.numGuests === "5"} onChange={this.handleChange.bind(this)} >5</Radio>
 							</Col>
 						</div>
 					</FormGroup>
+
+					{$additionalPeople}
+					
 					<FormGroup>
 						<div className="row">
 							<Col xs={12}>
