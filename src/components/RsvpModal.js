@@ -29,7 +29,7 @@ class RsvpModal extends React.Component {
 						lastName: '',
 						email: ''
 					}
-				],
+				]
 			}
 		}
 	}
@@ -81,8 +81,8 @@ class RsvpModal extends React.Component {
 								<ControlLabel>Will you be attending the wedding? </ControlLabel>
 							</Col>
 							<Col sm={6}>
-								<Radio name="willAttend" inline checked={this.state.rsvp.willAttend === "true"} value={true} onChange={this.handleChange.bind(this)}>Yes</Radio>
-								<Radio name="willAttend" inline checked={this.state.rsvp.willAttend === "false"} value={false} onChange={this.handleChange.bind(this)}>No</Radio>
+								<Radio name="willAttend" value={1}  inline checked={this.state.rsvp.willAttend === true}  onChange={this.handleChange.bind(this)}>Yes</Radio>
+								<Radio name="willAttend" value={0} inline checked={this.state.rsvp.willAttend === false} onChange={this.handleChange.bind(this)}>No</Radio>
 							</Col>
 						</div>
 						<div className="row">
@@ -90,10 +90,10 @@ class RsvpModal extends React.Component {
 								<ControlLabel># of Chidren under 12:</ControlLabel>
 							</Col>
 							<Col sm={6}>
-								<Radio name="numYoungerChildren" value={0} inline checked={this.state.rsvp.numYoungerChildren === "0"} onChange={this.handleChange.bind(this)}>0</Radio>
-								<Radio name="numYoungerChildren" value={1} inline checked={this.state.rsvp.numYoungerChildren === "1"} onChange={this.handleChange.bind(this)}>1</Radio>
-								<Radio name="numYoungerChildren" value={2} inline checked={this.state.rsvp.numYoungerChildren === "2"} onChange={this.handleChange.bind(this)}>2</Radio>
-								<Radio name="numYoungerChildren" value={3} inline checked={this.state.rsvp.numYoungerChildren === "3"} onChange={this.handleChange.bind(this)}>3</Radio>
+								<Radio name="numYoungerChildren" value={0} inline checked={this.state.rsvp.numYoungerChildren === 0} onChange={this.handleChange.bind(this)}>0</Radio>
+								<Radio name="numYoungerChildren" value={1} inline checked={this.state.rsvp.numYoungerChildren === 1} onChange={this.handleChange.bind(this)}>1</Radio>
+								<Radio name="numYoungerChildren" value={2} inline checked={this.state.rsvp.numYoungerChildren === 2} onChange={this.handleChange.bind(this)}>2</Radio>
+								<Radio name="numYoungerChildren" value={3} inline checked={this.state.rsvp.numYoungerChildren === 3} onChange={this.handleChange.bind(this)}>3</Radio>
 							</Col>
 						</div>
 						<div className="row">
@@ -101,10 +101,10 @@ class RsvpModal extends React.Component {
 								<ControlLabel># of Chidren 12 or older:</ControlLabel>
 							</Col>
 							<Col sm={6}>
-								<Radio name="numOlderChildren" value={0} inline checked={this.state.rsvp.numOlderChildren === "0"} onChange={this.handleChange.bind(this)}>0</Radio>
-								<Radio name="numOlderChildren" value={1} inline checked={this.state.rsvp.numOlderChildren === "1"} onChange={this.handleChange.bind(this)}>1</Radio>
-								<Radio name="numOlderChildren" value={2} inline checked={this.state.rsvp.numOlderChildren === "2"} onChange={this.handleChange.bind(this)}>2</Radio>
-								<Radio name="numOlderChildren" value={3} inline checked={this.state.rsvp.numOlderChildren === "3"} onChange={this.handleChange.bind(this)}>3</Radio>
+								<Radio name="numOlderChildren" value={0} inline checked={this.state.rsvp.numOlderChildren === 0} onChange={this.handleChange.bind(this)}>0</Radio>
+								<Radio name="numOlderChildren" value={1} inline checked={this.state.rsvp.numOlderChildren === 1} onChange={this.handleChange.bind(this)}>1</Radio>
+								<Radio name="numOlderChildren" value={2} inline checked={this.state.rsvp.numOlderChildren === 2} onChange={this.handleChange.bind(this)}>2</Radio>
+								<Radio name="numOlderChildren" value={3} inline checked={this.state.rsvp.numOlderChildren === 3} onChange={this.handleChange.bind(this)}>3</Radio>
 							</Col>
 						</div>
 					</FormGroup>
@@ -114,7 +114,7 @@ class RsvpModal extends React.Component {
 					<FormGroup>
 						<div className="row">
 							<Col xs={12}>
-								<Checkbox checked={this.state.rsvp.welcomeDinner}>I/we will also attend the <b>Welcome Dinner</b> on Friday, 9/22.</Checkbox>
+								<Checkbox checked={this.state.rsvp.welcomeDinner} value={false} onChange={this.handleChange.bind(this)}>I/we will also attend the <b>Welcome Dinner</b> on Friday, 9/22.</Checkbox>
 							</Col>
 						</div>
 					</FormGroup>
@@ -176,7 +176,27 @@ class RsvpModal extends React.Component {
 
 	handleChange(e) {
 		let newRsvpState = Object.assign({}, this.state.rsvp);
-		newRsvpState[e.target.name] = e.target.value;
+		let newVal;
+
+		// Enforce typing.
+		switch (e.target.name) {
+			case 'willAttend':
+			case 'afterParty':
+				newVal = !!parseInt(e.target.value, 10);
+				break;
+
+			case 'numGuests':
+			case 'numOlderChildren':
+			case 'numYoungerChildren':
+				newVal = parseInt(e.target.value, 10);
+				break;
+
+			default:
+				newVal = e.target.value;
+		}
+
+
+		newRsvpState[e.target.name] = newVal;
 
 		this.setState({
 			rsvp: newRsvpState
