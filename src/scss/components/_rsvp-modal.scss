@@ -5,7 +5,9 @@
 		margin-bottom: px-to-rem($grid-gutter-width/2);
 	}
 
-	.basic-info {
+	.basic-info.form-group {
+		margin-bottom: 0;
+
 		.row {
 			margin-bottom: 0;
 

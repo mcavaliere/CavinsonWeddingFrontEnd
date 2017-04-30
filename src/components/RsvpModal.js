@@ -12,10 +12,18 @@ class RsvpModal extends React.Component {
 
 			},
 			rsvp: {
+				email: '',
 				willAttend: false,
 				numGuests: 0,
+				numOlderChildren: 0,
+				numYoungerChildren: 0,
 				afterParty: false,
 				people: [
+					{
+						firstName: '',
+						lastName: '',
+						email: ''
+					},
 					{
 						firstName: '',
 						lastName: '',
@@ -53,15 +61,20 @@ class RsvpModal extends React.Component {
 				<Modal.Title>RSVP</Modal.Title>
 			  </Modal.Header>
 			  <Modal.Body>
-			  	<Alert>
-					<strong>RSVPS: </strong> <span>{util.inspect(this.state.rsvps)}</span>
-				</Alert>
 				<Alert bsStyle="success">
-					<strong>RSVPS: </strong> <span>{util.inspect(this.state.rsvp.people)}</span>
+					<strong>RSVPS: </strong> <span>{util.inspect(this.state.rsvp)}</span>
 				</Alert>
 
 				<Form horizontal onSubmit={this.onSubmit.bind(this)}>
-					{this.renderPersonFields(0, true)}
+					{this.renderPersonFields(0, false, "Who's coming?")}
+					{this.renderPersonFields(1)}
+					<FormGroup>
+						<div className="row">
+							<Col sm={12}>
+								<FormControl type="email" placeholder="Email" value={this.state.rsvp.email} onChange={this.handleChange.bind(this)} />
+							</Col>
+						</div>
+					</FormGroup>
 					<FormGroup>
 						<div className="row">
 							<Col sm={6}>
@@ -74,15 +87,24 @@ class RsvpModal extends React.Component {
 						</div>
 						<div className="row">
 							<Col sm={6}>
-								<ControlLabel># of Guests (besides yourself)</ControlLabel>
+								<ControlLabel># of Chidren under 12:</ControlLabel>
 							</Col>
 							<Col sm={6}>
-								<Radio name="numGuests" value={0} inline checked={this.state.rsvp.numGuests === "0"} onChange={this.handleNumGuestsChange.bind(this)}>0</Radio>
-								<Radio name="numGuests" value={1} inline checked={this.state.rsvp.numGuests === "1"} onChange={this.handleNumGuestsChange.bind(this)}>1</Radio>
-								<Radio name="numGuests" value={2} inline checked={this.state.rsvp.numGuests === "2"} onChange={this.handleNumGuestsChange.bind(this)}>2</Radio>
-								<Radio name="numGuests" value={3} inline checked={this.state.rsvp.numGuests === "3"} onChange={this.handleNumGuestsChange.bind(this)}>3</Radio>
-								<Radio name="numGuests" value={4} inline checked={this.state.rsvp.numGuests === "4"} onChange={this.handleNumGuestsChange.bind(this)}>4</Radio>
-								<Radio name="numGuests" value={5} inline checked={this.state.rsvp.numGuests === "5"} onChange={this.handleNumGuestsChange.bind(this)}>5</Radio>
+								<Radio name="numYoungerChildren" value={0} inline checked={this.state.rsvp.numYoungerChildren === "0"} onChange={this.handleChange.bind(this)}>0</Radio>
+								<Radio name="numYoungerChildren" value={1} inline checked={this.state.rsvp.numYoungerChildren === "1"} onChange={this.handleChange.bind(this)}>1</Radio>
+								<Radio name="numYoungerChildren" value={2} inline checked={this.state.rsvp.numYoungerChildren === "2"} onChange={this.handleChange.bind(this)}>2</Radio>
+								<Radio name="numYoungerChildren" value={3} inline checked={this.state.rsvp.numYoungerChildren === "3"} onChange={this.handleChange.bind(this)}>3</Radio>
+							</Col>
+						</div>
+						<div className="row">
+							<Col sm={6}>
+								<ControlLabel># of Chidren 12 or older:</ControlLabel>
+							</Col>
+							<Col sm={6}>
+								<Radio name="numOlderChildren" value={0} inline checked={this.state.rsvp.numOlderChildren === "0"} onChange={this.handleChange.bind(this)}>0</Radio>
+								<Radio name="numOlderChildren" value={1} inline checked={this.state.rsvp.numOlderChildren === "1"} onChange={this.handleChange.bind(this)}>1</Radio>
+								<Radio name="numOlderChildren" value={2} inline checked={this.state.rsvp.numOlderChildren === "2"} onChange={this.handleChange.bind(this)}>2</Radio>
+								<Radio name="numOlderChildren" value={3} inline checked={this.state.rsvp.numOlderChildren === "3"} onChange={this.handleChange.bind(this)}>3</Radio>
 							</Col>
 						</div>
 					</FormGroup>
@@ -93,9 +115,6 @@ class RsvpModal extends React.Component {
 						<div className="row">
 							<Col xs={12}>
 								<Checkbox checked={this.state.rsvp.welcomeDinner}>I/we will also attend the <b>Welcome Dinner</b> on Friday, 9/22.</Checkbox>
-							</Col>
-							<Col xs={12}>
-								<Checkbox checked={this.state.rsvp.afterParty}>I/we will also attend the <b>After Party</b> after the wedding.</Checkbox>
 							</Col>
 						</div>
 					</FormGroup>
@@ -115,10 +134,15 @@ class RsvpModal extends React.Component {
 		);
 	}
 
-	renderPersonFields(key, email=false) {
+	renderPersonFields(key, email=false, label=false) {
 		return (
 			<FormGroup controlId={`person-fields-${key}`} className="basic-info" key={key}>
 				<div className="row">
+					{label &&
+						<Col xs={12}>
+							<ControlLabel>{label}</ControlLabel>
+						</Col>
+					}
 					<Col sm={6}>
 						<FormControl className="name" type="text" placeholder="First name" data-key={key} data-field-type="firstName" value={this.state.rsvp.people[key].firstName} onChange={this.handleGuestInfoChange.bind(this)} />
 					</Col>
