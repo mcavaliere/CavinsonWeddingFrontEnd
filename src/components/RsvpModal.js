@@ -12,14 +12,15 @@ class RsvpModal extends React.Component {
 
 			},
 			rsvp: {
-				email: "",
-				firstName: "",
-				lastName: "",
 				willAttend: false,
 				numGuests: 0,
 				afterParty: false,
 				people: [
-
+					{
+						firstName: '',
+						lastName: '',
+						email: ''
+					}
 				],
 			}
 		}
@@ -42,7 +43,7 @@ class RsvpModal extends React.Component {
 	render() {
 		var $additionalPeople = [];
 
-		for (var i = 0; i < parseInt(this.state.rsvp.numGuests); i++) {
+		for (var i = 1; i < parseInt(this.state.rsvp.numGuests, 10) + 1; i++) {
 			$additionalPeople.push(this.renderPersonFields(i));
 		}
 
@@ -54,6 +55,9 @@ class RsvpModal extends React.Component {
 			  <Modal.Body>
 			  	<Alert>
 					<strong>RSVPS: </strong> <span>{util.inspect(this.state.rsvps)}</span>
+				</Alert>
+				<Alert bsStyle="success">
+					<strong>RSVPS: </strong> <span>{util.inspect(this.state.rsvp.people)}</span>
 				</Alert>
 
 				<Form horizontal onSubmit={this.onSubmit.bind(this)}>
@@ -73,12 +77,12 @@ class RsvpModal extends React.Component {
 								<ControlLabel># of Guests (besides yourself)</ControlLabel>
 							</Col>
 							<Col sm={6}>
-								<Radio name="numGuests" value={0} inline checked={this.state.rsvp.numGuests === "0"} onChange={this.handleChange.bind(this)} >0</Radio>
-								<Radio name="numGuests" value={1} inline checked={this.state.rsvp.numGuests === "1"} onChange={this.handleChange.bind(this)} >1</Radio>
-								<Radio name="numGuests" value={2} inline checked={this.state.rsvp.numGuests === "2"} onChange={this.handleChange.bind(this)} >2</Radio>
-								<Radio name="numGuests" value={3} inline checked={this.state.rsvp.numGuests === "3"} onChange={this.handleChange.bind(this)} >3</Radio>
-								<Radio name="numGuests" value={4} inline checked={this.state.rsvp.numGuests === "4"} onChange={this.handleChange.bind(this)} >4</Radio>
-								<Radio name="numGuests" value={5} inline checked={this.state.rsvp.numGuests === "5"} onChange={this.handleChange.bind(this)} >5</Radio>
+								<Radio name="numGuests" value={0} inline checked={this.state.rsvp.numGuests === "0"} onChange={this.handleNumGuestsChange.bind(this)}>0</Radio>
+								<Radio name="numGuests" value={1} inline checked={this.state.rsvp.numGuests === "1"} onChange={this.handleNumGuestsChange.bind(this)}>1</Radio>
+								<Radio name="numGuests" value={2} inline checked={this.state.rsvp.numGuests === "2"} onChange={this.handleNumGuestsChange.bind(this)}>2</Radio>
+								<Radio name="numGuests" value={3} inline checked={this.state.rsvp.numGuests === "3"} onChange={this.handleNumGuestsChange.bind(this)}>3</Radio>
+								<Radio name="numGuests" value={4} inline checked={this.state.rsvp.numGuests === "4"} onChange={this.handleNumGuestsChange.bind(this)}>4</Radio>
+								<Radio name="numGuests" value={5} inline checked={this.state.rsvp.numGuests === "5"} onChange={this.handleNumGuestsChange.bind(this)}>5</Radio>
 							</Col>
 						</div>
 					</FormGroup>
@@ -116,16 +120,16 @@ class RsvpModal extends React.Component {
 			<FormGroup controlId={`person-fields-${key}`} className="basic-info" key={key}>
 				<div className="row">
 					<Col sm={6}>
-						<FormControl className="name" type="text" placeholder="First name" ref={`first_name_${key}`} name="firstName" onChange={this.handleChange.bind(this)} />
+						<FormControl className="name" type="text" placeholder="First name" data-key={key} data-field-type="firstName" value={this.state.rsvp.people[key].firstName} onChange={this.handleGuestInfoChange.bind(this)} />
 					</Col>
 					<Col sm={6}>
-						<FormControl className="name" type="text" placeholder="Last name" ref={`first_name_${key}`} name="lastName" onChange={this.handleChange.bind(this)} />
+						<FormControl className="name" type="text" placeholder="Last name" data-key={key} data-field-type="lastName" value={this.state.rsvp.people[key].lastName} onChange={this.handleGuestInfoChange.bind(this)} />
 					</Col>
 				</div>
 				{email &&
 					<div className="row">
 						<Col sm={12}>
-							<FormControl type="email" placeholder="Email" ref="email" value={this.state.email} onChange={this.handleChange.bind(this)} />
+							<FormControl type="email" placeholder="Email" data-key={key} data-field-type="email" value={this.state.rsvp.people[key].email} onChange={this.handleGuestInfoChange.bind(this)} />
 						</Col>
 					</div>
 				}
@@ -147,12 +151,41 @@ class RsvpModal extends React.Component {
 	}
 
 	handleChange(e) {
-		console.group();
-		console.log("---handleChange()", e.target.name, e.target.value);
 		let newRsvpState = Object.assign({}, this.state.rsvp);
 		newRsvpState[e.target.name] = e.target.value;
-		console.log("newRsvpState: ", newRsvpState);
-		console.groupEnd();
+
+		this.setState({
+			rsvp: newRsvpState
+		});
+	}
+
+	handleGuestInfoChange(e) {
+		let newRsvpState = Object.assign({}, this.state.rsvp);
+		// Where in the people array is this guest?
+		let key = parseInt(e.target.attributes['data-key'].value, 10);
+		// Which field are we updating?
+		let fieldType = e.target.attributes['data-field-type'].value;
+		let value = e.target.value;
+
+		newRsvpState.people[key][fieldType] = value;
+
+		this.setState({
+			rsvp: newRsvpState
+		});
+	}
+
+	handleNumGuestsChange(e) {
+		let newRsvpState = Object.assign({}, this.state.rsvp);
+		newRsvpState[e.target.name] = e.target.value;
+
+		// Ensure that there are at least numGuest elements in the people array.
+		for (var i = this.state.rsvp.people.length; i < parseInt(newRsvpState.numGuests) + 1; i++) {
+			newRsvpState.people.push({
+				firstName: '',
+				lastName: '',
+				email: ''
+			});
+		}
 
 		this.setState({
 			rsvp: newRsvpState
