@@ -81,8 +81,8 @@ class RsvpModal extends React.Component {
 								<ControlLabel>Will you be attending the wedding? </ControlLabel>
 							</Col>
 							<Col sm={6}>
-								<Radio name="willAttend" inline checked={this.state.rsvp.willAttend} onChange={this.handleChange.bind(this)} >Yes</Radio>
-								<Radio name="willAttend" inline checked={this.state.rsvp.willAttend} onChange={this.handleChange.bind(this)} >No</Radio>
+								<Radio name="willAttend" inline checked={this.state.rsvp.willAttend === "true"} value={true} onChange={this.handleChange.bind(this)}>Yes</Radio>
+								<Radio name="willAttend" inline checked={this.state.rsvp.willAttend === "false"} value={false} onChange={this.handleChange.bind(this)}>No</Radio>
 							</Col>
 						</div>
 						<div className="row">
