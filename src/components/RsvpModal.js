@@ -19,7 +19,7 @@ class RsvpModal extends React.Component {
 				numOlderChildren: 0,
 				numYoungerChildren: 0,
 				afterParty: false,
-				people: [
+				people_attributes: [
 					{
 						firstName: '',
 						lastName: '',
@@ -153,16 +153,16 @@ class RsvpModal extends React.Component {
 						</Col>
 					}
 					<Col sm={6}>
-						<FormControl className="name" type="text" placeholder="First name" data-key={key} data-field-type="firstName" value={this.state.rsvp.people[key].firstName} onChange={this.handleGuestInfoChange.bind(this)} />
+						<FormControl className="name" type="text" placeholder="First name" data-key={key} data-field-type="firstName" value={this.state.rsvp.people_attributes[key].firstName} onChange={this.handleGuestInfoChange.bind(this)} />
 					</Col>
 					<Col sm={6}>
-						<FormControl className="name" type="text" placeholder="Last name" data-key={key} data-field-type="lastName" value={this.state.rsvp.people[key].lastName} onChange={this.handleGuestInfoChange.bind(this)} />
+						<FormControl className="name" type="text" placeholder="Last name" data-key={key} data-field-type="lastName" value={this.state.rsvp.people_attributes[key].lastName} onChange={this.handleGuestInfoChange.bind(this)} />
 					</Col>
 				</div>
 				{email &&
 					<div className="row">
 						<Col sm={12}>
-							<FormControl type="email" placeholder="Email" data-key={key} data-field-type="email" value={this.state.rsvp.people[key].email} onChange={this.handleGuestInfoChange.bind(this)} />
+							<FormControl type="email" placeholder="Email" data-key={key} data-field-type="email" value={this.state.rsvp.people_attributes[key].email} onChange={this.handleGuestInfoChange.bind(this)} />
 						</Col>
 					</div>
 				}
@@ -184,6 +184,10 @@ class RsvpModal extends React.Component {
 	}
 
 	getValidationState(fieldName) {
+		if (Object.keys(this.props.rsvps.fieldErrors).indexOf(fieldName) !== -1) {
+			return 'error';
+		}
+
 		return null;
 	}
 
@@ -219,13 +223,13 @@ class RsvpModal extends React.Component {
 
 	handleGuestInfoChange(e) {
 		let newRsvpState = Object.assign({}, this.state.rsvp);
-		// Where in the people array is this guest?
+		// Where in the people_attributes array is this guest?
 		let key = parseInt(e.target.attributes['data-key'].value, 10);
 		// Which field are we updating?
 		let fieldType = e.target.attributes['data-field-type'].value;
 		let value = e.target.value;
 
-		newRsvpState.people[key][fieldType] = value;
+		newRsvpState.people_attributes[key][fieldType] = value;
 
 		this.setState({
 			rsvp: newRsvpState
@@ -237,8 +241,8 @@ class RsvpModal extends React.Component {
 		newRsvpState[e.target.name] = e.target.value;
 
 		// Ensure that there are at least numGuest elements in the people array.
-		for (var i = this.state.rsvp.people.length; i < parseInt(newRsvpState.numGuests) + 1; i++) {
-			newRsvpState.people.push({
+		for (var i = this.state.rsvp.people_attributes.length; i < parseInt(newRsvpState.numGuests) + 1; i++) {
+			newRsvpState.people_attributes.push({
 				firstName: '',
 				lastName: '',
 				email: ''
