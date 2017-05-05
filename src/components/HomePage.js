@@ -398,7 +398,8 @@ class HomePage extends React.Component {
 	}
 
 	handleRsvpSubmit(rsvp) {
-		this.props.rsvpActions.create(humps.decamelizeKeys(rsvp));
+		var cleanedRsvp = this.preprocessRsvp(rsvp);
+		this.props.rsvpActions.create(humps.decamelizeKeys(cleanedRsvp));
 	}
 
 	initMenuScroll() {
@@ -491,6 +492,24 @@ class HomePage extends React.Component {
 		})
 		.setClassToggle(img2col[0], 'is-active')
 		.addTo(this.controller)
+	}
+
+	preprocessRsvp(rsvp) {
+		// Make a copy.
+		var newRsvp = JSON.parse(JSON.stringify(rsvp));
+
+		// Remove any people without first or last names.
+		if (newRsvp.people_attributes.length > 1) {
+			for (let i=newRsvp.people_attributes.length; i>=1; i--) {
+				// debugger
+				if (!newRsvp.people_attributes.firstName && !newRsvp.people_attributes.lastName) {
+					// debugger
+					newRsvp.people_attributes.pop();
+				}
+			}
+		}
+
+		return newRsvp;
 	}
 
 

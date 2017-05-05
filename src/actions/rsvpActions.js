@@ -6,7 +6,7 @@ export function create(rsvp) {
 		dispatch(createRequest(rsvp));
 
 		return rsvpsApi.create(rsvp).then(response => {
-			if (response.status === 200) {
+			if (response.status === 200 || response.status === 201) {
 				response.json().then(rsvp => {
 					dispatch(createSuccess(rsvp));
 				})
