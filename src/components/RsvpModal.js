@@ -13,6 +13,7 @@ class RsvpModal extends React.Component {
 			},
 			rsvp: {
 				email: '',
+				fieldErrors: null,
 				willAttend: false,
 				numGuests: 0,
 				numOlderChildren: 0,
@@ -22,12 +23,10 @@ class RsvpModal extends React.Component {
 					{
 						firstName: '',
 						lastName: '',
-						email: ''
 					},
 					{
 						firstName: '',
 						lastName: '',
-						email: ''
 					}
 				]
 			}
@@ -36,6 +35,7 @@ class RsvpModal extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		var nextState = Object.assign({}, this.state);
+		console.log("------componentWillReceiveProps: ", nextProps);
 
 		if (typeof nextProps.show !== 'undefined') {
 			nextState.show = nextProps.show;
@@ -65,26 +65,33 @@ class RsvpModal extends React.Component {
 					<strong>RSVPS: </strong> <span>{util.inspect(this.state.rsvp)}</span>
 				</Alert>
 
-				<Form horizontal onSubmit={this.onSubmit.bind(this)}>
+				<Alert bsStyle="success">
+					<strong>RSVP field errors: : </strong> <span>{util.inspect(this.props.rsvps.fieldErrors)}</span>
+				</Alert>
+
+				<Form horizontal onSubmit={this.handleSubmit.bind(this)}>
 					{this.renderPersonFields(0, false, "Who's coming?")}
 					{this.renderPersonFields(1)}
-					<FormGroup>
+					<FormGroup validationState={this.getValidationState('email')}>
 						<div className="row">
 							<Col sm={12}>
-								<FormControl type="email" placeholder="Email" value={this.state.rsvp.email} onChange={this.handleChange.bind(this)} />
+								<FormControl type="email" name="email" placeholder="Email" value={this.state.rsvp.email} onChange={this.handleChange.bind(this)} />
+								<FormControl.Feedback />
 							</Col>
 						</div>
 					</FormGroup>
-					<FormGroup>
+					<FormGroup validationState={this.getValidationState('willAttend')}>
 						<div className="row">
 							<Col sm={6}>
 								<ControlLabel>Will you be attending the wedding? </ControlLabel>
 							</Col>
 							<Col sm={6}>
-								<Radio name="willAttend" value={1}  inline checked={this.state.rsvp.willAttend === true}  onChange={this.handleChange.bind(this)}>Yes</Radio>
+								<Radio name="willAttend" value={1} inline checked={this.state.rsvp.willAttend === true}  onChange={this.handleChange.bind(this)}>Yes</Radio>
 								<Radio name="willAttend" value={0} inline checked={this.state.rsvp.willAttend === false} onChange={this.handleChange.bind(this)}>No</Radio>
 							</Col>
 						</div>
+					</FormGroup>
+					<FormGroup validationState={this.getValidationState('numYoungerChildren')}>
 						<div className="row">
 							<Col sm={6}>
 								<ControlLabel># of Chidren under 12:</ControlLabel>
@@ -96,6 +103,8 @@ class RsvpModal extends React.Component {
 								<Radio name="numYoungerChildren" value={3} inline checked={this.state.rsvp.numYoungerChildren === 3} onChange={this.handleChange.bind(this)}>3</Radio>
 							</Col>
 						</div>
+					</FormGroup>
+					<FormGroup validationState={this.getValidationState('numOlderChildren')}>
 						<div className="row">
 							<Col sm={6}>
 								<ControlLabel># of Chidren 12 or older:</ControlLabel>
@@ -174,6 +183,10 @@ class RsvpModal extends React.Component {
 		});
 	}
 
+	getValidationState(fieldName) {
+		return null;
+	}
+
 	handleChange(e) {
 		let newRsvpState = Object.assign({}, this.state.rsvp);
 		let newVal;
@@ -194,6 +207,7 @@ class RsvpModal extends React.Component {
 			default:
 				newVal = e.target.value;
 		}
+
 
 
 		newRsvpState[e.target.name] = newVal;
@@ -236,7 +250,7 @@ class RsvpModal extends React.Component {
 		});
 	}
 
-	onSubmit(e) {
+	handleSubmit(e) {
 		e.preventDefault();
 
 		this.props.onSubmit(this.state.rsvp);

@@ -16,7 +16,7 @@ export function create(rsvp) {
 				})
 			}
 		}).catch(error => {
-			dispatch(createFailure(rsvp, error));
+			dispatch(createServerError(rsvp, error));
 		})
 	}
 }
@@ -38,6 +38,14 @@ function createSuccess(rsvp) {
 function createFailure(rsvp, error) {
 	return {
 		type: types.CREATE_RSVP_FAILURE,
+		rsvp,
+		error
+	}
+}
+
+function createServerError(rsvp, error) {
+	return {
+		type: types.CREATE_RSVP_SERVER_ERROR,
 		rsvp,
 		error
 	}

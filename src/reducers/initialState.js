@@ -11,7 +11,9 @@ export default {
 		// Current RSVP object.
 		current: null,
 
-		// Flag for create requests in progress. 
+		// Flag for create requests in progress.
 		createInProgress: false,
+
+		fieldErrors: {}
 	}
 };

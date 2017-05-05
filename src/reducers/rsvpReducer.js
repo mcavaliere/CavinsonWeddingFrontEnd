@@ -19,6 +19,14 @@ export default function rsvpReducer(state = initialState.rsvps, action) {
 				var newState = Object.assign({}, state);
 				newState.lastCreated = null;
 				newState.lastCreatedStatus = "failure";
+				newState.fieldErrors = action.error;
+				return newState;
+
+			case types.CREATE_RSVP_SERVER_ERROR:
+				var newState = Object.assign({}, state);
+				newState.lastCreated = null;
+				newState.lastCreatedStatus = "failure";
+				newState.error = action.error.error;
 				return newState;
 
 			default:
