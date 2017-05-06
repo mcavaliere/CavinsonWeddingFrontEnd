@@ -8,17 +8,18 @@ class RsvpModal extends React.Component {
 
 		this.state = {
 			show: false,
+
+			// Correlates with global application state.
 			rsvps: {
 
 			},
+
 			rsvp: {
+				afterParty: false,
 				email: '',
-				fieldErrors: null,
-				willAttend: false,
-				numGuests: 0,
 				numOlderChildren: 0,
 				numYoungerChildren: 0,
-				afterParty: false,
+				willAttend: false,
 				people_attributes: [
 					{
 						firstName: '',

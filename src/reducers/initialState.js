@@ -1,6 +1,8 @@
 export default {
 	messages: [],
+
 	lastLocation: null,
+	
 	rsvps: {
 		// The last created RSVP object.
 		lastCreated: null,

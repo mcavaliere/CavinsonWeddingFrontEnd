@@ -501,9 +501,7 @@ class HomePage extends React.Component {
 		// Remove any people without first or last names.
 		if (newRsvp.people_attributes.length > 1) {
 			for (let i=newRsvp.people_attributes.length; i>=1; i--) {
-				// debugger
 				if (!newRsvp.people_attributes.firstName && !newRsvp.people_attributes.lastName) {
-					// debugger
 					newRsvp.people_attributes.pop();
 				}
 			}
@@ -511,7 +509,6 @@ class HomePage extends React.Component {
 
 		return newRsvp;
 	}
-
 
 }
 
