@@ -9,9 +9,13 @@ class RsvpModal extends React.Component {
 		this.state = {
 			show: false,
 
+			complete: false,
+
 			// Correlates with global application state.
 			rsvps: {
-
+				// fieldErrors
+				// globalErrors
+				// complete: false
 			},
 
 			rsvp: {
@@ -36,7 +40,6 @@ class RsvpModal extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 		var nextState = Object.assign({}, this.state);
-		console.log("------componentWillReceiveProps: ", nextProps);
 
 		if (typeof nextProps.show !== 'undefined') {
 			nextState.show = nextProps.show;
@@ -46,12 +49,17 @@ class RsvpModal extends React.Component {
 			nextState.rsvps = nextProps.rsvps;
 		}
 
+		if (typeof nextProps.complete !== 'undefined') {
+			nextState.complete = nextProps.complete;
+		}
+
 		this.setState(nextState);
 	}
 
 	render() {
-		var $additionalPeople = [];
 
+		// Generate form fields for the right number of people.
+		var $additionalPeople = [];
 		for (var i = 1; i < parseInt(this.state.rsvp.numGuests, 10) + 1; i++) {
 			$additionalPeople.push(this.renderPersonFields(i));
 		}
@@ -62,15 +70,23 @@ class RsvpModal extends React.Component {
 				<Modal.Title>RSVP</Modal.Title>
 			  </Modal.Header>
 			  <Modal.Body>
-				<Alert bsStyle="success">
+				<Alert bsStyle="warning">
 					<strong>RSVPS: </strong> <span>{util.inspect(this.state.rsvp)}</span>
 				</Alert>
 
-				<Alert bsStyle="success">
+				<Alert bsStyle="warning">
 					<strong>RSVP field errors: : </strong> <span>{util.inspect(this.props.rsvps.fieldErrors)}</span>
 				</Alert>
 
-				<Form horizontal onSubmit={this.handleSubmit.bind(this)}>
+				{this.state.complete && <Alert bsStyle="success" className="text-center">
+					<strong>Thank you for your RSVP!</strong>
+
+					<p>See you at the wedding - we can't wait!</p>
+				</Alert>}
+
+
+
+				{!this.state.complete && <Form horizontal onSubmit={this.handleSubmit.bind(this)}>
 					{this.renderPersonFields(0, false, "Who's coming?")}
 					{this.renderPersonFields(1)}
 					<FormGroup validationState={this.getValidationState('email')}>
@@ -137,7 +153,7 @@ class RsvpModal extends React.Component {
 							</div>
 						</div>
 					</FormGroup>
-				</Form>
+				</Form>}
 
 			  </Modal.Body>
 			</Modal>
