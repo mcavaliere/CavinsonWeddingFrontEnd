@@ -70,23 +70,13 @@ class RsvpModal extends React.Component {
 				<Modal.Title>RSVP</Modal.Title>
 			  </Modal.Header>
 			  <Modal.Body>
-				<Alert bsStyle="warning">
-					<strong>RSVPS: </strong> <span>{util.inspect(this.state.rsvp)}</span>
-				</Alert>
-
-				<Alert bsStyle="warning">
-					<strong>RSVP field errors: : </strong> <span>{util.inspect(this.props.rsvps.fieldErrors)}</span>
-				</Alert>
-
-				{this.state.complete && <Alert bsStyle="success" className="text-center">
+				{this.props.rsvps.lastCreatedStatus === 'success' && <Alert bsStyle="success" className="text-center">
 					<strong>Thank you for your RSVP!</strong>
 
 					<p>See you at the wedding - we can't wait!</p>
 				</Alert>}
 
-
-
-				{!this.state.complete && <Form horizontal onSubmit={this.handleSubmit.bind(this)}>
+				{this.props.rsvps.lastCreatedStatus !== 'success'  && <Form horizontal onSubmit={this.handleSubmit.bind(this)}>
 					{this.renderPersonFields(0, false, "Who's coming?")}
 					{this.renderPersonFields(1)}
 					<FormGroup validationState={this.getValidationState('email')}>
