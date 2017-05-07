@@ -187,7 +187,9 @@ class RsvpModal extends React.Component {
 	hide() {
 		this.setState({
 			show: false
-		});
+		}, function (){
+			this.props.onClose();
+		}.bind(this));
 	}
 
 	getValidationState(fieldName) {

@@ -364,7 +364,12 @@ class HomePage extends React.Component {
 		          </Modal.Footer>
 		        </Modal>
 
-				<RsvpModal show={this.state.showRsvpModal} rsvps={this.props.rsvps} onSubmit={this.handleRsvpSubmit.bind(this)} />
+				<RsvpModal
+					show={this.state.showRsvpModal}
+					rsvps={this.props.rsvps}
+					onSubmit={this.handleRsvpSubmit.bind(this)}
+					onClose={this.handleRsvpModalClose.bind(this)}
+				/>
 			</div>
 		);
 	}
@@ -380,6 +385,12 @@ class HomePage extends React.Component {
 
 		this.setState({
 			showRsvpModal: true
+		})
+	}
+
+	handleRsvpModalClose() {
+		this.setState({
+			showRsvpModal: false
 		})
 	}
 
