@@ -14,11 +14,13 @@ import ShowMessagePage from './components/guestbook/Show';
 import LoginPage from './components/Login';
 import LoginCallback from './components/LoginCallback'
 
+// Admin only
+import AdminRsvpListPage from './components/admin/AdminRsvpListPage';
 
 import { Button, Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
-import GlobalStyles from './scss/main.scss'
+
 
 const auth = new AuthService('ulMlpEBwqkyZvHH5j1R2vvmCaacddBos', 'mcavaliere.auth0.com');
 
@@ -61,6 +63,7 @@ export const makeMainRoutes = () => {
 		  	<Route path="/guestbook/new" component={NewMessagePage} />
 			<Route path="/guestbook/:messageId" component={ShowMessagePage} />
 		  </Route>
+		  <Route path="allrsvps" component={AdminRsvpListPage} />
 		  <Route path="login" component={LoginPage} auth={auth} />
 		  <Route path="login/callback" component={LoginCallback} onEnter={handleCallback} />
 		  <Route path="checkme" component={EmptyPage} auth={auth} />

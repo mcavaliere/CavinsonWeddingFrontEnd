@@ -2,6 +2,8 @@ import React, {PropTypes} from 'react';
 import Header from './shared/Header.js'
 import Hamburger from './shared/Hamburger.js'
 
+import GlobalStyles from '../scss/main.scss'
+
 class App extends React.Component {
 	render() {
 		return (
