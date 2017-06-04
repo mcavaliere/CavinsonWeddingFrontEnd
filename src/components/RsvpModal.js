@@ -76,6 +76,12 @@ class RsvpModal extends React.Component {
 					<p>See you at the wedding - we can't wait!</p>
 				</Alert>}
 
+				{this.props.rsvps.lastCreatedStatus === 'failure' && <Alert bsStyle="danger" className="text-center">
+					<strong>Oops! There was a problem with your RSVP. </strong>
+
+					<p>{this.props.rsvps.error}</p>
+				</Alert>}
+
 				{this.props.rsvps.lastCreatedStatus !== 'success'  && <Form horizontal onSubmit={this.handleSubmit.bind(this)}>
 					{this.renderPersonFields(0, "Who's coming?")}
 					{this.renderPersonFields(1)}
