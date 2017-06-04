@@ -23,7 +23,7 @@ class RsvpModal extends React.Component {
 				email: '',
 				numOlderChildren: 0,
 				numYoungerChildren: 0,
-				willAttend: false,
+				willAttend: true,
 				people_attributes: [
 					{
 						firstName: '',
@@ -70,11 +70,25 @@ class RsvpModal extends React.Component {
 				<Modal.Title>RSVP</Modal.Title>
 			  </Modal.Header>
 			  <Modal.Body>
-				{this.props.rsvps.lastCreatedStatus === 'success' && <Alert bsStyle="success" className="text-center">
-					<strong>Thank you for your RSVP!</strong>
+				{this.props.rsvps.lastCreatedStatus === 'success' && (
+						this.state.rsvp.willAttend &&
+							<Alert bsStyle="success" className="text-center">
+							<strong>Thank you for your RSVP!</strong>
 
-					<p>See you at the wedding - we can't wait!</p>
-				</Alert>}
+							<p>See you at the wedding - we can't wait!</p>
+						</Alert>
+					)
+				}
+
+				{this.props.rsvps.lastCreatedStatus === 'success' && (
+						!this.state.rsvp.willAttend &&
+							<Alert bsStyle="info" className="text-center">
+							<strong>Thank you for your RSVP.</strong>
+
+							<p>Sorry to hear that you won't be attending. You&#39;ll be missed!!</p>
+						</Alert>
+					)
+				}
 
 				{this.props.rsvps.lastCreatedStatus === 'failure' && <Alert bsStyle="danger" className="text-center">
 					<strong>Oops! There was a problem with your RSVP. </strong>
@@ -83,12 +97,12 @@ class RsvpModal extends React.Component {
 				</Alert>}
 
 				{this.props.rsvps.lastCreatedStatus !== 'success'  && <Form horizontal onSubmit={this.handleSubmit.bind(this)}>
-					{this.renderPersonFields(0, "Who's coming?")}
+					{this.renderPersonFields(0, "Who's coming?", true)}
 					{this.renderPersonFields(1)}
 					<FormGroup validationState={this.getValidationState('email')}>
 						<div className="row">
 							<Col sm={12}>
-								<FormControl type="email" name="email" placeholder="Contact Email" value={this.state.rsvp.email} onChange={this.handleChange.bind(this)} />
+								<FormControl type="email" required name="email" placeholder="Contact Email" value={this.state.rsvp.email} onChange={this.handleChange.bind(this)} />
 								<FormControl.Feedback />
 							</Col>
 						</div>
@@ -156,7 +170,7 @@ class RsvpModal extends React.Component {
 		);
 	}
 
-	renderPersonFields(key, label=false) {
+	renderPersonFields(key, label=false, required=false) {
 		return (
 			<FormGroup controlId={`person-fields-${key}`} className="basic-info" key={key}>
 				<div className="row">
@@ -166,10 +180,10 @@ class RsvpModal extends React.Component {
 						</Col>
 					}
 					<Col sm={6}>
-						<FormControl className="name" type="text" name={`firstName${key}`} placeholder="First name" data-key={key} data-field-type="firstName" value={this.state.rsvp.people_attributes[key].firstName} onChange={this.handleGuestInfoChange.bind(this)} />
+						<FormControl required={required} className="name" type="text" name={`firstName${key}`} placeholder="First name" data-key={key} data-field-type="firstName" value={this.state.rsvp.people_attributes[key].firstName} onChange={this.handleGuestInfoChange.bind(this)} />
 					</Col>
 					<Col sm={6}>
-						<FormControl className="name" type="text" name={`lastName${key}`}  placeholder="Last name" data-key={key} data-field-type="lastName" value={this.state.rsvp.people_attributes[key].lastName} onChange={this.handleGuestInfoChange.bind(this)} />
+						<FormControl required={required} className="name" type="text" name={`lastName${key}`}  placeholder="Last name" data-key={key} data-field-type="lastName" value={this.state.rsvp.people_attributes[key].lastName} onChange={this.handleGuestInfoChange.bind(this)} />
 					</Col>
 				</div>
 				<FormControl.Feedback />
