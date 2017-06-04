@@ -77,12 +77,12 @@ class RsvpModal extends React.Component {
 				</Alert>}
 
 				{this.props.rsvps.lastCreatedStatus !== 'success'  && <Form horizontal onSubmit={this.handleSubmit.bind(this)}>
-					{this.renderPersonFields(0, false, "Who's coming?")}
+					{this.renderPersonFields(0, "Who's coming?")}
 					{this.renderPersonFields(1)}
 					<FormGroup validationState={this.getValidationState('email')}>
 						<div className="row">
 							<Col sm={12}>
-								<FormControl type="email" name="email" placeholder="Email" value={this.state.rsvp.email} onChange={this.handleChange.bind(this)} />
+								<FormControl type="email" name="email" placeholder="Contact Email" value={this.state.rsvp.email} onChange={this.handleChange.bind(this)} />
 								<FormControl.Feedback />
 							</Col>
 						</div>
@@ -150,7 +150,7 @@ class RsvpModal extends React.Component {
 		);
 	}
 
-	renderPersonFields(key, email=false, label=false) {
+	renderPersonFields(key, label=false) {
 		return (
 			<FormGroup controlId={`person-fields-${key}`} className="basic-info" key={key}>
 				<div className="row">
@@ -160,19 +160,12 @@ class RsvpModal extends React.Component {
 						</Col>
 					}
 					<Col sm={6}>
-						<FormControl className="name" type="text" placeholder="First name" data-key={key} data-field-type="firstName" value={this.state.rsvp.people_attributes[key].firstName} onChange={this.handleGuestInfoChange.bind(this)} />
+						<FormControl className="name" type="text" name={`firstName${key}`} placeholder="First name" data-key={key} data-field-type="firstName" value={this.state.rsvp.people_attributes[key].firstName} onChange={this.handleGuestInfoChange.bind(this)} />
 					</Col>
 					<Col sm={6}>
-						<FormControl className="name" type="text" placeholder="Last name" data-key={key} data-field-type="lastName" value={this.state.rsvp.people_attributes[key].lastName} onChange={this.handleGuestInfoChange.bind(this)} />
+						<FormControl className="name" type="text" name={`lastName${key}`}  placeholder="Last name" data-key={key} data-field-type="lastName" value={this.state.rsvp.people_attributes[key].lastName} onChange={this.handleGuestInfoChange.bind(this)} />
 					</Col>
 				</div>
-				{email &&
-					<div className="row">
-						<Col sm={12}>
-							<FormControl type="email" placeholder="Email" data-key={key} data-field-type="email" value={this.state.rsvp.people_attributes[key].email} onChange={this.handleGuestInfoChange.bind(this)} />
-						</Col>
-					</div>
-				}
 				<FormControl.Feedback />
 			</FormGroup>
 		);
@@ -266,12 +259,21 @@ class RsvpModal extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 
+		if (!this.isValid()) {
+			return;
+		}
+
 		this.props.onSubmit(this.state.rsvp);
 	}
 
-	getRsvpValidationState() {
-
+	isValid() {
+		return (
+			this.state.rsvp.people_attributes[0].firstName &&
+			this.state.rsvp.people_attributes[0].lastName &&
+			this.state.rsvp.email
+		)
 	}
+
 }
 
 export default RsvpModal;

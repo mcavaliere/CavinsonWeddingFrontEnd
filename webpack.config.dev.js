@@ -20,9 +20,7 @@ export default {
     new webpack.LoaderOptionsPlugin({
        debug: true
     }),
-    new webpack.HotModuleReplacementPlugin({
-        reload: false
-    }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
