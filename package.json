@@ -4,7 +4,7 @@
   "description": "Front-end for our wedding website!",
   "main": "index.js",
   "scripts": {
-    "test": "test",
+    "test": "jest",
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch",
     "open:src": "babel-node tools/srcServer.js",
@@ -48,6 +48,7 @@
     "humps": "git+https://github.com/domchristie/humps.git",
     "image-webpack-loader": "^3.3.0",
     "imports-loader": "^0.7.1",
+    "jest": "^20.0.4",
     "napa": "^2.3.0",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.2",
