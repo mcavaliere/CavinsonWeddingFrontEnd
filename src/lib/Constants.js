@@ -1,5 +1,5 @@
 const AppConstants = {
-	API_BASE_URL: "http://localhost:3000",
+	API_BASE_URL: process.env.API_HOST,
 
 	GA_TRACKING_ID: "UA-3409001-6",
 

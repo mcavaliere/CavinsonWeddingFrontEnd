@@ -24,7 +24,8 @@ export default {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        'API_HOST': JSON.stringify('http://localhost:5000')
+        'NODE_ENV': JSON.stringify('development'),
+        'API_HOST': JSON.stringify('http://localhost:3000')
       }
     }),
     new webpack.ProvidePlugin({
